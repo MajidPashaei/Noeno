@@ -137,7 +137,7 @@ namespace New_Project.Controllers
 
         public IActionResult CAtegory(int id)
         {
-            ViewBag.menu=db.tbl_Advertisings.Where(a =>a.Category==id.ToString()).ToList();
+            ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Category==id.ToString()).ToList();
             return View();
         }
            public IActionResult CAtegory4(int c)
