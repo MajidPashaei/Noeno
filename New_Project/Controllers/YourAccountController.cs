@@ -339,7 +339,7 @@ namespace New_Project.Controllers
        
         public IActionResult OrdersReturn()
         {
-            // ViewBag.s=db.Tbl_Factors.Where(a=>a.Id_Order == User.Identity.GetId() && (a.StatusM=="قصد مرجوعی خریدار" || a.StatusM)).ToList();
+            ViewBag.s=db.Tbl_Factors.Where(a=>a.Id_Order.ToString() == User.Identity.GetId() && (a.StatusM=="قصد مرجوعی خریدار" || a.StatusM=="مرجوع شده" || a.StatusM=="عدم تایید قصد مرجوعی" || a.StatusM=="مرجوع ارسال شده")).ToList();
             return View();
         }
         public IActionResult TahvilOrder(int c)
