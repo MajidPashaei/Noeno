@@ -1,0 +1,218 @@
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<!-- Start Sidebar -->
+<div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 sticky-sidebar">
+    <div class="profile-sidebar dt-sl">
+
+        <div class="px-3">
+            <div style="border-radius: 9px;" class="dt-sl dt-sn mb-1">
+                <div class="profile-sidebar-header dt-sl">
+                    <div class="profile-avatar float-right">
+                        @{
+                            var b = HttpContextAccessor.HttpContext.Session.GetString("img");
+                            if (b !=null)
+                            {
+                                 <img src="~/FileUpload/@b" alt="">
+                            }
+                            else
+                            {
+                                <img src="~/assets/img/profile.jpg" alt="">
+
+                            }
+                        }
+                    </div>
+                    <div class="profile-header-content mr-3 mt-1 float-right">
+                        <span class="d-block profile-username">
+                            @HttpContextAccessor.HttpContext.Session.GetString("name")
+                        </span>
+                        <span
+                            class="d-block profile-phone">@HttpContextAccessor.HttpContext.Session.GetString("mobile")</span>
+                    </div>
+                    <div class="profile-point mt-2 mb-1 dt-sl">
+                         @{
+                            var s = HttpContextAccessor.HttpContext.Session.GetString("RLink");
+                                if (b !=null)
+                                {
+                                    <span class="float-right label-profile-point">کد معرف من:</span>
+                                    <a class="float-left value-profile-point" href="/YourAccount/ShowInvite">www.noeno.ir/invite/@s</a>
+                                }
+                                else
+                                {
+                                    <span class="float-right label-profile-point"></span>
+                                    <a class="float-left value-profile-point" href="#"></a>
+                                }
+                            }
+
+                    </div>
+                    <div class="profile-link mt-1 dt-sl">
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <a href="#">
+                                    <i class="mdi mdi-lock-reset"></i>
+                                    <span class="d-block">تغییر رمز</span>
+                                </a>
+                            </div>
+                            <div class="col-6 text-center">
+                                <a href="/home/exit">
+                                    <i class="mdi mdi-logout-variant"></i>
+                                    <span class="d-block">خروج از حساب</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                        <div class="dt-sl dt-sn mb-1 text-center">
+                            <a href="/YourAccount/ShowInvite">
+                                <img src="~/assets/img/banner/sidebar-banner-3.jpg" class="img-fluid" alt="">
+                            </a>
+                        </div>
+
+                                
+                        
+                    <div class="px-3 mb-1">
+                        <div class="dt-sl mb-1 text-center ">
+                            <a style="font-size:15px" href="/CreateAdvertising/index"
+                                class="btn-primary-cm btn-with-icon ml-2 form-control">
+                                <i class="mdi mdi-account-circle-outline "></i>
+                                ثبت کالای جدید
+                            </a>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="px-3">
+                                        <div style="" class="  d-md-none d-lg-none d-xl-none">
+                                            <div class="profile-menu-section ">
+                                                <a  onclick="myFunction()"  style="font-size: 15px; text-align: center;"
+                                                            class="btn-primary-cm btn-with-icon ml-2 form-control">
+                                                            <i  class="mdi mdi-chevron-down m1" style="color: white;"></i> 
+                                                            <span style="color: white;"> منوی کاربری</span>
+                                                       
+                                                </a>
+                                    
+                                                    <div style="width: 325px; display: none; left: auto; right: auto; text-align: center; " id="myDIV" class="dropdown-menu profile-menu">
+                                                                                <ul>
+                                                            <li>
+                                                                <a href="/YourAccount/Profile" class="active">
+                                                                    <i class="mdi mdi-account-circle-outline"></i> کالا های من
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/YourAccount/AccountMe">
+                                                                    <i class="mdi mdi-basket"></i> کیف پول
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="/YourAccount/Orders">
+                                                                    <i class="mdi mdi-basket"></i> همه خرید ها
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/YourAccount/sales">
+                                                                    <i class="mdi mdi-basket"></i> همه فروش ها
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/YourAccount/OrdersReturn">
+                                                                    <i class="mdi mdi-backburger"></i> درخواست مرجوعی
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/YourAccount/Favorites">
+                                                                    <i class="mdi mdi-heart-outline"></i> لیست علاقمندی ها
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="/YourAccount/additionalinfoshow">
+                                                                    <i class="mdi mdi-account-edit-outline"></i> اطلاعات شخصی
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                    </div>
+  
+            
+            
+            
+            
+            <div class="dt-sl dt-sn mb-3 hidden-sm">
+                        <div class="profile-menu-section dt-sl">
+                            <div class="label-profile-menu mt-2 mb-2">
+                                <span>حساب کاربری شما</span>
+                            </div>
+                            <div class="profile-menu">
+                                <ul>
+                                    <li>
+                                        <a href="/YourAccount/Profile" class="active">
+                                            <i class="mdi mdi-account-circle-outline"></i> کالا های من
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/YourAccount/AccountMe">
+                                            <i class="mdi mdi-basket"></i>  کیف پول
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/YourAccount/Orders">
+                                            <i class="mdi mdi-basket"></i> همه خرید ها
+                                        </a>
+                                    </li>
+                                    <li>
+                                                                <a href="/YourAccount/sales">
+                                                                    <i class="mdi mdi-basket"></i> همه فروش ها
+                                                                </a>
+                                                            </li>
+                                    <li>
+                                        <a href="/YourAccount/OrdersReturn">
+                                            <i class="mdi mdi-backburger"></i> درخواست مرجوعی
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/YourAccount/Favorites">
+                                            <i class="mdi mdi-heart-outline"></i> لیست علاقمندی ها
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/YourAccount/additionalinfoshow">
+                                            <i class="mdi mdi-account-edit-outline"></i> اطلاعات شخصی
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+             </div>
+       
+
+        
+
+        
+
+    </div>
+</div>
+<!-- End Sidebar -->
+
+<script>
+    function myFunction() {
+
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>

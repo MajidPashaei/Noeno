@@ -1,0 +1,81 @@
+@model ViewModel.Entities.User.Vm_User
+<!-- Start mini-header -->
+@* <header class="mini-header pt-4 pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="logo-area-mini-header">
+                    <a href="#">
+                        <img src="~/assets/img/logo.png" alt="">
+                    </a> 
+                </div>
+            </div>
+        </div>
+    </div>
+</header> *@
+<!-- End mini-header -->
+
+<!-- Start main-content -->
+<main class="main-content dt-sl mt-4 mb-3">
+    <div class="container main-container">
+
+        <div class="row">
+            <div class="col-xl-4 col-lg-5 col-md-7 col-12 mx-auto">
+                <div class="form-ui dt-sl dt-sn pt-4">
+                    <form action="/LoginAndRegister/ReCheckCode" method="POST">
+
+                        <div class="section-title title-wide mb-1 no-after-title-wide">
+                            <h2 class="font-weight-bold">ورود</h2>
+                        </div>
+                        @if (ViewBag.msg != null)
+                        {
+                            <p class="alert alert-danger"> @ViewBag.msg</p>
+                        }
+
+                        <div class="message-light">
+                            برای شماره همراه @ViewBag.mobile کد تایید ارسال گردید
+
+                        </div>
+                        <div class="form-row-title">
+                            <h3>کد تایید را وارد کنید</h3>
+                        </div>
+                        <div class="form-row">
+                            <div class="numbers-verify">
+                                <div class="lines-number-input">
+                                    <input style="font-size: 18px;"  class="line-number" type="number" autocomplete="off"  required oninvalid="this.setCustomValidity(' کد تایید خود را بطور صحیح وارد نمایید.')" oninput="setCustomValidity('')" 
+                                        asp-for="TokenPhone">
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" mt-2 text-center ">
+
+                            <p class="text-center" id="countdown-verify-end"></p>
+                        </div>
+
+                        <div class="form-row mt-3">
+                            <button type="submit" style="text-align: center;"
+                                class="btn-primary-cm btn-with-icon mx-auto w-100">
+                                <i class="mdi mdi-login-variant"></i>
+                                برسی کد تایید
+                            </button>
+
+                        </div>
+                        <div class="form-row mt-3">
+                            <a style="text-align: center; color: #ff9001;" href="/LoginAndRegister/Login"
+                                class=" btn-with-icon mx-auto w-100">
+                                تغییر شماره| ارسال مجدد
+                            </a>
+                        </div>
+                        @* <div class="form-footer text-right mt-3">
+                            <span class="d-block font-weight-bold">کاربر جدید هستید؟</span>
+                            <a href="#" class="d-inline-block mr-3 mt-2">ثبت نام در نوِنو</a>
+                            </div> *@
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+<!-- End main-content -->

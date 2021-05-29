@@ -1,0 +1,86 @@
+  @using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@model ViewModel.Entities.User.Vm_User
+<!-- Start mini-header -->
+@* <header class="mini-header pt-4 pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="logo-area-mini-header">
+                   <a href="#">
+                        <img src="~/assets/img/logo.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header> *@
+<!-- End mini-header -->
+
+<!-- Start main-content -->
+<main class="main-content dt-sl mt-4 mb-3">
+    <div class="container main-container">
+
+        <div class="row">
+            <div class="col-xl-4 col-lg-5 col-md-7 col-12 mx-auto">
+                <div class="form-ui dt-sl dt-sn pt-4">
+                    <div class="section-title title-wide mb-1 no-after-title-wide">
+                        <h2 class="font-weight-bold">ورود</h2>
+                    </div>
+
+                     @if (ViewBag.msg != null)
+                        {
+                            <p class="alert alert-danger"> @ViewBag.msg</p>
+                        }
+
+
+                    <form action="/LoginAndRegister2/comparepass">
+                        <div class="form-row-title">
+                            <h3>شما از قبل عضو خانواده نوِنو بوده‌اید، لطفا رمز خود را وارد کنید.</h3>
+                        </div>
+
+
+                        <div class="form-row with-icon">
+                            <input asp-for="Password" type="password" minlength="6" class="input-ui pr-2" placeholder="  رمز ورود خود را وارد نمایید" autocomplete="off"  required oninvalid="this.setCustomValidity('رمز عبور خود را بطور صحیح وارد نمایید.')" oninput="setCustomValidity('')" >
+                            <i onclick="Show();" class="mdi mdi-account-circle-outline"></i>
+                            <p> حداقل ۶ کاراکتر وارد کنید. </p>
+                        </div>
+                        <script>
+                            function Show() {
+                                debugger
+                                if (document.getElementById("Password").type=="text") {
+                                    document.getElementById("Password").type="password"  
+                                }
+                                else{
+                                    document.getElementById("Password").type="text"
+                                }
+
+                               
+                                }
+                        </script>
+                        <div class="form-row mt-3">
+                            <button style="text-align: center;" type="submit"
+                                class="btn-primary-cm btn-with-icon mx-auto w-100">
+                                <i class="mdi mdi-login-variant"></i>
+                                ورود به نوِنو
+                            </button>
+                        </div>
+                          @{
+                              var b=@HttpContextAccessor.HttpContext.Session.GetString("mobile");
+                        <div class="form-row mt-3">
+                          
+                            <a  style="text-align: center; color: #ff9001;" href="/LoginAndRegister/Resendtoken?a=@b"
+                                class="btn-with-icon mx-auto w-100">
+                                فراموشی رمز عبور
+                            </a>
+                        </div>
+                          }
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+<!-- End main-content -->

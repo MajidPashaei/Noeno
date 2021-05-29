@@ -1,0 +1,146 @@
+@model ViewModel.AdminViewModel.Price.Vm_Price;
+<!-- Basic Select2 start -->
+@if (ViewBag.er != null)
+{
+    <p class="alert alert-warning">@ViewBag.er</p>
+}
+@if (ViewBag.suc != null)
+{
+    <p class="alert alert-success">@ViewBag.suc</p>
+}
+<section class="basic-select2">
+  <form action="/admin/Price/add" method="post">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-content ">
+          <div class="card-body mr-5 ml-5 p-5">
+            <div class="row">
+            	<div class="col-12 mb-2">
+            	</div>
+            
+            <div class="col-sm-6 col-12">
+	            <div class="form-group">
+                      <h4 class="card-title"> ثبت تعرفه جدید و ویرایش   </h4>
+				</div>
+		    </div>
+
+      	<div class="col-sm-12 col-12 ">
+	        <div class="form-group">
+                      <label for="basicInput">انتخاب نوع  </label>
+				    	<select class="select2 form-control" asp-for="Cat_Type">
+						           <option value="کمسیون">کمسیون</option>
+                        <option value="بازرسی">بازرسی</option>
+
+					  	</select>
+			</div>
+	    </div>
+          <div class="col-sm-12 col-12 ">
+                <div class="form-group">
+                        <label for="basicInput"> حداقل قیمت </label>
+                <input type="number" class="form-control input-group-text"  asp-for="Min" >
+                </input>
+            </div>
+	        </div>
+        	<div class="col-sm-12 col-12">
+                <div class="form-group">
+                        <label for="basicInput"> حداکثر قیمت </label>
+                <input type="number" class="form-control input-group-text"  asp-for="Max" >
+                </input>
+            </div>
+	        </div>
+          
+          <div class="col-sm-12 col-12">
+                <div class="form-group">
+                        <label for="basicInput"> تعرفه قیمت </label>
+                <input type="number" class="form-control input-group-text"  asp-for="Price" >
+                </input>
+            </div>
+	        </div>
+
+            
+             <div class="col-sm-12 col-12">
+                    <fieldset style="text-align: left;" class="form-group position-relative has-icon-left input-divider-left">
+                        <button type="submit" class="btn btn-success mr-1 mb-1">ثبت</button>
+                        <button type="button" class="btn btn-danger mr-1 mb-1">لغو</button>
+                    </fieldset>
+                </div>
+
+
+	        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+</section>
+<!-- Basic Select2 end -->
+
+
+   <!-- BEGIN: Content-->
+<section id="data-list-view" class="data-list-view-header">
+  <!-- DataTable starts -->
+  <div class="table-responsive">
+    <table class="table data-list-view">
+      <thead>
+        <tr>
+          <th></th>
+          <th>ردیف</th>
+          <th>  عنوان دسته  </th>
+          <th> حداقل </th>
+          <th> حداکثر  </th>
+          <th> قیمت  </th>
+          <th> عملیات</th>
+        </tr>
+      </thead>
+      <tbody>
+
+@if (ViewBag.list != null)
+{
+     @foreach (var item in ViewBag.list)
+  {
+      <tr>
+          <td></td>
+          <td class="product-category"> 1</td>
+          <td class="product-name">@item.Cat_Type</td>
+            <td class="product-category">@item.Min </td>
+             <td class="product-category">@item.Max </td>
+             <td class="product-category">@item.Price </td>
+           
+            <td class="product-action">
+                <div class="col-lg-3 col-md-3 mb-1">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+
+                      <a href="/admin/Price/del/@item.Id" class="btn btn-danger btn-microsoft" onclick="return confirm('آیا از حذف رکورد مورد نظر مطمئن هستید؟')">حذف</a>
+
+                    </div>
+                  </div>
+            </td>
+        </tr>
+  }
+} 
+ 
+        
+
+
+       
+
+
+
+
+      </tbody>
+    </table>
+  </div>
+  <!-- DataTable ends -->
+
+  <!-- add new sidebar starts -->
+ 
+  <!-- add new sidebar ends -->
+</section>
+<!-- Data list view end -->
+
+        </div>
+      </div>
+    </div>
+    <!-- END: Content-->

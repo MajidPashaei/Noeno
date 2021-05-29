@@ -1,0 +1,62 @@
+    <!-- BEGIN: Content-->
+<section id="data-list-view" class="data-list-view-header">
+  @if (ViewBag.er != null)
+{
+    <p class="alert alert-success">@ViewBag.er</p>
+}
+  <!-- DataTable starts -->
+  <div class="table-responsive">
+    <table class="table data-list-view">
+      <thead>
+          <tr>
+          <th></th>
+          <th>ردیف</th>
+          <th> کد کالاها   </th>
+          <th>  عنوان  </th>
+           <th>  دسته  </th>
+           <th>  وضعیت </th>
+          <th>  تعداد  </th>
+           <th>   قیمت  </th>
+           <th>  عکس کاربر </th>
+        </tr>
+      </thead>
+      <tbody>
+@if (ViewBag.Kala != null)
+{
+  int i=1;
+    foreach (var item in ViewBag.Kala)
+    {
+          <tr>
+            <td></td>
+            <td class="product-category">@i</td>
+            <td class="product-name">@item.Id</td>
+            <td class="product-category">@item.Title_Pro </td>
+            <td class="product-category">@item.Special </td>
+            <td class="product-name">@item.State</td>
+            <td class="product-category">@item.Number </td>
+            <td class="product-category">@item.Main_Price </td>
+            <td class="product-category">
+               <img src="/fileupload/@item.Image" style="width: 60px;border-radius: 25%;" alt="">
+            </td>
+        </tr>
+        i++;
+
+    }
+}
+      
+
+       
+
+
+
+
+      </tbody>
+    </table>
+  </div>
+  <!-- DataTable ends -->
+
+  <!-- add new sidebar starts -->
+ 
+  <!-- add new sidebar ends -->
+</section>
+<!-- Data list view end -->

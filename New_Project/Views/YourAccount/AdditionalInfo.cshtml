@@ -1,0 +1,312 @@
+@model ViewModel.Entities.User.Vm_User;
+<!-- Start main-content -->
+<main class="main-content dt-sl mt-4 mb-3">
+    <div class="container main-container">
+        <div class="row">
+
+            <!-- Start Sidebar -->
+              @await Html.PartialAsync("_Partial_profile")
+            <!-- End Sidebar -->
+
+            <!-- Start Content -->
+            <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
+                <div class="row">
+                    <div class="col-md-10 col-sm-12 mx-auto">
+                        <div class="px-3 px-res-0">
+                            <div
+                                class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2 px-res-1">
+                                <h2>ویرایش اطلاعات شخصی</h2>
+                            </div>
+                   
+                            <div class="form-ui additional-info dt-sl dt-sn pt-4">
+                                <form action="/yourAccount/Update" method="POST" enctype="multipart/form-data">
+
+                                    <div class="form-row-title">
+                                            
+                                        <h3>نام و نام خانوادگی</h3>
+                                    </div>
+                                     <input  asp-for="Id"  style="display: none;"  >
+                                    <div class="form-row">
+                                        <input  asp-for="NameFamily"    type="text" class="input-ui pr-2"
+                                            placeholder="نام و خانوادگی خود را وارد نمایید" required>
+                                    </div>
+                                    
+                                    <div class="form-row-title" >
+                                        <h3>کد ملی</h3>
+                                    </div>
+                                  
+                                    <div class="form-row">
+                                        <input  asp-for="CodeNational" maxlength="10" minlength="9"  required type="text" class="input-ui pl-2  " placeholder="کد ملی خود را وارد نمایید">
+                                    </div>
+                                    <div class="form-row-title">
+                                        <h3>شماره موبایل</h3>
+                                    </div>
+                                    <div class="form-row">
+                                        <input asp-for="Phone" disabled type="text" class="input-ui pl-2  "
+                                            placeholder="شماره موبایل خود را وارد نمایید" >
+                                    </div>
+                                     <div class="form-row-title">
+                                        <h3> استان </h3>
+                                    </div>
+                                    <div class="form-row">
+                                        <input asp-for="State" required  type="text" class="input-ui pl-2  "
+                                            placeholder="استان محل سکونت خود را وارد نمایید" >
+                                    </div>
+                                    <div class="form-row-title">
+                                        <h3> شهر </h3>
+                                    </div>
+                                    <div class="form-row">
+                                        <input asp-for="city" required  type="text" class="input-ui pl-2  "
+                                            placeholder="شهر محل سکونت خود را وارد نمایید" >
+                                    </div>
+                                    <div class="form-row-title">
+                                        <h3> آدرس </h3>
+                                    </div>
+                                    <div class="form-row">
+                                        <input asp-for="Address" required type="text" class="input-ui pl-2  "
+                                            placeholder="آدرس محل سکونت خود را وارد نمایید" >
+                                    </div>
+                                    <div class="form-row-title">
+                                        <h3> کدپستی </h3>
+                                    </div>
+                                    <div class="form-row">
+                                        <input asp-for="Post" type="text" required class="input-ui pl-2  "
+                                            placeholder="کدپستی محل سکونت خود را وارد نمایید" >
+                                    </div>
+
+                                   <div class="form-row-title">
+                                        <h3>شماره شبا</h3>
+                                    </div>
+                                    <div class="form-row mt-2" style="direction: ltr;" >
+                                        <div class="input-group">
+                                         <div class="input-group-prepend"  >
+       <span    class="input-group-text">IR</span>
+    </div>
+    <input asp-for="CardNumber" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form-row-title">
+                                        <h3>عکس پروفایل</h3>
+                                    </div>
+                                    <div class="form-row mt-2">
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input asp-for="Img" type="file" class="custom-file-input" 
+                                                    aria-describedby="inputGroupFileAddon04">
+                                                <label class="custom-file-label" for="inputGroupFile04">انتخاب
+                                                    عکس</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dt-sl">
+                                        <div class="form-row mt-3 justify-content-center">
+                                            <button  type="submit"
+                                                class="btn-primary-cm btn-with-icon ml-2">
+                                                <i class="mdi mdi-account-circle-outline"></i>
+                                                ثبت اطلاعات کاربری
+                                            </button>
+                                            <a href="/YourAccount/Profile"
+                                                class="btn-primary-cm bg-secondary">انصراف</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Content -->
+
+        </div>
+        <!-- Start Product-Slider -->
+        <section class="slider-section dt-sl mt-5 mb-5">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="section-title text-sm-title title-wide no-after-title-wide">
+                        <h2>محصولات پیشنهادی برای شما</h2>
+                        <a href="/home/category">مشاهده همه</a>
+                    </div>
+                </div>
+
+                <!-- Start Product-Slider -->
+                <div class="col-12 px-res-0">
+                    <div class="product-carousel carousel-lg owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                    </div>
+                                    <div class="discount">
+                                        <span>20%</span>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/07.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">مانتو زنانه</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس زنانه</a>
+                                    <span class="product-price">157,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/017.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">کت مردانه</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس مردانه</a>
+                                    <span class="product-price">199,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star"></i>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/013.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">مانتو زنانه مدل هودی تیک تین</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس زنانه</a>
+                                    <span class="product-price">135,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star"></i>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/09.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">مانتو زنانه</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس زنانه</a>
+                                    <span class="product-price">145,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/010.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">مانتو زنانه</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس زنانه</a>
+                                    <span class="product-price">170,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star"></i>
+                                    </div>
+                                    <div class="discount">
+                                        <span>20%</span>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/011.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">مانتو زنانه</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس زنانه</a>
+                                    <span class="product-price">185,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star"></i>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/019.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">تیشرت مردانه</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس مردانه</a>
+                                    <span class="product-price">54,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Product-Slider -->
+
+
+            </div>
+        </section>
+        <!-- End Product-Slider -->
+    </div>
+</main>
+<!-- End main-content -->

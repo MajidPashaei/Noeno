@@ -1,0 +1,47 @@
+<!-- BEGIN: Content-->
+<section id="data-list-view" class="data-list-view-header">
+
+  <!-- DataTable starts -->
+  <div class="table-responsive">
+    <table class="table data-list-view">
+      <thead>
+        <tr>
+          <th></th>
+          <th>ردیف</th>
+          <th> کد کاربر </th>
+          <th> تاریخ </th>
+          <th> مبلغ </th>
+          <th> توضیحات</th>
+          <th> نوع </th>
+        </tr>
+      </thead>
+    
+@if (ViewBag.list != null)
+{
+  int i=1;
+     foreach (var item in ViewBag.list)
+     {
+        <tr>
+          <td></td>
+          <td class="product-category">@i</td>
+          <td class="product-category"> @item.IdUser </td>
+          <td class="product-category"> @item.Time </td>
+          <td class="product-category"> @item.Price </td>
+          <td class="product-action"> @item.Detail </td>
+          <td class="product-action"> @item.TypePay </td>
+        </tr>
+ i++;
+     }
+}
+   
+      
+      </tbody>
+    </table>
+  </div>
+  <!-- DataTable ends -->
+
+  <!-- add new sidebar starts -->
+
+  <!-- add new sidebar ends -->
+</section>
+<!-- Data list view end -->

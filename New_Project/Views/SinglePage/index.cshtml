@@ -1,0 +1,673 @@
+
+@model ViewModel.Entities.User.Vm_Advertising;
+<link rel="stylesheet" href="~/assets/css/vendor/bootstrap.min.css">
+<!-- Plugins -->
+<link rel="stylesheet" href="~/assets/css/vendor/owl.carousel.min.css">
+<link rel="stylesheet" href="~/assets/css/vendor/jquery.horizontalmenu.css">
+<link rel="stylesheet" href="~/assets/css/vendor/fancybox.min.css">
+<!-- Font Icon -->
+<link rel="stylesheet" href="~/assets/css/vendor/materialdesignicons.min.css">
+<!-- Main CSS File -->
+<link rel="stylesheet" href="~/assets/css/main.css">
+<link rel="stylesheet" href="~/assets/css/colors/default.css" id="colorswitch">
+
+
+
+<style>
+
+
+.container {
+     padding-right: 5px !important; 
+     padding-left: 5px !important; 
+}
+</style>
+
+<!-- Start main-content -->
+ <form action="/home/addcart" method="POST">
+<main class="main-content dt-sl  mb-3">
+    @if (ViewBag.Details != null)
+                            {
+                                @foreach (var item in ViewBag.Details)
+                                {
+    <div class="container main-container">
+        <!-- Start title - breadcrumb -->
+        <div class=" mr-3 ">
+            <div class="title-breadcrumb-special  ">
+                <div class="breadcrumb">
+                    <nav>
+                        <a href="#">خانه</a>
+                        <a href="#">@item.FatherCat </a>
+                        <a href="#">@item.Cat</a>
+                        <a href="#">@item.ChildCat</a>
+                    </nav>      
+                </div>
+
+            </div>
+            
+            
+        </div>
+        
+
+        <!-- End title - breadcrumb -->
+
+        <!-- Start Product -->
+        <div class="dt-sn mb-5 dt-sl">
+            <div style="margin-top: 20px;" class="row">
+
+                <!-- Product Gallery-->
+                <div class="col-lg-6 col-md-6  ps-relative">
+                     <div class="row mr-3 d-none d-lg-block d-xl-block d-md-block" >
+                                            <nav >
+                                                <a href="/@item.Id_creator" style="display: inline-flex;"> 
+                                                    @if (ViewBag.UImage != null)
+                                                    {
+                                                        <img class="mt-2"  style="width: 46px; height: 46px; border-radius: 50px;"
+                                                            src="~/fileupload/@ViewBag.UImage.Image" alt="Product">
+                                                    }
+                                                     else
+                                                    {
+                                                          <img class="mt-2"  style="width: 46px; height: 46px; border-radius: 50px;"
+                                                            src="/assets/img/profile.jpg" alt="Product">
+                                                    }
+                                                <p class="pt-3 m-1">@item.NameCrator</p>
+                                                <p  class="pt-3 m-1">>@item.city</p>
+                                                @* <p class="pt-3 m-1" > بازدید: 3ساعت قبل</p> *@
+                                                </a>
+                                            </nav>
+                                            
+       
+                     </div>
+                                        
+                                     
+                    <!-- Product Options-->
+                    <h1 style="font-weight: bold; margin-top: -20px; color: #000; font-size: 30px; text-align: center;">@item.Title_Pro</h1>
+                     <span class="badge p-1 ml-2" style="background-color: red; color: white; float: left;">@item.Special </span>
+                    <div class="product-gallery mt-4">
+
+                        <div class="product-carousel owl-carousel">
+                            <div class="item" style=" max-height: 300px;" >
+                                <a class="gallery-item" href="~/fileupload/@item.Image" style=" max-height: 300px;  max-width: 300px;" 
+                                    data-fancybox="gallery1" data-hash="one">
+                                    <img src="~/fileupload/@item.Image" alt="Product">
+                                </a>
+                            </div>
+                             @if (ViewBag.img1 != null)
+                                            { <div class="item" style=" max-height: 300px;" >
+                                <a class="gallery-item" href="~/fileupload/@ViewBag.img1"  style=" max-height: 300px;  max-width: 300px;" 
+                                    data-fancybox="gallery1" data-hash="two">
+                                    <img src="~/fileupload/@ViewBag.img1" alt="Product">
+                                </a>
+                            </div>}
+                            @if (ViewBag.img2 != null)
+                                            { <div class="item" style=" max-height: 300px;" >
+                                <a class="gallery-item" href="~/fileupload/@ViewBag.img2" style=" max-height: 300px;  max-width: 300px;" 
+                                    data-fancybox="gallery1" data-hash="three">
+                                    <img src="~/fileupload/@ViewBag.img2" alt="Product">
+                                </a>
+                            </div>}
+                            @if (ViewBag.img3 != null)
+                                            { <div class="item" style=" max-height: 300px;" >
+                                <a class="gallery-item" href="~/fileupload/@ViewBag.img3" style=" max-height: 300px;  max-width: 300px;" 
+                                    data-fancybox="gallery1" data-hash="four">
+                                    <img src="~/fileupload/@ViewBag.img3" alt="Product">
+                                </a>
+                            </div>}
+                            
+                            
+                           
+                            
+                        </div>
+                        <div class="row mr-1 d-block d-lg-none d-xl-none d-md-none" >
+                                            
+                                                <a href="/@item.Id_creator" style="display: inline-flex;"> 
+                                                    @if (ViewBag.UImage != null)
+                                                    {
+                                                        <img class="mt-2"  style="width: 46px; height: 46px; border-radius: 50px;"
+                                                            src="~/fileupload/@ViewBag.UImage.Image" alt="Product">
+                                                    }
+                                                     else
+                                                    {
+                                                          <img class="mt-2"  style="width: 46px; height: 46px; border-radius: 50px;"
+                                                            src="/assets/img/profile.jpg" alt="Product">
+                                                    }
+                                                <p class="pt-3 m-1" style="font-size: 10px;">@item.NameCrator</p>
+                                                <p  class="pt-3 m-1"  style="font-size: 10px;">>@item.city</p>
+                                                @* <p class="pt-3 m-1"   style="font-size: 10px;"> بازدید: 3ساعت قبل</p> *@
+                                                </a>
+                                            
+                                                 <a href="#" class="mr-1  pr-1 d-inline-block" >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="20" height="20" fill="currentColor" class="mb-5 bi bi-heart" viewBox="0 0 16 16">
+                                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                                    </svg>
+                                                </a>
+                                                <a href="#" class="mr-1  pr-1 d-inline-block">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" style="font-weight: bold;" width="20" height="20" fill="currentColor" class="mb-5 bi bi-share" viewBox="0 0 16 16">
+                                                                    <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                                                                    </svg>
+                                                </a> 
+
+                                            
+       
+                     </div>
+                     <div class="row">
+
+                         <div class=" col-7 d-none d-lg-block d-xl-block d-md-block">
+
+                                        <ul class="product-thumbnails ">
+                                        <li class="active">
+                                            <a href="#one">
+                                                <img src="~/fileupload/@item.Image" alt="Product">
+                                            </a>
+                                        </li>
+                                        
+                                        @if (ViewBag.img1 != null)
+                                            {<li> <a href="#two"> <img src="~/fileupload/@ViewBag.img1" alt="Product"></a> </li> }
+                                        @if (ViewBag.img2 != null)
+                                            {<li> <a href="#three"> <img src="~/fileupload/@ViewBag.img2" alt="Product"></a> </li> }
+                                        @if (ViewBag.img3 != null)
+                                            {<li> <a href="#four"> <img src="~/fileupload/@ViewBag.img3" alt="Product"></a> </li> }
+                                       
+                                        
+                                        
+                                    </ul>
+                        </div>
+                        <div class="col-3 d-none d-lg-block d-xl-block d-md-block" style="float: left;" >
+                            
+                                    <a href="/SinglePage/AddFavorite/@item.Id" class="mr-1  pr-1 d-inline-block" >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" style="color: red;" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                                    </svg>
+                                    </a>
+                                    <a onclick="copy();" class="mr-1  pr-1 d-inline-block">
+                                                <svg xmlns="http://www.w3.org/2000/svg" style="font-weight: bold;" width="20" height="20" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                                                        <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                                                        </svg>
+                                    </a> 
+                        </div>
+                     </div>
+                        
+                        
+                    </div>
+                </div>
+                <!-- Product Info -->
+                <div style="text-align: center;" class="col-lg-6 col-md-6 pb-5">
+                    <div class="product-info dt-sl" style="text-align: right; font-size: 12px;">
+                            <div class="section-title text-sm-title title-wide no-after-title-wide mb-0 dt-sl">
+                                    <h2>نوع کالا : <span class="price" style="font-size: 14px;"> @item.Type_pro </span> </h2>
+                            </div>
+                            <div class="section-title text-sm-title title-wide no-after-title-wide mb-0 dt-sl">
+                                    <h2> زمان ثبت کالا: <span class="price" style="font-size: 14px;"> @item.Time روز پیش</span></h2>
+                            </div>
+                            <div class="section-title text-sm-title title-wide no-after-title-wide mb-0 dt-sl">
+                                    <h2>قیمت : <s id="mp" class="price" style="font-size: 14px; color: red;">@item.Main_Price </s> &nbsp;&nbsp;&nbsp; <span id="mp1" class="price" style="font-size: 14px; color: green;">@item.Discount_Price تومان</span> </h2>
+                            </div>
+                            <div class="section-title text-sm-title title-wide no-after-title-wide mb-0 dt-sl">
+                            <h2>موجودی : <span class="price" style="font-size: 14px;">@item.Total عدد</span> </h2>
+                            </div>
+
+                    </div>
+                    <script>
+                        document.getElementById("mp").innerText=document.getElementById("mp").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                        document.getElementById("mp1").innerText=document.getElementById("mp1").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    </script>
+                   <div class="product-info dt-sl">
+
+
+
+                       @if (ViewBag.Number>0)
+                    {
+                            
+                        
+                       
+                        @if (User.Identity.IsAuthenticated )
+                   {
+                             <button    type="Submit"    class="btn-primary-cm btn-with-icon mr-2 ml-2" style="font-size: 12px;">
+                                <img src="~/assets/img/theme/shopping-cart.png" alt="">
+                                افزودن به سبد خرید
+                            </button>
+
+                    }else
+                    
+                    {
+                           <a href="/loginandregister/login"       class="btn-primary-cm btn-with-icon mr-2 ml-2" style="font-size: 12px;">
+                                <img src="~/assets/img/theme/shopping-cart.png" alt="">
+                                افزودن به سبد خرید
+                            </a>
+
+                    }
+                    }else
+                    {
+                          <a href="#"       class="btn-primary-cm btn-with-icon mr-2 ml-2" style="font-size: 12px;">
+                                <img src="~/assets/img/theme/shopping-cart.png" alt="">
+                                ناموجود
+                            </a>
+                    }
+                    
+
+
+
+
+
+                            <a style="background-color:#1F8BFF  ;  font-size: 12px;" href="#" class="btn-primary-cm  btn-with-icon" >
+                                <img src="~/assets/img/theme/chat-cart.png" alt="">
+                                چت با فروشنده
+                            </a>
+                            <div class="col-lg-8 col-md-6 pb-5 ps-relative">
+                    <!-- Product Options-->
+                    <div class="mt-1" style="text-align: right;">
+                         <span style="color: red; font-weight: bold;">
+                                <span style="size: 24px; color: red; font-weight: bold; ">*</span>
+                                توجه : </span>
+                            <span style="font-weight: bold; "> جهت اطمینان از موجودی از بخش گفتگوی چت با فروشنده قبل خرید
+                                هماهنگ کنید. </span >
+                    </div>
+                </div>
+                       
+
+
+
+                    </div>
+                    
+                        
+                        <div class="product-title dt-sl">
+                            <h6 style="text-align: right;"> امکان خرید: </h6>
+                            @if (@item.Type_Transaction =="از طریق سیستم بازرسی کالا")
+                            {
+
+                                <div style="text-align: right;">
+                                    <p><span style="font-size: 14px; color: green;" class="mdi mdi-checkbox-marked-circle">
+                                    </span>  خرید از
+                                    طریق سیستم بازرسی </p>
+                                 </div>
+                            }
+                            @if (@item.Type_Transaction =="انتخاب برعهده خریدار")
+                            {
+
+                                <div class="form-row mt-2">
+                                                    <div class="checkout-shipment mb-4">
+                                                        <div class="custom-control custom-radio pl-0 pr-3">
+                                                            <input checked="checked" id="Type_Transaction"
+                                                                name="Type_Transaction" type="radio" value="بصورت مستقیم">
+                                                            <label>
+                                                                بصورت مستقیم
+                                                            </label>
+                                                            <p
+                                                                style="color: #828282;font-size: 11px; font-weight: bold;">
+                                                                <span style="color: red; font-size: 16px;">*</span>
+                                                                خریدار
+                                                                بصورت
+                                                                مستقیم کالا را از شما میخرد و سایت نوِنو دخالتی در
+                                                                فرایند
+                                                                تأیید
+                                                                کالا
+                                                                ندارد
+                                                            </p>
+                                                        </div>
+                                                        <div class="custom-control custom-radio  pl-0 pr-3">
+                                                            <input id="Type_Transaction" name="Type_Transaction"
+                                                                type="radio" value="از طریق سیستم بازرسی کالا">
+                                                            <label>
+                                                                از طریق سیستم بازرسی کالا
+                                                            </label>
+                                                            <p
+                                                                style="color: #828282;font-size: 11px; font-weight: bold;">
+                                                                <span style="color: red; font-size: 16px;">*</span> کالا
+                                                                در
+                                                                سیستم
+                                                                بازرسی نوِنو بازرسی شده و فقط در صورت صحت ادعای فروشنده
+                                                                به
+                                                                خریدار
+                                                                ارسال می‌شود
+                                                            </p>
+                                                        </div>
+                                                      
+
+                                                    </div>
+                                </div>
+                         
+
+
+                            }
+                            @if (@item.Type_Transaction =="بصورت مستقیم")
+                            {
+
+                                    <div style="text-align: right;">
+                                        <p><span style="font-size: 14px; color: green;" class="mdi mdi-checkbox-marked-circle">
+                                        </span> بصورت مستقیم از فروشنده </p>
+                                    </div> 
+                            }
+                            
+                            
+                        </div>
+
+                        <div class="mt-1" style="text-align: right;">
+                                         <span style="color:darkgray; font-weight: bold;">
+                                        توضیحات کالا : </span>
+                                    <span style="font-weight: bold; "> @item.Discreption_Pro</span >
+                         </div>
+                           <div  class="mt-1" style="text-align: right;">
+                                   <input  asp-for="Id" style="display: none;">
+                         </div>
+                         @* ///////////////////////////////////////////////// *@
+                          
+                                                @* <div class="form-row mt-2">
+                                                    <div class="checkout-shipment mb-4">
+                                                        <div class="custom-control custom-radio pl-0 pr-3">
+                                                            <input checked="checked" id="Type_Transaction"
+                                                                name="Type_Transaction" type="radio" value="غیره">
+                                                            <label>
+                                                                غیره 
+                                                            </label>
+                                                            <p
+                                                                style="color: #828282;font-size: 11px; font-weight: bold;">
+                                                                <span style="color: red; font-size: 16px;">*</span>
+                                                                خریدار
+                                                                بصورت
+                                                                مستقیم کالا را از شما میخرد و سایت نوِنو دخالتی در
+                                                                فرایند
+                                                                تأیید
+                                                                کالا
+                                                                ندارد
+                                                            </p>
+                                                        </div>
+                                                        <div class="custom-control custom-radio pl-0 pr-3">
+                                                            <input checked="checked" id="Type_Transaction"
+                                                                name="Type_Transaction" type="radio" value="بصورت مستقیم">
+                                                            <label>
+                                                                بصورت مستقیم
+                                                            </label>
+                                                            <p
+                                                                style="color: #828282;font-size: 11px; font-weight: bold;">
+                                                                <span style="color: red; font-size: 16px;">*</span>
+                                                                خریدار
+                                                                بصورت
+                                                                مستقیم کالا را از شما میخرد و سایت نوِنو دخالتی در
+                                                                فرایند
+                                                                تأیید
+                                                                کالا
+                                                                ندارد
+                                                            </p>
+                                                        </div>
+                                                        <div class="custom-control custom-radio  pl-0 pr-3">
+                                                            <input id="Type_Transaction" name="Type_Transaction"
+                                                                type="radio" value="از طریق سیستم بازرسی کالا">
+                                                            <label>
+                                                                از طریق سیستم بازرسی کالا
+                                                            </label>
+                                                            <p
+                                                                style="color: #828282;font-size: 11px; font-weight: bold;">
+                                                                <span style="color: red; font-size: 16px;">*</span> کالا
+                                                                در
+                                                                سیستم
+                                                                بازرسی نوِنو بازرسی شده و فقط در صورت صحت ادعای فروشنده
+                                                                به
+                                                                خریدار
+                                                                ارسال می‌شود
+                                                            </p>
+                                                        </div>
+                                                      
+
+                                                    </div>
+                                                </div>
+                          *@
+                                                   
+
+
+
+
+
+
+
+
+
+
+
+
+                         
+                    </div>
+                </div>
+
+
+                
+            </div>
+        </div>
+    
+
+
+
+    <!-- End Product -->
+    <!-- Start Product-Slider -->
+    @* <section class="slider-section dt-sl mb-5">
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="section-title text-sm-title title-wide no-after-title-wide">
+                    <h2>خریداران این محصول، محصولات زیر را هم خریده‌اند</h2>
+                    <a href="#">مشاهده همه</a>
+                </div>
+            </div>
+            <!-- Start Product-Slider -->
+            <div class="col-12">
+                <div class="product-carousel carousel-lg owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="product-card mb-3">
+                            <div class="product-head">
+                                <div class="rating-stars">
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                </div>
+                                <div class="discount">
+                                    <span>20%</span>
+                                </div>
+                            </div>
+                            <a class="product-thumb" href="shop-single.html">
+                                <img src="~/assets/img/products/07.jpg" alt="Product Thumbnail">
+                            </a>
+                            <div class="product-card-body">
+                                <h5 class="product-title">
+                                    <a href="shop-single.html">@item.Title_Pro</a>
+                                </h5>
+                                <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                <span class="product-price">@item.Main_Price تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product-card mb-3">
+                            <div class="product-head">
+                                <div class="rating-stars">
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                </div>
+                            </div>
+                            <a class="product-thumb" href="shop-single.html">
+                                <img src="~/assets/img/products/017.jpg" alt="Product Thumbnail">
+                            </a>
+                            <div class="product-card-body">
+                                <h5 class="product-title">
+                                    <a href="shop-single.html">کت مردانه</a>
+                                </h5>
+                                <a class="product-meta" href="shop-categories.html">لباس مردانه</a>
+                                <span class="product-price">199,000 تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product-card mb-3">
+                            <div class="product-head">
+                                <div class="rating-stars">
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star"></i>
+                                </div>
+                            </div>
+                            <a class="product-thumb" href="shop-single.html">
+                                <img src="~/assets/img/products/013.jpg" alt="Product Thumbnail">
+                            </a>
+                            <div class="product-card-body">
+                                <h5 class="product-title">
+                                    <a href="shop-single.html">مانتو زنانه مدل هودی تیک تین</a>
+                                </h5>
+                                <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                <span class="product-price">135,000 تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product-card mb-3">
+                            <div class="product-head">
+                                <div class="rating-stars">
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star"></i>
+                                </div>
+                            </div>
+                            <a class="product-thumb" href="shop-single.html">
+                                <img src="~/assets/img/products/09.jpg" alt="Product Thumbnail">
+                            </a>
+                            <div class="product-card-body">
+                                <h5 class="product-title">
+                                    <a href="shop-single.html">مانتو زنانه</a>
+                                </h5>
+                                <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                <span class="product-price">145,000 تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product-card mb-3">
+                            <div class="product-head">
+                                <div class="rating-stars">
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                </div>
+                            </div>
+                            <a class="product-thumb" href="shop-single.html">
+                                <img src="~/assets/img/products/010.jpg" alt="Product Thumbnail">
+                            </a>
+                            <div class="product-card-body">
+                                <h5 class="product-title">
+                                    <a href="shop-single.html">مانتو زنانه</a>
+                                </h5>
+                                <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                <span class="product-price">170,000 تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product-card mb-3">
+                            <div class="product-head">
+                                <div class="rating-stars">
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star"></i>
+                                </div>
+                                <div class="discount">
+                                    <span>20%</span>
+                                </div>
+                            </div>
+                            <a class="product-thumb" href="shop-single.html">
+                                <img src="~/assets/img/products/011.jpg" alt="Product Thumbnail">
+                            </a>
+                            <div class="product-card-body">
+                                <h5 class="product-title">
+                                    <a href="shop-single.html">مانتو زنانه</a>
+                                </h5>
+                                <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                <span class="product-price">185,000 تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="product-card mb-3">
+                            <div class="product-head">
+                                <div class="rating-stars">
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star active"></i>
+                                    <i class="mdi mdi-star"></i>
+                                </div>
+                            </div>
+                            <a class="product-thumb" href="shop-single.html">
+                                <img src="~/assets/img/products/019.jpg" alt="Product Thumbnail">
+                            </a>
+                            <div class="product-card-body">
+                                <h5 class="product-title">
+                                    <a href="shop-single.html">تیشرت مردانه</a>
+                                </h5>
+                                <a class="product-meta" href="shop-categories.html">لباس مردانه</a>
+                                <span class="product-price">54,000 تومان</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Product-Slider -->
+
+        </div>
+    </section> *@
+    <!-- End Product-Slider -->
+
+
+                 }
+                                }
+</main>
+ </form>
+<!-- End main-content -->
+                                
+
+
+<!-- Core JS Files -->
+<script src="~/assets/js/vendor/jquery-3.4.1.min.js"></script>
+<script src="~/assets/js/vendor/popper.min.js"></script>
+<script src="~/assets/js/vendor/bootstrap.min.js"></script>
+<!-- Plugins -->
+<script src="~/assets/js/vendor/owl.carousel.min.js"></script>
+<script src="~/assets/js/vendor/jquery.horizontalmenu.js"></script>
+<script src="~/assets/js/vendor/jquery.fancybox.min.js"></script>
+<script src="~/assets/js/vendor/countdown.min.js"></script>
+ 
+ <script>
+    function addcart(id)
+    {
+      
+           $.ajax({
+          url:"/home/addshop/"+parseInt(id),
+          type:"Get",
+      }).done(function(result)
+      {
+        
+
+      });
+      
+           
+       }
+
+
+       
+
+
+function copy() {
+ navigator.clipboard.writeText(window.location.href);
+ alert("آدرس با موفقیت کپی شد")
+}
+
+
+</script>
+

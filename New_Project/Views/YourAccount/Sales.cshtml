@@ -1,0 +1,190 @@
+<style>
+    .card-horizontal-product{
+        min-height: 0 !important;
+        padding: 5px 15px !important;
+    }
+</style>
+@model ViewModel.AdminViewModel.Order.Vm_Factor
+        <!-- Start main-content -->
+        <main class="main-content dt-sl mt-4 mb-3">
+            <div class="container main-container">
+                <div class="row">
+
+                    <!-- Start Sidebar -->
+                          @await Html.PartialAsync("_Partial_profile")
+                    <!-- End Sidebar -->
+
+                    <!-- Start Content -->
+                    <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
+                        <div class="row">
+                            <div class="dt-sl">
+                                @if (ViewBag.list != null)
+                                {
+                                    <div class="row m-1">
+                                        @foreach (var item in ViewBag.list)
+                                        {
+
+                                            <div class="col-lg-6 col-md-6 col-12 ">
+                                                        <div class="card-horizontal-product shadow">
+                                                            <div class="row">
+                                                                <a href="/singlepage/index/@item.Product_Id" class="m-2">
+                                                                    <img src="~/fileupload/@item.Image" style="width: 75px; height: 75px; border-radius: 10px;" alt="">
+                                                                </a>
+                                                                <div class="cl-6">
+                                                                    <p style="font-size: 10px;">شماره فاکتور : <span>  @item.Id_Factro </span></p>
+                                                                    <p style="font-size: 10px;">کد سفارش: <span> @item.Id </span></p>
+                                                                    <p style="font-size: 10px;">  تاریخ سفارش: <span> 99/02/31 </span></p>
+
+                                                                </div>
+                                                                <div class="cl-6 mr-3">
+                                                                    <p style="font-size: 10px;">نام محصول : <span> @item.product_Name </span></p>
+                                                                    <p style="font-size: 10px;">مبلغ : <span> @item.product_Price </span> تومان </p>
+                                                                    <p style="font-size: 10px;">وضعیت :<span style="font-size: 8px;"> @item.StatusM </span></p>
+                                                                </div>
+                                                            </div>
+                                                            <p style="font-size: 10px;"> آدرس:
+                                                                @if (@item.PriceB != "0")
+                                                                {
+                                                                     <span> ارسال به نوِنو برای بازرسی کالا </span>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span> @item.State-@item.City-@item.FirstAddress |@item.Post| @item.TellBuy </span>
+                                                                }
+                                                            </p>
+                                                                @if (@item.StatusM=="در انتظار تایید فروشنده")
+                                                                {
+                                                                    <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                            <a href="/YourAccount/OkSales?c=@item.Id" class="btn btn-success">تایید</a>
+                                                                            <a href="/YourAccount/NoSales?c=@item.Id" class="btn btn-danger">عدم تایید</a>
+                                                                    </div>
+                                                                }
+                                                                @if (@item.StatusM=="در انتظار ارسال فروشنده")
+                                                                {
+                                                                    @if (@item.PriceB != "0")
+                                                                    {
+                                                                        <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                            <form method="POST" action="/YourAccount/Send">
+                                                                                <input type="text" placeholder="کد مرسوله" asp-for="Send_Sales_Code" required >
+                                                                                <input type="text" value="@item.Id" asp-for="Id" hidden>
+                                                                                <input type="text" value="@item.Id" asp-for="PriceB" hidden>
+                                                                                    <button  type="submit" style="font-weight: bold; font-size:12px;  border-color: green;"
+                                                                                        class="btn btn-sm btn-primary ">  ارسال با پست </button>
+                                                                                <a href="/YourAccount/Tahvil?c=@item.Id" class="btn btn-info"> تحویل حضوری </a>
+                                                                            </form>
+                                                                           
+                                                                        </div>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <form method="POST" action="/YourAccount/Send">
+                                                                                <input type="text" placeholder="کد مرسوله" asp-for="Send_Sales_Code" required >
+                                                                                <input type="text" value="@item.Id" asp-for="Id" hidden>
+                                                                                <input type="text" value="@item.PriceB" asp-for="PriceB" hidden>
+                                                                                    <button  type="submit" style="font-weight: bold; font-size:12px;  border-color: green;"
+                                                                                        class="btn btn-sm btn-primary ">  ارسال با پست </button>
+                                                                        </form>
+                                                                    }
+                                                                    
+                                                                }
+                                                                @if (@item.StatusM=="عدم تایید فروشنده")
+                                                                {
+                                                                    <P class="alert alert-danger">عدم تایید توسط فروشنده معامله ناموفق</P>
+                                                                }
+                                                                @if (@item.StatusM=="ارسال شده به خریدار")
+                                                                {
+                                                                    <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                            @item.Send_Sales_Code :کد مرسوله :
+                                                                           <span>در انتظار دریافت خریدار</span> 
+                                                                    </div>
+                                                                }
+                                                                @if (@item.StatusM=="ارسال شده به نوِنو")
+                                                                {
+                                                                    <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                            @item.Send_Sales_Code :کد مرسوله :
+                                                                           <span>در انتظار دریافت نوِنو</span> 
+                                                                    </div>
+                                                                }
+                                                                @if (@item.StatusM=="تحویل داده شده به نوِنو")
+                                                                {
+                                                                    <p>
+                                                                        در انتظار دریافت نوِنو
+                                                                    </p>
+                                                                }
+                                                                @if (@item.StatusM=="لغو شده توسط مدیر")
+                                                                {
+                                                                    <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                            <a href="#" class="btn btn-success">مشاهده علت  </a>
+                                                                    </div>
+                                                                }
+                                                                @if (@item.StatusM=="دریافت شده توسط نوِنو")
+                                                                {
+                                                                    <p>
+                                                                        در انتظار سیستم بازرسی نوِنو
+                                                                    </p>
+                                                                }
+                                                                @if (@item.StatusM=="تایید شده سیستم بازرسی")
+                                                                {
+                                                                    <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                        در انتظار ارسال نوِنو به خریدار
+                                                                    </div>
+                                                                }
+                                                                @if (@item.StatusM=="عدم تایید سیستم بازرسی")
+                                                                {
+                                                                   <P class="alert alert-danger">عدم تایید سیستم بازرسی : @item.Why_Return_Admin_Bazrasi  </P>
+                                                                }
+                                                                @if (@item.StatusM=="ارسال نوِنو به خریدار")
+                                                                {
+                                                                    <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                            @item.Send_Admin_Code :کد مرسوله :
+                                                                            در انتظار دریافت خریدار
+                                                                    </div>
+                                                                }
+                                                                @if (@item.StatusM=="دریافت توسط خریدار")
+                                                                {
+                                                                }
+                                                                @if (@item.StatusM=="قصد مرجوعی خریدار")
+                                                                {
+                                                                    <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                            <a href="/YourAccount/TahvilNOShow?c=@item.Id" class="btn btn-success">مشاهده علت  </a>
+                                                                            در انتظار تایید مرجوعی
+                                                                    </div>
+                                                                }
+                                                                @if (@item.StatusM=="مرجوع شده")
+                                                                {
+                                                                    <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                               <a href="/YourAccount/TahvilNOShow?c=@item.Id" class="btn btn-success">مشاهده علت  </a>
+                                                                    </div>
+                                                                }
+                                                                @if (@item.StatusM=="عدم تایید قصد مرجوعی")
+                                                                {
+                                                                    <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                           عملیات فروش موفق
+                                                                    </div>
+                                                                }
+                                                                @if (@item.StatusM=="مرجوع ارسال شده")
+                                                                {<p style="font-size: 10px;"> کد مرسوله: @item.Send_Order_Code </p>
+                                                                    <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                            <a href="/YourAccount/TahvilSales?c=@item.Id" class="btn btn-success">دریافت کالا</a>
+                                                                    </div>
+                                                                }
+                                                                
+                                                        </div>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+        <!-- End main-content -->
+
+
+
+
+
+                            

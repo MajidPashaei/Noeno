@@ -1,0 +1,243 @@
+<!-- Start main-content -->
+@model ViewModel.Entities.User.Vm_User;
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<main class="main-content dt-sl mt-2 mb-2">
+    <div class="container main-container">
+        <div class="row">
+
+            <!-- Start Sidebar -->
+            @await Html.PartialAsync("_Partial_profile")
+            <!-- End Sidebar -->
+
+            <!-- Start Content -->
+            <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
+                <div class="row">
+                    @* <div class="col-12">
+                        <div class="dt sl dt-sn pt-3 mt-2 pb-5">
+                            <div class="cart-page cart-empty">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p style=" font-size: 12px; color: #858585;">   موجودی کیف پول  :<span style="color: #00c09d;" id="1"> @HttpContextAccessor.HttpContext.Session.GetString("pay") </span> تومان </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style=" font-size: 12px; color: #858585;">    قابل برداشت : <span style="color: #00c09d;" id="2">  @ViewBag.Oll </span>تومان </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style=" font-size: 12px; color: #858585;">    قابل معامله  :<span style="color: #00c09d;" id="3"> @ViewBag.Oll</span> تومان </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style=" font-size: 12px; color: #858585;">    قفل شده  : <span style="color: #00c09d;" id="4"> 2000 </span> تومان</p>
+                                    </div>
+                                </div>
+                                    <script>
+                                        document.getElementById("1").innerText=document.getElementById("1").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        document.getElementById("2").innerText=document.getElementById("2").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        document.getElementById("3").innerText=document.getElementById("3").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                        document.getElementById("4").innerText=document.getElementById("4").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                    </script>
+                                <div class="row">
+                                        <div class="col-6">
+                                            <div style=" text-align: center;" >
+                                                <input   id="pay25" style="text-align: center; border-radius: 10px;font-size: 12px;"  class="input-ui pl-2 text-left dir-ltr mb-2" placeholder="مبلغ رابه تومان وارد نمایید">
+                                                <a onclick="sendpay();" style="background-color: #00c09d; color: #ffffff; font-size: 10px;" class="btn-primary-cm mt-2" >درخواست پرداخت </a>
+                                            </div>
+                                        </div>
+                                        <form action="/pay/payUser" method="POST">
+                                        <div class="col-6">
+                                           <div style=" text-align: center;" >
+                                                 <input   asp-for="Price" style="text-align: center; border-radius: 10px;font-size: 12px;"  class="input-ui pl-2 text-left dir-ltr mb-2" placeholder="مبلغ رابه تومان وارد نمایید">
+                                                <button  type="submit" style="background-color: #00c09d; color: #ffffff; font-size: 10px;" class="btn-primary-cm mt-2" >درخواست برداشت </إ>
+                                            </div>
+                                        </div>
+                                        </form>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div> *@
+
+      @* <form action="/pay/payUser" method="POST">
+                                        <div class="col-6">
+                                           <div style=" text-align: center;" >
+                                                <input   asp-for="Price" style="text-align: center; border-radius: 10px;font-size: 12px;"  class="input-ui pl-2 text-left dir-ltr mb-2" placeholder="مبلغ رابه تومان وارد نمایید">
+                                                
+                                            </div>
+                                        </div>
+                                           <div class="form-row mt-3">
+                            <button type="submit" style="text-align: center;" 
+
+                                class="btn-primary-cm btn-with-icon mx-auto w-100">
+                             
+                                <i class="mdi mdi-login-variant"></i>
+                                تایید
+                            </button>
+                         
+                        </div>
+                                        </form> *@
+                    @* <script>
+                        function myFunction1() {
+
+                            var x = document.getElementById("myDIV1");
+                            if (x.style.display === "none") {
+                                x.style.display = "block";
+                            } else {
+                                x.style.display = "none";
+                            }
+                        }
+                    </script>
+
+                     <script>
+                        function myFunction2() {
+
+                            var x = document.getElementById("myDIV2");
+                            if (x.style.display === "none") {
+                                x.style.display = "block";
+                            } else {
+                                x.style.display = "none";
+                            }
+                        }
+                    </script> *@
+
+
+
+                    <!-- Start main-content -->
+                    <main class="main-content dt-sl mt-1 mb-1 mr-2 ml-2">
+                        <div class="container main-container">
+
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2 px-0">
+                                    <nav class="tab-cart-page">
+                                        
+                                            <div class="row" style="text-align: center;display: flex; justify-content: center;">
+                                                <p class="alert alert-warning form-control" >لیست تراکنش ها</p>
+                                            </div>
+                                        
+                                        @* <div class="row nav nav-tabs" id="nav-tab" role="tablist">
+                                            <a class="col-6 nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">واریزی ها</a>
+                                            <a class="col-6 nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">برداشت ها</a>
+                                           
+                                        </div> *@
+                                    </nav>
+                                </div>
+                                <div class="col-12">
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div  class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" >
+                                        
+                                                        <div class="col-12 mt-2">
+                                                            <div class="dt-sl">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-order">
+                                                                          <thead>
+                                                                            <tr>
+                                                                                <th></th>
+                                                                            <th>ردیف</th>
+                                                                                <th>  نام محصول </th>
+                                                                                <th> بازرسی+قیمت محصول </th>
+                                                                                <th>   قیمت محصول</th>
+                                                                                <th> هزینه بازرسی</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                            @if (ViewBag.Buy!=null)
+                                                                            {
+                                                                                int i=1;
+                                                                                
+                                                                                @foreach (var item in  ViewBag.Buy)
+                                                                                {
+                                                                                    
+                                                                            
+                                                                                
+                                                                        
+                                                                             <tr>
+                                                                                <td></td>
+                                                                                <td>@i</td>
+                                                                                <td>@item.product_Name</td>
+                                                                                <td> @item.Total_sum </td>
+                                                                                <td>@item.product_Price</td>
+                                                                                <td> @item.PriceB </td>
+
+                                                                            </tr>
+                                                                            i++;
+                                                                            }
+                                                                        }
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                        </div>
+                                        @* <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                                    <div class="col-12 mt-2">
+                                                            <div class="dt-sl">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-order">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th></th>
+                                                                            <th>ردیف</th>
+                                                                                <th> مبلغ واریز</th>
+                                                                                <th> توضیحات </th>
+                                                                                <th>  زمان واریز</th>
+                                                                                <th>عملیات پرداخت</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            @if (ViewBag.list2!=null)
+                                                                            {
+                                                                                int i=1;
+                                                                                
+                                                                                @foreach (var item in ViewBag.list2)
+                                                                                {
+                                                                                    
+                                                                            
+                                                                                
+                                                                        
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td>@i</td>
+                                                                                <td>@item.Pay</td>
+                                                                                <td> موفق </td>
+                                                                                <td>@item.Paytime</td>
+                                                                                <td> موفق </td>
+
+                                                                            </tr>
+                                                                            i++;
+                                                                            }
+                                                                        }
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                        </div> *@
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </main>
+                    
+                    <!-- End main-content -->
+                </div>
+            </div>
+            <!-- End Content -->
+
+
+
+
+        </div>
+
+    </div>
+</main>
+<!-- End main-content -->
+	     <script>
+            function sendpay()
+            {
+             
+             if(document.getElementById('pay25').value != "")
+             {
+                window.location.href="/pay/index/"+document.getElementById('pay25').value;
+             }
+             
+            }
+          </script>

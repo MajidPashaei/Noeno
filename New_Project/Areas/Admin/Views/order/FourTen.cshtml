@@ -1,0 +1,74 @@
+<section id="data-list-view" class="data-list-view-header">
+  <div class="table-responsive">
+    <table class="table data-list-view">
+            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>ردیف</th>
+                                    <th>شماره فاکتور</th>
+                                    <th>کد سفارش </th>
+                                    <th>نام محصول</th>
+                                    <th> تاریخ سفارش </th>
+                                    <th>مبلغ کالا </th>
+                                    <th>هزینه بازرسی</th>
+                                    <th>هزینه کمسیون</th>
+                                    <th>شماره فروشنده</th>
+                                    <th>شماره خریدار</th>
+                                    <th>ادرس گیرنده</th>
+                                    <th>کد پستی</th>
+                                    <th>عکس کالا</th>
+                                    <th>کد مرسوله</th>
+                                    <th>عملیات</th>
+
+                                     
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.list != null)
+                                {
+                                    int i = 1;
+
+                                    @foreach (var item in ViewBag.list)
+                                    {
+
+
+
+
+                                          <tr>
+                                            <td></td>
+                                            <td>@i</td>
+                                            <td>@item.Id_Factro</td>
+                                            <td>@item.Id</td>
+                                            <td>@item.product_Name</td>
+                                            <td> @item.Date_Order</td>
+                                            <td>@item.product_Price</td>
+                                            <td>@item.PriceB</td>
+                                            <td>@item.PriceK</td>
+                                            <td>@item.TellSel</td>
+                                            <td>@item.TellBuy</td>
+                                            <td>@item.State-@item.City-@item.FirstAddress</td>
+                                            <td>@item.Post</td>
+                                            <td><img src="~/fileupload/@item.Image" style="width: 80px ;height: 80px;border-radius: 50%;"></td>
+                                            <td>@item.Send_Sales_Code</td>
+                                           <td>
+                                              <div class="col-lg-3 col-md-3 mb-1">
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                  <a href="/admin/Order/TahvilNO?c=@item.Id" class="btn btn-primary btn-sm" >  مشاهده درخواست </a>
+                                                </div>
+                                              </div>
+                                            </td>
+                                         
+                                         
+                                         
+                                           
+
+                                        </tr>
+                                        i++;
+                                    }
+                                }
+                            </tbody>
+    </table>
+  </div>
+
+</section>

@@ -1,0 +1,1954 @@
+﻿
+@using New_Project.Models;
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#febd69">
+    <meta name="msapplication-navbutton-color" content="#febd69">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#febd69">
+   
+    
+    @if(menu.Title != null)
+    {
+    <meta name="author" content="@menu.Title">
+    <meta name="description" content="@menu.Title">
+    <meta name="keywords" content="@menu.Title">
+    <title>@menu.Title</title>
+    }
+    else
+    {
+    <title>عنوان وب سایت شما</title>
+    }
+    <link rel="icon" type="image/ico" href="~/fileupload/@menu.favicon" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/assets/css/vendor/bootstrap.min.css">
+    <!-- Plugins -->
+    <link rel="stylesheet" href="~/assets/css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/assets/css/vendor/jquery.horizontalmenu.css">
+    <!-- Plugins Category Page -->
+    <link rel="stylesheet" href="~/assets/css/vendor/nouislider.min.css">
+    <!-- Plugins Single Product -->
+    <link rel="stylesheet" href="~/assets/css/vendor/fancybox.min.css">
+    <!-- Plugins Page Addresses -->
+    <link rel="stylesheet" href="~/assets/css/vendor/nice-select.css">
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/assets/css/vendor/materialdesignicons.min.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="~/assets/css/main.css">
+    <link rel="stylesheet" href="~/assets/css/colors/default.css" id="colorswitch">
+     <link rel="stylesheet" href="~/css/find.css">
+   
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Start header -->
+        <header class="main-header dt-sl">
+            <!-- Start ads -->
+            <!-- <a href="#" class="ads-header hidden-sm" target="_blank"
+                style="background-image: url(./assets/img/banner/large-ads.jpg)"></a> -->
+            <!-- End ads -->
+            <!-- Start topbar -->
+            <div class="container main-container">
+                <div class="topbar dt-sl">
+                    <div class="row">
+
+                        <!-- Start bottom-header -->
+                        <div style="margin-top: 14px;"
+                            class="bottom-header dt-sl mb-sm-bottom-header col-lg-2 col-md-3 col-4 d-md-none d-lg-none d-xl-none">
+                            <div class="container main-container">
+                                <!-- Start Main-Menu -->
+                                <nav class="main-menu dt-sl">
+                                     <ul class="list float-right hidden-sm">
+                                        <!-- mega menu 2 column -->
+                                                <li class="list-item list-item-has-children mega-menu mega-menu-col-2">
+                                            <a class="nav-link" href="#">کالای دیجیتال</a>
+                                            <ul class="sub-menu nav">
+
+                                                @foreach (var item in menu.cat)
+                                                {
+                                                if (item.FatherIdCat == -1)
+                                                {
+
+                                                <li class="list-item list-item-has-children">
+                                                    <a class="nav-link" href="#">@item.NameCat</a>
+                                                    <ul class="sub-menu nav">
+                                                        @foreach (var item1 in menu.cat)
+                                                        {
+                                                        if (item1.FatherIdCat == item.Id)
+                                                        {
+                                                        <li class="list-item">
+                                                            <a class="nav-link" href="#">@item1.NameCat</a>
+                                                        </li>
+                                                        }
+
+                                                        }
+
+                                                    </ul>
+                                                </li>
+
+                                                }
+                                                }
+                                            </ul>
+                                        </li>
+                                        <!-- mega menu 3 column -->
+                             
+                                    </ul>
+
+
+
+
+
+
+
+                   
+                                    <button class="btn-menu">
+                                        <div class="align align__justify">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </button>
+                                    <div class="side-menu">
+                                        <div class="logo-nav-res dt-sl text-center">
+                                            <a href="/Home/Index">
+                                                <img src="~/assets/img/logo1.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="search-box-side-menu dt-sl text-center mt-2 mb-3">
+                                            <form action="">
+                                                <input type="text" name="s" placeholder="جستجو کنید...">
+                                                <i class="mdi mdi-magnify"></i>
+                                                
+                                            </form>
+                                        </div>
+                                        <ul class="navbar-nav dt-sl">
+                                            
+                        
+                                            <li class="sub-menu">
+                                                <a href="#" style="font-size: 12px;">کالای دیجیتال</a>
+                                                <ul>
+                                                                          
+                                    @foreach (var item in menu.D)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                    <li class="sub-menu">
+                                                    
+                                                        <a href="/home/category2/@item.Id">@item.NameCat</a>
+                                                        <ul>
+                                                                @foreach (var item1 in menu.D)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                                            <li>
+                                                                <a href="/home/category/@item1.Id">@item1.NameCat</a>
+                                                            </li>
+                                                            
+                                                }
+                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                            }
+                                                </ul>
+                                            </li>
+                         
+                                        </ul>
+                                        @* //////////////////////////////////////////////////////////// *@
+                                                    <ul class="navbar-nav dt-sl">
+                                            
+                        
+                                            <li class="sub-menu">
+                                                <a href="#"  style="font-size: 12px;"> بهداشتی و سلامت</a>
+                                                <ul>
+                                                                          
+                                    @foreach (var item in menu.A)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                    <li class="sub-menu">
+                                                    
+                                                        <a href="/home/category2/@item.Id">@item.NameCat</a>
+                                                        <ul>
+                                                                @foreach (var item1 in menu.A)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                                            <li>
+                                                                <a href="/home/category/@item1.Id">@item1.NameCat</a>
+                                                            </li>
+                                                            
+                                                }
+                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                            }
+                                                </ul>
+                                            </li>
+                         
+                                        </ul>
+                                        @* ///////////////////////////////////////////////////////////////// *@
+                                                 @* //////////////////////////////////////////////////////////// *@
+                                                    <ul class="navbar-nav dt-sl">
+                                            
+                        
+                                            <li class="sub-menu">
+                                                <a href="#"  style="font-size: 12px;">خودرو و ابزار اداری</a>
+                                                <ul>
+                                                                          
+                                    @foreach (var item in menu.kh)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                    <li class="sub-menu">
+                                                    
+                                                        <a href="/home/category2/@item.Id">@item.NameCat</a>
+                                                        <ul>
+                                                                @foreach (var item1 in menu.kh)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                                            <li>
+                                                                <a href="/home/category/@item1.Id">@item1.NameCat</a>
+                                                            </li>
+                                                            
+                                                }
+                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                            }
+                                                </ul>
+                                            </li>
+                         
+                                        </ul>
+                                        @* ///////////////////////////////////////////////////////////////// *@
+                                                 @* //////////////////////////////////////////////////////////// *@
+                                                    <ul class="navbar-nav dt-sl">
+                                            
+                        
+                                            <li class="sub-menu">
+                                                <a href="#"  style="font-size: 12px;" >مدوپوشاک</a>
+                                                <ul>
+                                                                          
+                                    @foreach (var item in menu.M)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                    <li class="sub-menu">
+                                                    
+                                                        <a href="/home/category2/@item.Id">@item.NameCat</a>
+                                                        <ul>
+                                                                @foreach (var item1 in menu.M)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                                            <li>
+                                                                <a href="/home/category/@item1.Id">@item1.NameCat</a>
+                                                            </li>
+                                                            
+                                                }
+                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                            }
+                                                </ul>
+                                            </li>
+                         
+                                        </ul>
+                                        @* ///////////////////////////////////////////////////////////////// *@
+                                                 @* //////////////////////////////////////////////////////////// *@
+                                                    <ul class="navbar-nav dt-sl">
+                                            
+                        
+                                            <li class="sub-menu">
+                                                <a href="#"  style="font-size: 12px;">خانه و اشپزخانه</a>
+                                                <ul>
+                                                                          
+                                    @foreach (var item in menu.Kitchen)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                    <li class="sub-menu">
+                                                    
+                                                        <a href="/home/category2/@item.Id">@item.NameCat</a>
+                                                        <ul>
+                                                                @foreach (var item1 in menu.Kitchen)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                                            <li>
+                                                                <a href="/home/category/@item1.Id">@item1.NameCat</a>
+                                                            </li>
+                                                            
+                                                }
+                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                            }
+                                                </ul>
+                                            </li>
+                         
+                                        </ul>
+                                        @* ///////////////////////////////////////////////////////////////// *@
+                                                 @* //////////////////////////////////////////////////////////// *@
+                                                    <ul class="navbar-nav dt-sl">
+                                            
+                        
+                                            <li class="sub-menu">
+                                                <a href="#"  style="font-size: 12px;">لوازم التحریروهنر</a>
+                                                <ul>
+                                                                          
+                                    @foreach (var item in menu.L)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                    <li class="sub-menu">
+                                                    
+                                                        <a href="/home/category2/@item.Id">@item.NameCat</a>
+                                                        <ul>
+                                                                @foreach (var item1 in menu.L)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                                            <li>
+                                                                <a href="/home/category/@item1.Id">@item1.NameCat</a>
+                                                            </li>
+                                                            
+                                                }
+                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                            }
+                                                </ul>
+                                            </li>
+                         
+                                        </ul>
+                                        @* ///////////////////////////////////////////////////////////////// *@
+                                                 @* //////////////////////////////////////////////////////////// *@
+                                                    <ul class="navbar-nav dt-sl">
+                                            
+                        
+                                            <li class="sub-menu">
+                                                <a href="#"  style="font-size: 12px;">کودک و نوزاد</a>
+                                                <ul>
+                                                                          
+                                    @foreach (var item in menu.N)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                    <li class="sub-menu">
+                                                    
+                                                        <a href="/home/category2/@item.Id">@item.NameCat</a>
+                                                        <ul>
+                                                                @foreach (var item1 in menu.N)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                                            <li>
+                                                                <a href="/home/category/@item1.Id">@item1.NameCat</a>
+                                                            </li>
+                                                            
+                                                }
+                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                            }
+                                                </ul>
+                                            </li>
+                         
+                                        </ul>
+                                        @* ///////////////////////////////////////////////////////////////// *@
+                                                 @* //////////////////////////////////////////////////////////// *@
+                                                    <ul class="navbar-nav dt-sl">
+                                            
+                        
+                                            <li class="sub-menu">
+                                                <a href="#"  style="font-size: 12px;">ورزش و سفر</a>
+                                                <ul>
+                                                                          
+                                    @foreach (var item in menu.S)
+                                    
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                    <li class="sub-menu">
+                                                    
+                                                        <a href="/home/category2/@item.Id">@item.NameCat</a>
+                                                        <ul>
+                                                                @foreach (var item1 in menu.S)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                                            <li>
+                                                                <a href="/home/category/@item1.Id">@item1.NameCat</a>
+                                                            </li>
+                                                            
+                                                }
+                                            }
+                                                        </ul>
+                                                    </li>
+                                                }
+                                            }
+                                                </ul>
+                                            </li>
+                         
+                                        </ul>
+                                        @* ///////////////////////////////////////////////////////////////// *@
+
+                 
+                                    </div>
+                                    <div class="overlay-side-menu">
+                                    </div>
+                                </nav>
+                                </nav>
+                                <!-- End Main-Menu -->
+                            </div>
+                        </div>
+                        <!-- End bottom-header -->
+
+
+
+@* ////////////////////////////////////////////////////////////////////////////////////////////////////// *@
+                        <div style="margin-top: 10px;" class="col-lg-2 col-md-3 col-4">
+                            <div class="logo-area float-right">
+                                <a href="/Home/Index">
+                                    @if(menu.logo != null)
+                                    {
+                                    <div class="d-none d-lg-block d-md-block ">
+                                        <img style="width:128px; height: 53px;" src="/fileupload/@menu.logo"
+                                            alt="محل لوگوی شما">
+
+                                    </div>
+
+                                    }
+                                    else
+                                    {
+                                    <img style="width: 299px; height: 77px;"
+                                        src="/app-assets/images/icons/defaultlogo.png" alt="محل لوگوی شما">
+                                    }
+
+                                </a>
+                            </div>
+                        </div>
+
+
+
+
+
+@* ////////////////////////////////////////////////////////////////////////////////////////////////////////// *@
+                        <div style="margin-top: 14px;" class="col-lg-6 col-md-5 hidden-sm ">
+                            <div class="search-area dt-sl">
+                                <form action="" class="search">
+                                    <input type="text"
+                                        placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…">
+                                         @* <div class="autocomplete" style="width:300px;">
+    <input id="myInput" type="text" name="myCountry" placeholder="Country" autocomplete="off">
+  </div> *@
+                                    <button type="submit"><img src="~/assets/img/theme/search.png" alt=""></button>
+                                    <button class="close-search-result" type="button"><i
+                                            class="mdi mdi-close"></i></button>
+                                    <div class="search-result">
+                                        <ul>
+                                            <li>
+                                                <a href="#">موبایل</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">مد و پوشاک</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">میکروفن</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">میز تلویزیون</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+@* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// *@
+                        <div class="col-md-4 col-4 topbar-left">
+                            <ul class=" float-left">
+
+
+                                <div class="row account  hidden-sm">
+                                    <div style="padding-left: 3px; padding-right: 3px;">
+                                        <a style="text-align: center;" class="nav-link" href="#" aria-haspopup="true"
+                                            aria-expanded="false">
+                                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mt-2 bi bi-receipt-cutoff" viewBox="0 0 16 16">
+                                                <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zM11.5 4a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
+                                                <path d="M2.354.646a.5.5 0 0 0-.801.13l-.5 1A.5.5 0 0 0 1 2v13H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1H15V2a.5.5 0 0 0-.053-.224l-.5-1a.5.5 0 0 0-.8-.13L13 1.293l-.646-.647a.5.5 0 0 0-.708 0L11 1.293l-.646-.647a.5.5 0 0 0-.708 0L9 1.293 8.354.646a.5.5 0 0 0-.708 0L7 1.293 6.354.646a.5.5 0 0 0-.708 0L5 1.293 4.354.646a.5.5 0 0 0-.708 0L3 1.293 2.354.646zm-.217 1.198.51.51a.5.5 0 0 0 .707 0L4 1.707l.646.647a.5.5 0 0 0 .708 0L6 1.707l.646.647a.5.5 0 0 0 .708 0L8 1.707l.646.647a.5.5 0 0 0 .708 0L10 1.707l.646.647a.5.5 0 0 0 .708 0L12 1.707l.646.647a.5.5 0 0 0 .708 0l.509-.51.137.274V15H2V2.118l.137-.274z"/>
+                                                </svg>
+                                            <br>
+                                            <span style="margin-top: -2px; font-size: 12px;" class="mt-2 label-dropdown">وبلاگ
+                                                ها</span>
+                                            <!-- <span class="count">2</span> -->
+                                        </a>
+                                    </div>
+                                     <div style="padding-left: 3px; padding-right: 3px;">
+                                        <a style="text-align: center;" class="nav-link" href="#" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <i style="font-size: 24px;" class="mdi mdi-comment-text"></i>
+                                            <br>
+                                            <span style="margin-top: -2px; font-size: 12px;" class="label-dropdown">پیام
+                                                ها</span>
+                                            <!-- <span class="count">2</span> -->
+                                        </a>
+                                    </div>
+                                    <div style="padding-left: 3px; padding-right: 3px;">
+                                       @if (User.Identity.IsAuthenticated)
+                                        {
+                                        <a style="text-align: center;" class="nav-link" href="/YourAccount/Profile"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i style="font-size: 24px;" class="mdi mdi-account"></i>
+                                            <br>
+
+                                            <span style="margin-top: -2px; font-size: 12px;" class="label-dropdown">پنل
+                                                کاربری</span>
+
+                                        </a>
+                                        }else
+                                        {
+                                        <a style="text-align: center;" class="nav-link" href="/loginandregister/login"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i style="font-size: 24px;" class="mdi mdi-account"></i>
+                                            <br>
+
+                                            <span style="margin-top: -2px; font-size: 12px;"
+                                                class="label-dropdown">ورود/ثبت نام</span>
+
+                                        </a>
+                                        }
+
+                                    </div>
+
+                                    @if (User.Identity.IsAuthenticated )
+                                          {
+                              
+                                    <div style="padding-left: 3px; padding-right: 3px;">
+                                        <a style="text-align: center;" class="nav-link" href="/cart/index"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i style="font-size: 24px;" class="mdi mdi-cart"></i>
+                                            <br>
+                                          
+                                            <span style="margin-top: -2px; font-size: 12px;" class="label-dropdown">سبد
+                                                خرید</span>
+                                                  <span class="badge badge-warning"> @HttpContextAccessor.HttpContext.Session.GetString("count")</span>
+                                            <!-- <span class="count">2</span> -->
+                                        </a>
+                                    </div>
+                                    }else
+                                    {
+                                          <div style="padding-left: 3px; padding-right: 3px;">
+                                        <a style="text-align: center;" class="nav-link" href="/loginandregister/login"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i style="font-size: 24px;" class="mdi mdi-cart"></i>
+                                            <br>
+                                            <span style="margin-top: -2px; font-size: 12px;" class="label-dropdown">سبد
+                                                خرید</span>
+                                            <!-- <span class="count">2</span> -->
+                                        </a>
+                                    </div>
+
+
+                                    }
+
+                                </div>
+
+ @* /////////////////////////////////////////////////////////////////////////////////////////////////////////////              *@
+                                <div class="row account d-md-none d-lg-none d-xl-none">
+                                    
+
+                                    <div style="padding-left: 3px; padding-right: 3px;">
+                                        <a style="text-align: center;" class="nav-link" href="/cart/index"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i style="font-size: 24px;" class="mdi mdi-cart"></i>
+                                            <br>
+                                            <span style="margin-top: -2px; font-size: 12px;" class="label-dropdown">سبد
+                                                خرید</span>
+                                            <!-- <span class="count">2</span> -->
+                                        </a>
+                                    </div>
+
+
+                                </div>
+
+                            </ul>
+
+
+
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End topbar -->
+
+@* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// *@
+        </header>
+                                <header style="background-color:#232f3e ;" class="main-header  dt-sl  hidden-sm">
+            <!-- Start bottom-header -->
+            <div class="bottom-header dt-sl mb-sm-bottom-header">
+                <div class="container main-container">
+                    <!-- Start Main-Menu -->
+                    <nav class="main-menu dt-sl">
+                        
+       
+                        <ul class="list float-right hidden-sm">
+                        
+                            <!-- mega menu 2 column -->
+                            <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
+                                
+                                <a class="nav-link" href="#" style="font-size: small;">کالای دیجیتال</a>
+                                
+                                <ul class="sub-menu nav">
+                                
+                         
+                                    @foreach (var item in menu.D)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                  
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category2/@item.Id" style="font-size: large;">@item.NameCat</a>
+                  
+                                        <ul class="sub-menu nav">
+
+
+
+                                             @foreach (var item1 in menu.D)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category/@item1.Id" style="font-size: medium;">@item1.NameCat</a>
+                                
+                                        <ul class="sub-menu nav">
+                                        
+                                            <li class="list-item">
+                                                <a class="nav-link" href="#"></a>
+                                            </li>
+                                         
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }                                
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }
+                             
+                                </ul>
+                            </li>
+                         
+                        </ul>
+                      
+@* ////////////////////////////////////////////////////////////////////// *@
+
+                        <ul style="margin-right: 1cm;" class="list float-right hidden-sm " >
+                        
+                            <!-- mega menu 2 column -->
+                            <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
+                                
+                                <a class="nav-link" href="#" style="font-size: small;">بهداشتی و سلامت</a>
+                                
+                                <ul class="sub-menu nav">
+                                
+                         
+                                    @foreach (var item in menu.A)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                  
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category2/@item.Id" style="font-size: large;">@item.NameCat</a>
+                  
+                                        <ul class="sub-menu nav">
+
+
+
+                                             @foreach (var item1 in menu.A)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category/@item1.Id" style="font-size: medium;">@item1.NameCat</a>
+                                
+                                        <ul class="sub-menu nav">
+                                        
+                                            <li class="list-item">
+                                                <a class="nav-link" href="#"></a>
+                                            </li>
+                                         
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }                                
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }
+                             
+                                </ul>
+                            </li>
+                         
+                        </ul>
+                        
+@* ////////////////////////////////////////////////////////////////////////////////////////////////// *@
+
+@* ////////////////////////////////////////////////////////////////////// *@
+                        <ul style="margin-right: 1cm;"   class="list float-right hidden-sm " >
+                        
+                            <!-- mega menu 2 column -->
+                            <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
+                                
+                                <a class="nav-link" href="#" style="font-size: small;">خودرو,ابزارواداری</a>
+                                
+                                <ul class="sub-menu nav">
+                                
+                         
+                                    @foreach (var item in menu.kh)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                  
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category2/@item.Id" style="font-size: large;">@item.NameCat</a>
+                  
+                                        <ul class="sub-menu nav">
+
+
+
+                                             @foreach (var item1 in menu.kh)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category/@item1.Id" style="font-size: medium;">@item1.NameCat</a>
+                                
+                                        <ul class="sub-menu nav">
+                                        
+                                            <li class="list-item">
+                                                <a class="nav-link" href="#"></a>
+                                            </li>
+                                         
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }                                
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }
+                             
+                                </ul>
+                            </li>
+                         
+                        </ul>
+@* ////////////////////////////////////////////////////////////////////////////////////////////////// *@
+@* ////////////////////////////////////////////////////////////////////// *@
+                        <ul style="margin-right: 1cm;"   class="list float-right hidden-sm " >
+                        
+                            <!-- mega menu 2 column -->
+                            <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
+                                
+                                <a class="nav-link" href="#" style="font-size: small;">مدوپوشاک </a>
+                                
+                                <ul class="sub-menu nav">
+                                
+                         
+                                    @foreach (var item in menu.M)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                  
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category2/@item.Id" style="font-size: large;">@item.NameCat</a>
+                  
+                                        <ul class="sub-menu nav">
+
+
+
+                                             @foreach (var item1 in menu.M)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category/@item1.Id" style="font-size: medium;">@item1.NameCat</a>
+                                
+                                        <ul class="sub-menu nav">
+                                        
+                                            <li class="list-item">
+                                                <a class="nav-link" href="#"></a>
+                                            </li>
+                                         
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }                                
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }
+                             
+                                </ul>
+                            </li>
+                         
+                        </ul>
+@* ////////////////////////////////////////////////////////////////////////////////////////////////// *@
+@* ////////////////////////////////////////////////////////////////////// *@
+                        <ul  style="margin-right: 1cm;"  class="list float-right hidden-sm " >
+                        
+                            <!-- mega menu 2 column -->
+                            <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
+                                
+                                <a class="nav-link" href="#" style="font-size: small;">خانه و اشپزخانه </a>
+                                
+                                <ul class="sub-menu nav">
+                                
+                         
+                                    @foreach (var item in menu.Kitchen)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                  
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category2/@item.Id" style="font-size: large;">@item.NameCat</a>
+                  
+                                        <ul class="sub-menu nav">
+
+
+
+                                             @foreach (var item1 in menu.Kitchen)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category/@item1.Id" style="font-size: medium;">@item1.NameCat</a>
+                                
+                                        <ul class="sub-menu nav">
+                                        
+                                            <li class="list-item">
+                                                <a class="nav-link" href="#"></a>
+                                            </li>
+                                         
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }                                
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }
+                             
+                                </ul>
+                            </li>
+                         
+                        </ul>
+@* ////////////////////////////////////////////////////////////////////////////////////////////////// *@
+@* ////////////////////////////////////////////////////////////////////// *@
+                        <ul style="margin-right: 1cm;"   class="list float-right hidden-sm " >
+                        
+                            <!-- mega menu 2 column -->
+                            <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
+                                
+                                <a class="nav-link" href="#" style="font-size: small;">لوازم التحریر وهنر</a>
+                                
+                                <ul class="sub-menu nav">
+                                
+                         
+                                    @foreach (var item in menu.L)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                  
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category2/@item.Id" style="font-size: large;">@item.NameCat</a>
+                  
+                                        <ul class="sub-menu nav">
+
+
+
+                                             @foreach (var item1 in menu.L)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category/@item1.Id" style="font-size: medium;">@item1.NameCat</a>
+                                
+                                        <ul class="sub-menu nav">
+                                        
+                                            <li class="list-item">
+                                                <a class="nav-link" href="#"></a>
+                                            </li>
+                                         
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }                                
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }
+                             
+                                </ul>
+                            </li>
+                         
+                        </ul>
+@* ////////////////////////////////////////////////////////////////////////////////////////////////// *@
+@* ////////////////////////////////////////////////////////////////////// *@
+                        <ul  style="margin-right: 1cm;"  class="list float-right hidden-sm " >
+                        
+                            <!-- mega menu 2 column -->
+                            <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
+                                
+                                <a class="nav-link" href="#" style="font-size: small;">کودک و نوزاد</a>
+                                
+                                <ul class="sub-menu nav">
+                                
+                         
+                                    @foreach (var item in menu.N)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                  
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category2/@item.Id" style="font-size: large;">@item.NameCat</a>
+                  
+                                        <ul class="sub-menu nav">
+
+
+
+                                             @foreach (var item1 in menu.N)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category/@item1.Id" style="font-size: medium;">@item1.NameCat</a>
+                                
+                                        <ul class="sub-menu nav">
+                                        
+                                            <li class="list-item">
+                                                <a class="nav-link" href="#"></a>
+                                            </li>
+                                         
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }                                
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }
+                             
+                                </ul>
+                            </li>
+                         
+                        </ul>
+@* ////////////////////////////////////////////////////////////////////////////////////////////////// *@
+@* ////////////////////////////////////////////////////////////////////// *@
+                        <ul  style="margin-right: 1cm;"  class="list float-right hidden-sm " >
+                        
+                            <!-- mega menu 2 column -->
+                            <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
+                                
+                                <a class="nav-link" href="#" style="font-size: small;">ورزش و سفر</a>
+                                
+                                <ul class="sub-menu nav">
+                                
+                         
+                                    @foreach (var item in menu.S)
+                                            {
+                                                if (item.FatherIdCat == -1)
+                                                {
+                                                  
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category2/@item.Id" style="font-size: large;">@item.NameCat</a>
+                  
+                                        <ul class="sub-menu nav">
+
+
+
+                                             @foreach (var item1 in menu.S)
+                                            {
+                                                if (item1.FatherIdCat == item.Id)
+                                                {
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="/home/category/@item1.Id" style="font-size: medium;">@item1.NameCat</a>
+                                
+                                        <ul class="sub-menu nav">
+                                        
+                                            <li class="list-item">
+                                                <a class="nav-link" href="#"></a>
+                                            </li>
+                                         
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }                                
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }
+                             
+                                </ul>
+                            </li>
+                         
+                        </ul>
+@* ////////////////////////////////////////////////////////////////////////////////////////////////// *@
+
+@* ////////////////////////////////////////////////////////////////////////////////////////////////// *@
+
+@* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// *@
+@* ////////////////////////////////////////////////////////////////////////////////////////////////// *@
+
+
+@* 
+             <ul class="list float-right hidden-sm">
+                           
+                            <!-- mega menu 2 column -->
+                            <li class="list-item list-item-has-children mega-menu mega-menu-col-4">
+                               
+                                <ul class="sub-menu nav">
+                         
+  @foreach (var item in menu.cat)
+                                            {
+                                                if (item.FatherIdCat ==-2)
+                                                {
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="#">@item.NameCat</a>
+
+                                        <ul class="sub-menu nav">
+
+
+
+                                             @foreach (var item1 in menu.cat)
+                                            {
+                                                if (item1.FatherIdCat == item1.Id)
+                                                {
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="#">@item1.NameCat</a>
+
+                                        <ul class="sub-menu nav">
+                                        
+                                            <li class="list-item">
+                                                <a class="nav-link" href="#"></a>
+                                            </li>
+                                         
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }                                
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }
+                             
+                                </ul>
+                            </li>
+                         
+                        </ul> *@
+ @* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////                      *@
+                
+             @* <ul class="list float-right hidden-sm">
+                           
+                            <!-- mega menu 2 column -->
+                            <li class="list-item list-item-has-children mega-menu mega-menu-col-4">
+                                <a class="nav-link" href="#"> درباره ما</a>
+                                <ul class="sub-menu nav">
+                         
+  @foreach (var item in menu.cat)
+                                            {
+                                                if (item.FatherIdCat ==-3)
+                                                {
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="#">@item.NameCat</a>
+
+                                        <ul class="sub-menu nav">
+
+
+
+                                             @foreach (var item1 in menu.cat)
+                                            {
+                                                if (item1.FatherIdCat == item1.Id)
+                                                {
+                                    <li class="list-item list-item-has-children">
+                                        <a class="nav-link" href="#">@item1.NameCat</a>
+
+                                        <ul class="sub-menu nav">
+                                        
+                                            <li class="list-item">
+                                                <a class="nav-link" href="#"></a>
+                                            </li>
+                                         
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }                                
+                                        </ul>
+
+                                    </li>
+                                    }
+
+                                            }
+                             
+                                </ul>
+                            </li>
+                         
+                        </ul> *@
+
+@* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// *@
+                  @if (User.Identity.IsAuthenticated )
+                   {
+                        <ul class="nav float-left">
+                            <li style="margin-top: 6px;" class="nav-item account ">
+                                <a class="nav-link" href="/CreateAdvertising/index" aria-haspopup="true" aria-expanded="false">
+                                    <span>ثبت کالای جدید</span>
+                                </a>
+
+                            </li>
+                        </ul>
+                    }else
+                    {
+                        <ul class="nav float-left">
+                            <li style="margin-top: 6px;" class="nav-item account ">
+                                <a class="nav-link" href="/loginandregister/login" aria-haspopup="true" aria-expanded="false">
+                                    <span>ثبت کالای جدید</span>
+                                </a>
+
+                            </li>
+                        </ul>
+
+                    }
+
+@* //////////////////////////////////////////////////////////////////////////////////////////////////////// *@
+
+                        <button class="btn-menu">
+                            <div class="align align__justify">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </button>
+                        <div class="side-menu">
+                            <div class="logo-nav-res dt-sl text-center">
+                                <a href="/Home/Index">
+                                    <img src="~/assets/img/logo1.png" alt="">
+                                </a>
+                            </div>
+                            <div class="search-box-side-menu dt-sl text-center mt-2 mb-3">
+                                <form action="">
+                                    <input type="text" name="s" placeholder="جستجو کنید...">
+                                    <i class="mdi mdi-magnify"></i>
+                                </form>
+                            </div>
+                            <ul class="navbar-nav dt-sl">
+                                <li class="sub-menu">
+                                    <a href="#">3کالای دیجیتال</a>
+                                    <ul>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو چهار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">عنوان دسته</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">عنوان دسته</a>
+                                        </li>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو چهار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="#">بهداشت و سلامت</a>
+                                    <ul>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو چهار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">عنوان دسته</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">عنوان دسته</a>
+                                        </li>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو چهار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="sub-menu">
+                                    <a href="#">ابزار و اداری</a>
+                                    <ul>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو چهار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">عنوان دسته</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">عنوان دسته</a>
+                                        </li>
+                                        <li class="sub-menu">
+                                            <a href="#">عنوان دسته</a>
+                                            <ul>
+                                                <li>
+                                                    <a href="#">زیر منو یک</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو دو</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو سه</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">زیر منو چهار</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">مد و پوشاک</a>
+                                </li>
+                                <li>
+                                    <a href="#">خانه و آشپزخانه</a>
+                                </li>
+                                <li>
+                                    <a href="#">ورزش و سفر</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="overlay-side-menu">
+                        </div>
+                    </nav>
+                    <!-- End Main-Menu -->
+                </div>
+            </div>
+            <!-- End bottom-header -->
+        </header>
+
+
+        <header style="background-color: #ffffff;" class="main-header dt-sl  d-md-none d-lg-none d-xl-none">
+            <!-- Start ads -->
+            <!-- <a href="#" class="ads-header hidden-sm" target="_blank"
+                style="background-image: url(./assets/img/banner/large-ads.jpg)"></a> -->
+            <!-- End ads -->
+            <!-- Start topbar -->
+            <div class="container main-container">
+                <div class="topbar dt-sl">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 ">
+                            <div class="search-area dt-sl">
+                                <form action="" class="search">
+                                    <input type="text" placeholder=" جستجو کنید…">
+                                    <button type="submit"><img src="~/assets/img/theme/search.png" alt=""></button>
+                                    <button class="close-search-result" type="button"><i
+                                            class="mdi mdi-close"></i></button>
+                                    <div class="search-result">
+                                        <ul>
+                                            <li>
+                                                <a href="#">موبایل</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">مد و پوشاک</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">میکروفن</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">میز تلویزیون</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End topbar -->
+
+
+        </header>
+
+
+
+        <!-- End header -->
+
+        @RenderBody()
+        <!-- Start footer -->
+        <footer class="main-footer dt-sl">
+            <div class="back-to-top">
+                <a href="#"><span class="icon"><i class="mdi mdi-chevron-up"></i></span> <span
+                        style="color: #fff;">بازگشت به
+                        بالا</span></a>
+            </div>
+            <div class="container main-container">
+                <div class="footer-services">
+                    <div class="row">
+                        @* <div class="service-item col">
+                            <a href="#" target="_blank">
+                                <img src="~/assets/img/svg/delivery.svg">
+                            </a>
+                            <p>تحویل اکسپرس</p>
+                        </div> *@
+                        <div class="service-item col">
+                            <a href="#" target="_blank">
+                                <img src="~/assets/img/svg/contact-us.svg">
+                            </a>
+                            <p>پشتیبانی 24 ساعته</p>
+                        </div>
+                        <div class="service-item col">
+                            <a href="#" target="_blank">
+                                <img src="~/assets/img/svg/payment-terms.svg">
+                            </a>
+                            <p>پرداخت درمحل</p>
+                        </div>
+                        <div class="service-item col">
+                            <a href="#" target="_blank">
+                                <img src="~/assets/img/svg/return-policy.svg">
+                            </a>
+                            <p>۷ روز ضمانت بازگشت</p>
+                        </div>
+                        <div class="service-item col">
+                            <a href="#" target="_blank">
+                                <img src="~/assets/img/svg/origin-guarantee.svg">
+                            </a>
+                            <p>ضمانت اصل بودن کالا</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="color:#fff;" class="footer-widgets d-md-none d-lg-none d-xl-none">
+                    <div class="row">
+
+                        <style>
+                            /* Style the tab */
+                            .tab {
+                                overflow: hidden;
+                                border: 1px solid #000;
+                                background-color: #feca87;
+                            }
+
+                            /* Style the buttons inside the tab */
+                            .tab button {
+                                background-color: inherit;
+                                float: left;
+                                border: none;
+                                outline: none;
+                                cursor: pointer;
+                                padding: 14px 10px;
+                                transition: 0.3s;
+                                font-size: 16px;
+                            }
+
+                            /* Change background color of buttons on hover */
+                            .tab button:hover {
+                                background-color: #ddd;
+                            }
+
+                            /* Create an active/current tablink class */
+                            .tab button.active {
+                                background-color: #fff;
+                            }
+
+                            /* Style the tab content */
+                            .tabcontent {
+                                display: none;
+                                padding: 6px 12px;
+                                border: 1px solid #ccc;
+                                border-top: none;
+                            }
+                        </style>
+
+
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div style="text-align: center;" class="widget-menu widget card">
+
+                                <div class="tab">
+                                    <button class="tablinks" onclick="openCity(event, 'London')">راهنمای خرید</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Paris')">خدمات مشتریان</button>
+                                    <button class="tablinks" onclick="openCity(event, 'Tokyo')">با نوِنو</button>
+                                </div>
+
+                                <div id="London" class="tabcontent">
+                                    <ul class="footer-menu">
+                                        <li>
+                                            <a href="#">نحوه ثبت خرید</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">رویه ارسال خرید</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">شیوه‌های پرداخت</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div id="Paris" class="tabcontent">
+                                    <ul class="footer-menu">
+                                        <li>
+                                            <a href="#">پاسخ به پرسش‌های متداول</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">رویه‌های بازگرداندن کالا</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">شرایط استفاده</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">حریم خصوصی</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div id="Tokyo" class="tabcontent">
+                                    <ul class="footer-menu">
+                                        <li>
+                                            <a href="#">فروش در نوِنو</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">همکاری با سازمان‌ها</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">فرصت‌های شغلی</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">تماس با نوِنو</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">درباره نوِنو</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="newsletter">
+                                <p>از تخفیف‌ها و جدیدترین‌های فروشگاه باخبر شوید:</p>
+                                <form action="">
+                                    <input type="email" class="form-control"
+                                        placeholder="آدرس ایمیل خود را وارد کنید...">
+                                    <input style="color: #000;" type="submit" class="btn btn-primary" value="ارسال">
+                                </form>
+                            </div>
+                            <div class="socials">
+                                <p>ما را در شبکه های اجتماعی دنبال کنید.</p>
+                                <div class="footer-social">
+                                    <ul class="text-center">
+                                        <li><a href="#"><i class="mdi mdi-instagram"></i></a></li>
+                                        <li><a href="#"><i class="mdi mdi-telegram"></i></a></li>
+                                        <li><a href="#"><i class="mdi mdi-facebook"></i></a></li>
+                                        <li><a href="#"><i class="mdi mdi-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                            function openCity(evt, cityName) {
+                                var i, tabcontent, tablinks;
+                                tabcontent = document.getElementsByClassName("tabcontent");
+                                for (i = 0; i < tabcontent.length; i++) {
+                                    tabcontent[i].style.display = "none";
+                                }
+                                tablinks = document.getElementsByClassName("tablinks");
+                                for (i = 0; i < tablinks.length; i++) {
+                                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                                }
+                                document.getElementById(cityName).style.display = "block";
+                                evt.currentTarget.className += " active";
+                            }
+                        </script>
+                    </div>
+                </div>
+
+
+
+                <div style="color:#fff;" class="footer-widgets  hidden-sm">
+                    <div class="row">
+
+                          <div class="col-12 col-md-6 col-lg-3">
+                            <div class="widget-menu widget card">
+                                <header class="card-header">
+                                    <h2 class="card-title">راهنمای کاربران</h2>
+                                </header>
+                                <ul class="footer-menu">
+                                    <li>
+                                        <a href="/foot/Qavanin">قوانین و شرایط استفاده از نوِنو</a>
+                                    </li>
+                                    <li>
+                                        <a href="/foot/Help">راهنمای معامله در نوِنو</a>
+                                    </li>
+                                    <li>
+                                        <a href="/foot/Faqs">سوالات متداول</a>
+                                    </li>
+                                    <li>
+                                        <a href="/foot/Tracking">رهگیری مرسولات پستی</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                           <div class="col-12 col-md-6 col-lg-3">
+                            <div class="widget-menu widget card">
+                                <header class="card-header">
+                                    <h3 class="card-title">دانستنی‌ها</h3>
+                                </header>
+                                <ul class="footer-menu">
+                                    <li>
+                                        <a href="/foot/Privacy">حریم خصوصی کاربران</a>
+                                    </li>
+                                    <li>
+                                        <a href="/foot/Inspection">سیستم بازرسی کالا</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">سیستم معاوضه کالا (بزودی)</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">سیستم مزایده کالا (بزودی)</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">سیستم چونه زنی (بزودی)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                     <div class="col-12 col-md-6 col-lg-3">
+                            <div class="widget-menu widget card">
+                                <header class="card-header">
+                                    <h3 class="card-title">با نوِنو</h3>
+                                </header>
+                                <ul class="footer-menu">
+                                    <li>
+                                        <a href="/foot/About">درباره ما</a>
+                                    </li>
+                                    <li>
+                                        <a href="/foot/Contact_us">تماس با ما</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">این همه فروشگاه اینترنتی، چرا نونو؟</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">اعطای نمایندگی</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="newsletter">
+                                <p>از تخفیف‌ها و جدیدترین‌های فروشگاه باخبر شوید:</p>
+                                <form action="">
+                                    <input type="email" class="form-control"
+                                        placeholder="آدرس ایمیل خود را وارد کنید...">
+                                    <input type="submit" class="btn btn-primary" value="ارسال">
+                                </form>
+                            </div>
+                            <div class="socials">
+                                <p>ما را در شبکه های اجتماعی دنبال کنید.</p>
+                                <div class="footer-social">
+                                    <ul class="text-center">
+                                        <li><a href="#"><i class="mdi mdi-instagram"></i></a></li>
+                                        <li><a href="#"><i class="mdi mdi-telegram"></i></a></li>
+                                        <li><a href="#"><i class="mdi mdi-facebook"></i></a></li>
+                                        <li><a href="#"><i class="mdi mdi-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* <div class="info">
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <span>هفت روز هفته ، 24 ساعت شبانه‌روز پاسخگوی شما هستیم.</span>
+                        </div>
+                    </div>
+                </div> *@
+            </div>
+            <div class="description">
+                <div class="container main-container">
+                    <div class="row">
+                        <div class="site-description col-12 col-lg-7">
+                            <h1 class="site-title  hidden-sm">فروشگاه اینترنتی نوِنو، بررسی، انتخاب و خرید آنلاین</h1>
+                            <h1 class="site-title d-md-none d-lg-none d-xl-none" style="font-size: 14px;">فروشگاه
+                                اینترنتی نوِنو، بررسی، انتخاب و خرید آنلاین</h1>
+                            <p>
+                                نوِنو به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی با بیش از یک دهه تجربه، با پایبندی
+                                به سه اصل کلیدی، پرداخت در محل، 7 روز ضمانت بازگشت کالا و تضمین اصل‌بودن کالا، موفق شده
+                                تا همگام با فروشگاه‌های معتبر جهان، به بزرگ‌ترین فروشگاه اینترنتی ایران تبدیل
+                                شود. به محض ورود به نوِنو با یک سایت پر از کالا رو به رو می‌شوید! هر آنچه که نیاز دارید
+                                و به ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد.
+                            </p>
+                        </div>
+
+                        <div class="symbol col-12 col-lg-5 row d-md-none d-lg-none d-xl-none">
+                            <div class="symbol col-6 col-lg-5">
+                                <a href="#" target="_blank"><img src="~/assets/img/symbol-01.png" alt=""></a>
+                            </div>
+
+                            <div class="symbol col-6 col-lg-5">
+                                <a href="#" target="_blank"><img src="~/assets/img/symbol-02.png" alt=""></a>
+                            </div>
+                        </div>
+
+
+                        <div class="symbol col-12 col-lg-5 hidden-sm">
+                            <a href="#" target="_blank"><img src="~/assets/img/symbol-01.png" alt=""></a>
+                            <a href="#" target="_blank"><img src="~/assets/img/symbol-02.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright  hidden-sm">
+                <div class="container main-container">
+                    <p style="color: #fff;">
+                        حقوق کپی رایت، محفوظ
+                    </p>
+                </div>
+            </div>
+
+            <div class="copyright d-md-none d-lg-none d-xl-none">
+                <div class="container main-container">
+                    <p style="margin-bottom: 81px; color: #fff; ">
+                        حقوق کپی رایت، محفوظ
+                    </p>
+                </div>
+            </div>
+
+
+        </footer>
+        <!-- End footer -->
+
+    </div>
+
+    <!-- colorPanel -->
+    <!-- <div id="colorswitch-option">
+        <button><i class="mdi mdi-settings"></i></button>
+        <ul>
+            <li class="active" data-path="./assets/css/colors/default.css"><span
+                    style="background-color: #febd69;"></span></li>
+            <li data-path="./assets/css/colors/amber-color.css"><span style="background-color: #ffab00;"></span></li>
+            <li data-path="./assets/css/colors/blue-color.css"><span style="background-color: #2979ff;"></span></li>
+            <li data-path="./assets/css/colors/blue-grey-color.css"><span style="background-color: #607d8b;"></span>
+            </li>
+            <li data-path="./assets/css/colors/brown-color.css"><span style="background-color: #795548;"></span></li>
+            <li data-path="./assets/css/colors/cyan-color.css"><span style="background-color: #00bcd4;"></span></li>
+            <li data-path="./assets/css/colors/green-color.css"><span style="background-color: #4caf50;"></span></li>
+            <li data-path="./assets/css/colors/indigo-color.css"><span style="background-color: #3f51b5;"></span></li>
+            <li data-path="./assets/css/colors/lime-color.css"><span style="background-color: #cddc39;"></span></li>
+            <li data-path="./assets/css/colors/orange-color.css"><span style="background-color: #ff9800;"></span></li>
+            <li data-path="./assets/css/colors/red-color.css"><span style="background-color: #f44336;"></span></li>
+            <li data-path="./assets/css/colors/teal-color.css"><span style="background-color: #009688;"></span></li>
+            <li data-path="./assets/css/colors/purple-color.css"><span style="background-color: #9c27b0;"></span></li>
+        </ul>
+    </div> -->
+    <!-- end colorPanel -->
+
+
+
+
+
+
+    <!-- Core JS Files -->
+     <script src="~/js/find.js"></script>
+    <script src="~/assets/js/vendor/jquery-3.4.1.min.js"></script>
+    <script src="~/assets/js/vendor/popper.min.js"></script>
+    <script src="~/assets/js/vendor/bootstrap.min.js"></script>
+    <!-- Plugins -->
+    <script src="~/assets/js/vendor/owl.carousel.min.js"></script>
+    <script src="~/assets/js/vendor/jquery.horizontalmenu.js"></script>
+    <!-- Plugins Category Page -->
+    <script src="~/assets/js/vendor/nouislider.min.js"></script>
+    <script src="~/assets/js/vendor/wNumb.js"></script>
+    <script src="~/assets/js/vendor/ResizeSensor.min.js"></script>
+    <script src="~/assets/js/vendor/theia-sticky-sidebar.min.js"></script>
+    <!-- Plugins Single Product -->
+    <script src="~/assets/js/vendor/jquery.fancybox.min.js"></script>
+    <script src="~/assets/js/vendor/countdown.min.js"></script>
+    <!-- Plugins Page Addresses -->
+    <script src="~/assets/js/vendor/jquery.nice-select.min.js"></script>
+    <!-- Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+    <!-- google map js Page Addresses -->
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+<div style="background-color:#232f3e ;" class="button-navigation1 d-md-none d-lg-none d-xl-none" data-v-59c24ff2="">
+
+    
+        <div style="text-align: center;" class="col-2">
+            @if (User.Identity.IsAuthenticated)
+            {
+                 <a style="text-align: left;" class=" color-a hover1" href="/YourAccount/Profile" aria-haspopup="true"
+                aria-expanded="false">
+                <i style="font-size: 26px;" class="mdi mdi-account"></i>
+            </a>
+            }else
+            {
+                 <a style="text-align: left;" class=" color-a hover1" href="/loginandregister/login" aria-haspopup="true"
+                aria-expanded="false">
+                <i style="font-size: 26px;" class="mdi mdi-account"></i>
+            </a>
+
+            }
+           
+        </div>
+        <div style="text-align: center;" class="col-2">
+            <a class="color-a hover1" href="/home/category" aria-haspopup="true" aria-expanded="false">
+                <i style="font-size: 26px;" class="mdi mdi-wall"></i>
+            </a>
+        </div>
+        <div style="text-align: center;" class="col-4">
+             @if (User.Identity.IsAuthenticated)
+            {
+                 <a class="color-a hover1" href="/CreateAdvertising/index" aria-haspopup="true" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+</svg>
+               
+            </a>
+
+            }
+            else
+            {
+                 <a class="color-a hover1" href="/loginandregister/login" aria-haspopup="true" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+</svg>
+               
+            </a>
+
+            }
+           
+        </div>
+        <div style="text-align: center;" class="col-2">
+            <a class="color-a hover1" href="#" aria-haspopup="true" aria-expanded="false">
+                <i style="font-size: 26px;" class="mdi mdi-book-open-variant"></i>
+               
+            </a>
+        </div>
+        <div style="text-align: center;" class="col-2">
+            <a class="color-a hover1  nuxt-link-exact-active nuxt-link-active active" href="/home/index"
+                aria-haspopup="true" aria-expanded="false">
+                <i style="font-size: 26px;" class="mdi mdi-home"></i>
+               
+            </a>
+        </div>
+
+
+    
+    <!---->
+</div>
+
+
+
+<style>
+    .button-navigation1 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fafafa;
+        padding: .1rem 0.1rem;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 1000;
+        border-top: 1px solid #eee;
+        transform: translateY(0);
+        transition: all .3s ease;
+    }
+
+    .color-a {
+        color: #ffffff;
+
+    }
+
+    .hover1:hover {
+        color: #dc3755;
+    }
+</style>
+
+

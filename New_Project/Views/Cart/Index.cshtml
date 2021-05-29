@@ -1,0 +1,234 @@
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+           <style>
+               .checkout-title::before {
+
+                        width: 0% !important;
+
+                    }
+                    .checkout-title {
+                       
+                         padding: 0px 0 !important; 
+                    }
+           </style>        
+        <!-- Start main-content -->
+        <main class="main-content dt-sl mt-1 ">
+            
+            <div class="container main-container">
+
+                <div class="row mb-1 ">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
+                                                <div class="dt-sn">
+                                                    <ul class="checkout-summary-summary ">
+                                                        <li>
+                                                            <span> تعداد کالا ها :</span><span> <u>@ViewBag.A1 </u>مورد</span>
+                                                        </li>
+                                                        <li class="checkout-summary-discount">
+                                                            <span>  جمع قیمت : </span><span> @ViewBag.A2 تومان</span>
+                                                        </li>
+                                                        <li>
+                                                            <span> جمع هزینه بازرسی :</span>
+                                                            <span> @ViewBag.A3 </span>
+                                                        </li>
+                                                        <li class="checkout-summary-price-value" >
+                                                                <span >
+                                                                      جمع کل :
+                                                                </span>
+                                                                <span >
+                                                                    تومان   @ViewBag.A4 
+                                                                </span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                        </div>
+                        
+                </div>
+                
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2 px-0">
+                        <nav class="tab-cart-page">
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">سبد خرید</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">سبد معاوظه</a>
+                            </div>
+                        </nav>
+                    </div>
+
+
+
+     
+                     <div class="col-12">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="row  ml-1 mr-1" style="display: flex; justify-content: center; justify-self: center; justify-items: center;">
+
+                                          @if (ViewBag.A!=null)
+           {
+               @foreach (var item in ViewBag.A)
+               {
+
+                                        <div class=" col-xl-3 col-lg-3 col-md-3 col-sm-12 card m-2 checkout-content p-3">
+                                            
+                                                                     <p class="checkout-title">
+                                                                    <span> <span style="font-size: 10px;"> </span></span> &nbsp;  &nbsp; &nbsp;  <span>نوع معامله : <span style="font-size: 10px;"> @item.Type_Transaction </span></span>
+                                                                </p>
+                                                                <div class="row" style="height:100px ;">
+                                                                            <div class="col-4">
+                                                                                <img src="/FileUpload/@item.Image" style="height: 100px;width: 100px;" alt="">
+                                                                            </div>
+                                                                            <div class="col-8" style="display: ;">
+                                                                                 <p style="font-size: 12px;" class="checkout-title">
+                                                                                    نام کالا : <span>  @item.product_Name </span>
+                                                                                </p>
+                                                                                <p style="font-size: 12px;" class="checkout-title">
+                                                                                    هزینه سیستم بازرسی  : <span>@item.PriceB</span>
+                                                                                </p>
+                                                                                <p style="font-size: 12px;" class="checkout-title">
+                                                                                    فی : <span>@item.product_Price  تومان </span>
+                                                                                </p>
+                                                                            </div>
+                                                                                    
+                                                                            
+                                                                               
+                                                                 </div>
+                                                            
+                                                                
+                                                               
+                                           <div class="row mt-2">
+                                               
+                                               
+                                           
+                                             </div>  
+                                             
+                                                  <a href="/cart/del/@item.Id" style="background-color: darkorange;" class="btn btn-primery">حذف</a>
+                                                  <br>
+                                                <a href="/home/AddCart2/@item.Id" style="background-color: darkorange;" class="btn btn-primery">اضافه کردن</a>
+                                           
+                                                               
+                                                             
+                                                    
+                                        </div>
+                                       
+                                         }
+               
+                                        }
+ 
+
+   
+                                </div>
+                                    
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-12 px-0">
+                                        <div class="dt-sn mb-2">
+                                            <div class="cart-empty">
+                                                <div class="circle-box-icon">
+                                                    <i class="mdi mdi-cart-remove"></i>
+                                                </div>
+                                                <p class="cart-empty-title">لیست خرید بعدی شما خالی است!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+  
+         
+            
+
+                    
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+                                          <div class="col-12">
+
+
+                                          
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 dt-sn mt-1  pt-2">
+                                                <div class=" checkout-feature-aside">
+                                                                <a href="/YourAccount2/additionalinfo" class=" d-block mb-1">
+                                                                    <button class="btn-primary-cm btn-with-icon w-100 text-center pr-0">
+                                                                        <i class="mdi mdi-arrow-left"></i>
+                                                                        ادامه ثبت خرید
+                                                                    </button>
+                                                                </a>
+                                                </div>
+                                            </div>
+                                            
+                                                    @* <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 dt-sn mt-1  pt-2">
+                                                <div class=" checkout-feature-aside">
+                                                                <a href="/YourAccount2/additionalinfo" class=" d-block mb-1">
+                                                                    <button class="btn-primary-cm btn-with-icon w-100 text-center pr-0">
+                                                                        <i class="mdi mdi-arrow-left"></i>
+                                                                     ادامه ثبت 
+                                                                    </button>
+                                                                </a>
+                                                </div>
+                                            </div>
+                                               *@
+
+
+                         
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 dt-sn mt-2">
+                                                 <ul  style="display:flex; justify-content: center;">
+                                                    <li class="checkout-feature-aside-item m-2">
+                                                        <img src="~/assets/img/svg/return-policy.svg" alt=""> هفت روز ضمانت تعویض
+                                                    </li>
+                                                    <li class="checkout-feature-aside-item m-2">
+                                                        <img src="~/assets/img/svg/payment-terms.svg" alt=""> پرداخت در محل با کارت بانکی
+                                                    </li>
+                                                    <li class="checkout-feature-aside-item m-2">
+                                                        <img src="~/assets/img/svg/delivery.svg" alt=""> تحویل اکسپرس
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            
+                                            
+                                            
+                        
+                                            
+                        </div>
+                </div>
+            </div>
+           
+        </main>
+        <!-- End main-content -->
+ <script>
+    function addcart1(id)
+    {
+       
+         
+      
+    
+       $.ajax({
+          url:"/home/addshop/"+parseInt(id),
+          type:"Get",
+      }).done(function(result)
+      {
+          if(result != 0)
+          {
+            location.reload();
+
+          }
+
+      });
+      
+           
+       }
+</script>

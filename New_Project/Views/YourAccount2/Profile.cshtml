@@ -1,0 +1,184 @@
+<style>
+
+    td{
+        vertical-align: middle  !important; 
+    }
+</style>
+
+<!-- Start main-content -->
+<main class="main-content dt-sl mt-1 mb-3">
+    <div class="container main-container">
+        <div class="row">
+
+            <!-- Start Sidebar -->
+            @await Html.PartialAsync("_Partial_profile")
+            <!-- End Sidebar -->
+            <!-- Start Content -->
+            <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
+                                            <!-- Start main-content -->
+        <main class="main-content dt-sl mt-1 mb-3">
+            <div class="container main-container">
+
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2 px-0">
+                        <nav class="tab-cart-page">
+                            
+                                <div class="row" style="text-align: center;display: flex; justify-content: center;">
+                                    <p class="alert alert-warning form-control" >کالا های من</p>
+                                </div>
+                            
+                            <div class="row nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="col-4 nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">تایید شده</a>
+                                <a class="col-4 nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">در انتظار تایید</a>
+                                <a class="col-4 nav-item nav-link" id="nav-Kala-tab" data-toggle="tab" href="#nav-kala" role="tab" aria-controls="nav-kala" aria-selected="false">عدم تایید </a>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col-12">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div  class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" >
+                                <div class="row mr-3 ml-3" style="display: flex; justify-content: center;">
+                                        @{
+                                            if (ViewBag.Ok != null)
+                                                                    
+                                             {
+                                              foreach (var item in ViewBag.Ok)
+                                              {
+                                          <div class="profile-sidebar-header dt-sl dt-sn col-xl-2 col-lg-2 col-md-2 col-5 m-1" style="border-radius: 9px;">
+                                              <div  class="row" style=" height: 120px;">
+                                                    <div class=" mx-auto" >
+                                                     <img src="~/fileupload/@item.Image" style=" max-height: 120px; max-width: 120px; border-radius: 5%;" >
+                                                    </div>
+                                                    </div>
+
+                                                        <div class="row">
+                                                        <div class="col-6 text-center">
+                                                            <a href="/YourAccount/DetailOk?b=@item.Product_Id" title="جزئیات"> 
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-card-list m-2" viewBox="0 0 16 16">
+                                                                                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                                                                        <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                                                                                             </svg></a>
+                                                                                            
+                                                                                        
+                                                        </div>
+                                                         <div class="col-6 text-center">
+                                                            
+                                                                                             <a onclick="return confirm('آیا از حذف آیتم مطمئن هستید؟');" href="/YourAccount/del?b=@item.Product_Id" title="حذف" > 
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash m-2" style="color: red;"  viewBox="0 0 16 16">
+                                                                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                                                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                                                                                    </svg>
+                                                                                              </a>
+                                                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                           } }}
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                 <div class="row mr-3 ml-3" style="display: flex; justify-content: center;">
+                                        @{
+                                            if (ViewBag.Entezar != null)
+                                                                    
+                                             {
+                                              foreach (var item in ViewBag.Entezar)
+                                              {
+                                          <div class="profile-sidebar-header dt-sl dt-sn col-xl-2 col-lg-2 col-md-2 col-5 m-1" style="border-radius: 9px;">
+                                              <div  class="row" style=" height: 120px;">
+                                                    <div class=" mx-auto" >
+                                                     <img src="~/fileupload/@item.Image" style=" max-height: 120px; max-width: 120px; border-radius: 5%;" >
+                                                    </div>
+                                                    </div>
+
+                                                        <div class="row">
+                                                        <div class="col-6 text-center">
+                                                            <a href="/YourAccount/Detail?b=@item.Product_Id" title="جزئیات"> 
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-card-list m-2" viewBox="0 0 16 16">
+                                                                                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                                                                        <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                                                                                             </svg></a>
+                                                                                            
+                                                                                        
+                                                        </div>
+                                                         <div class="col-6 text-center">
+                                                            
+                                                                                             <a onclick="return confirm('آیا از حذف آیتم مطمئن هستید؟');" href="/YourAccount/del?b=@item.Product_Id" title="حذف" > 
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash m-2" style="color: red;"  viewBox="0 0 16 16">
+                                                                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                                                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                                                                                    </svg>
+                                                                                              </a>
+                                                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                           } }}
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-kala" role="tabpanel" aria-labelledby="nav-kala-tab">
+                                <div class="row mr-3 ml-3" style="display: flex; justify-content: center;">
+                                        @{
+                                            if (ViewBag.No != null)
+                                                                    
+                                             {
+                                              foreach (var item in ViewBag.No)
+                                              {
+                                          <div class="profile-sidebar-header dt-sl dt-sn col-xl-2 col-lg-2 col-md-2 col-5 m-1" style="border-radius: 9px;">
+                                              <div  class="row" style=" height: 120px;">
+                                                    <div class=" mx-auto" >
+                                                     <img src="~/fileupload/@item.Image" style=" max-height: 120px; max-width: 120px; border-radius: 5%;" >
+                                                    </div>
+                                                    </div>
+
+                                                        <div class="row">
+                                                        <div class="col-4 text-center">
+                                                            <a href="/YourAccount/DetailNo?b=@item.Product_Id" title="جزئیات"> 
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-card-list m-2" viewBox="0 0 16 16">
+                                                                                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                                                                        <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                                                                                             </svg></a>
+                                                                                            
+                                                                                        
+                                                        </div>
+                                                         <div class="col-4 text-center">
+                                                            
+                                                                                             <a onclick="return confirm('آیا از حذف آیتم مطمئن هستید؟');" href="/YourAccount/del?b=@item.Product_Id" title="حذف" > 
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash m-2" style="color: red;"  viewBox="0 0 16 16">
+                                                                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                                                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                                                                                    </svg>
+                                                                                              </a>
+                                                                                        
+                                                        </div>
+                                                         <div class="col-4 text-center">
+                                                            <a href="/YourAccount/ReturnShow?b=@item.Product_Id" title="جزئیات"> 
+                                                                                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" style="color: orange;" class="bi bi-exclamation-triangle m-2" viewBox="0 0 16 16">
+                                                                                                <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                                                                                <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+                                                                                                </svg></a>
+                                                                                            
+                                                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                           } }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+        <!-- End main-content -->
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+</main>
+<!-- End main-content -->

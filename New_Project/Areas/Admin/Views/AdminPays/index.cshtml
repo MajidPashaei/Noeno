@@ -1,0 +1,61 @@
+@model ViewModel.AdminViewModel.AdminPay.Vm_AdminPay;
+
+@if (ViewBag.er != null)
+{
+    <p class="alert alert-success">@ViewBag.er</p>
+}
+<!-- Basic Inputs start -->
+<section id="basic-input">
+    <form action="/admin/adminpays/AddPay" method="POST">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title"> شارژ و جایزه مدیر </h4>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6 col-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput"> کد کاربر </label>
+                                    <input type="number" class="form-control" asp-for="IdUser"  placeholder="ایدی کاربر مورد نظر را وارد نمایید" required>
+                                </fieldset>
+                            </div>
+                 
+                      <div class="col-xl-4 col-md-6 col-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput"> میزان افزایش (تومان)</label>
+                                    <input type="number" asp-for="Price" class="form-control" required placeholder="میزان افزایش را وارد نمایید" >
+                                </fieldset>
+                            </div>
+                        <div class="col-xl-4 col-md-6 col-12 mb-1">
+                                <fieldset class="form-group">
+                                    <label for="basicInput"> توضیحات </label>
+                                    <input type="text" class="form-control" asp-for="Detail" required placeholder="توضیحات خود را وارد کنید">
+                                </fieldset>
+                        </div>
+                        <div class="col-xl-4 col-md-6 col-12 mb-1">
+                                <fieldset class="form-group">
+                                     <label for="cars">نوع پرداخت :</label>
+                                        <select asp-for="TypePay">
+                                            <option value="قابل برداشت"> قابل برداشت </option>
+                                            <option value="قابل معامله"> قابل معامله </option>
+                                        </select>
+                                </fieldset>
+                        </div>
+                            <div class="col-xl-4 col-md-6 col-12 mb-1">   
+                                <fieldset style="text-align: left;" class="form-group mt-4">
+                                   <button type="submit" class="btn btn-success mr-1 mb-1">انجام</button>
+                                </fieldset>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</section>
+<!-- Basic Inputs end -->

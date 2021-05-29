@@ -1,0 +1,313 @@
+<style>
+    .hover1:hover {
+        background-color: #59b63fbd;
+        color: #ffffff;
+    }
+</style>
+
+
+<div class="content-body">
+    <div class="col-lg-12">
+        <div style="max-width: 600px !important; margin: auto;" class="card">
+            <div class="card-heade  m-1" style="text-align: center;  ">
+                <div class="alert   alert-square "
+                    style="background-color: #EA5455;  color: #ffffff; box-shadow: 0 1px 12px 0 rgba(0,0,0,0.2);">
+                    <h4 style="margin-top: 0rem; margin-bottom: 0rem; font-size: 17px;" class="card-title"> <span
+                            style="font-weight: bold; " class="text-light"> ثبت کالا رد شده </h4>
+                </div>
+            </div>
+
+            <div class="col-xl-12 col-lg-12">
+                <div class="card mb-2 pb-2">
+                    
+                        
+                            @if (ViewBag.listp != null)
+                            {
+                                @foreach (var item in ViewBag.listp)
+                                {
+                                    
+                                        <div class="col-12 row">
+                                            <div class="col-12">
+                                                <label style="font-weight: bold; font-size:16px; color: #59b63f;"
+                                            class="text-label">
+                                                    اطلاعات درخواست
+                                                </label>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                    کد کالا:
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <p
+                                            style="font-weight: bold; font-size: 14px; margin-right: 8px; margin-top: 5px;">
+                                                    @item.Id
+                                                </p>
+                                            </div>
+                                            
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                    تاریخ ثبت:
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <p
+                                            style="font-weight: bold; font-size: 14px; margin-right: 8px; margin-top: 5px;">
+                                                    @item.Time
+                                                </p>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                    دسته اصلی:
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <p
+                                            style="font-weight: bold; font-size: 14px; margin-right: 8px; margin-top: 5px;">
+                                                    @item.FatherCat
+                                                </p>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                    دسته فرعی :
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <p
+                                            style="font-weight: bold; font-size: 14px; margin-right: 8px; margin-top: 5px;">
+                                                     @item.Cat
+                                                </p>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                    زیر دسته فرعی:
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <p
+                                            style="font-weight: bold; font-size: 14px; margin-right: 8px; margin-top: 5px;">
+                                                    @item.ChildCat
+                                                </p>
+                                            </div>
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                     در گروه :
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <p
+                                            style="font-weight: bold; font-size: 14px; margin-right: 8px; margin-top: 5px;">
+                                                    @item.Special
+                                                </p>
+                                            </div>
+                                             
+
+                                            <hr>
+                                            <div class="col-12">
+                                                <label style="font-weight: bold; font-size:16px; color: #59b63f;"
+                                            class="text-label">
+                                                    اطلاعات عنوان و توضیحات
+                                                </label>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                    عنوان:
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <p
+                                            style="font-weight: bold; font-size: 14px; margin-right: 8px; margin-top: 5px;">
+                                                     @item.Title_Pro
+                                                </p>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                    توضیحات:
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <p
+                                            style="font-weight: bold; font-size: 14px; margin-right: 8px; margin-top: 5px;">
+                                                     @item.Discreption_Pro
+                                                </p>
+                                            </div>
+
+                                            <hr>
+                                            <div class="col-12">
+                                                <label style="font-weight: bold; font-size:16px; color: #59b63f;"
+                                            class="text-label">
+                                                    نوع
+                                                </label>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                    نوع کالا:
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <p
+                                            style="font-weight: bold; font-size: 14px; margin-right: 8px; margin-top: 5px;">
+                                                   @item.Type_pro  
+                                                </p>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                    نوع معامله :
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <p
+                                            style="font-weight: bold; font-size: 14px; margin-right: 8px; margin-top: 5px;">
+                                                   @item.Type_Transaction 
+                                                </p>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                    تعداد موجودی :
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <p
+                                            style="font-weight: bold; font-size: 14px; margin-right: 8px; margin-top: 5px;">
+                                                    @item.Total عدد
+                                                </p>
+                                            </div>
+                                            <hr>
+                                            <div class="col-12">
+                                                <label style="font-weight: bold; font-size:16px; color: #59b63f;"
+                                            class="text-label">
+                                                    قیمت گذاری
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                    قیمت کالا:
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <p id="mp1"
+                                            style="font-weight: bold; font-size: 14px; margin-right: 8px; margin-top: 5px;">
+                                                    @item.Main_Price تومان
+                                                </p>
+                                            </div>
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                    قیمت با تخفیف کالا:
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <p id="mp"
+                                            style="font-weight: bold; font-size: 14px; margin-right: 8px; margin-top: 5px;">
+                                                 @item.Discount_Price تومان
+                                                </p>
+                                            </div>
+                                            <script>
+                                                document.getElementById("mp").innerText=document.getElementById("mp").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                                document.getElementById("mp1").innerText=document.getElementById("mp1").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                            </script>
+                                            <hr>
+                                            <div class="col-12">
+                                                <label style="font-weight: bold; font-size:16px; color: #59b63f;"
+                                            class="text-label">
+                                                    عکس های کالا
+                                                </label>
+                                            </div>
+                                            <div class="col-6">
+                                                <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                    عکس اصلی:
+                                                </label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                <img src="~/fileupload/@item.Image" class=" p-2" style="width: 100% ;height: 100%;border-radius: 15%;">
+                                                </div>
+                                                <div class="col-6 text-danger">
+                                                
+                                                        (برای مشاهده کامل عکس  روی عکس مورد نظر کلیک کنید)
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    
+                                    <div class="row">
+                                    @if (ViewBag.FImage != null)
+                                        {
+                                               <div class="col-12 mb-1">
+                                                    <label style="font-weight: bold; font-size:14px" class="text-label">
+                                                        عکس های فرعی:
+                                                       
+                                                    </label>
+                                                </div>
+                                                 
+
+                                            foreach (var item1 in ViewBag.FImage)
+                                            {
+                                                
+                                            
+
+                                              
+                                                <div class="col-4 mb-1">
+                                                    <img src="~/fileupload/@item1.ImagePath" class="p-1" style="width: 100% ;height: 100%;border-radius: 10%;">
+                                                </div>
+                                                   }
+                                                  
+
+                                       
+                                        } 
+                                          </div>
+                                          <hr>
+                                           
+                                    
+
+                                
+                                <div class="row mb-2 pr-2 pl-2">
+                                     
+                                    <div class="col-12 mb-1 " style="text-align: center;">
+                                        <p class="text-danger"> توجه فرمایید که در صورت ویرایش ، کالای شما مجددا وارد مراحل تایید خواهد شد </p>
+                                    </div>
+                                
+                                     <div class="col-6 mb-1 ">
+                                        <a href="/YourAccount/Edit/?b=@item.Id" class="btn btn-sm btn-success btn-block hover1 text-light"
+                                            style="font-weight: bold; font-size:16px;  border-color: green;"> ویرایش </a>
+                                    </div>
+                                     <div class="col-6 mb-1 ">
+                                        <a href="/YourAccount/ReturnShow/?b=@item.Id" class="btn btn-sm btn-warning btn-block hover1 text-light"
+                                            style="font-weight: bold; font-size:16px;  border-color: green;"> علت </a>
+                                    </div>
+                                </div>
+                                    
+                                
+                                <div class="row  pr-2 pl-2">
+                                    <div class="col-6 mb-1">
+                                        <a  onclick="return confirm('آیا از حذف آیتم مطمئن هستید؟');"  href="/YourAccount/Del?b=@item.Id" class="btn btn-sm btn-danger btn-block hover1 text-light"
+                                            style="font-weight: bold; font-size:16px;  border-color: green;"> حذف </a>
+                                    </div>
+                                    <div class="col-6 mb-1">
+                                        <a  href="/YourAccount/Profile" style="font-weight: bold; font-size:16px;  border-color: green;"
+                                            class="btn btn-sm btn-info btn-block hover1 text-light"> بازگشت </a>
+                                    </div>
+                                </div>
+                                
+                           
+                                } ;
+                            }
+
+
+                        </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

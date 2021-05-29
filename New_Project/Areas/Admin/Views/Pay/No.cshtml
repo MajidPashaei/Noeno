@@ -1,0 +1,66 @@
+
+
+    <!-- BEGIN: Content-->
+<section id="data-list-view" class="data-list-view-header">
+  <!-- DataTable starts -->
+  <div class="table-responsive">
+    <table class="table data-list-view">
+      <thead>
+        <tr>
+          <th></th>
+          <th>ردیف</th>
+          <th> کد ثبت </th>
+          <th>  عنوان  </th>
+           <th> زمان ثبت </th>
+           <th> عکس کالا </th>
+           <th> کاربر  </th>
+          <th> عملیات</th>
+        </tr>
+      </thead>
+      <tbody>
+@{
+  if (ViewBag.listp != null)
+  {
+    int i=1;
+    foreach (var item in ViewBag.listp)
+    {
+        <tr>
+          <td></td>
+          <td class="product-category"> @i</td>
+          <td class="product-name">@item.Product_Id</td>
+            <td class="product-category">@item.Title_Pro </td>
+
+            <td class="product-category">@item.Time </td>
+            <td class="product-category"> <img src="~/fileupload/@item.Image" style="width: 80px ;height: 80px;border-radius: 50%;"></td>
+               <td class="product-category">@item.Name</td>
+           <td class="product-action">
+             <div class="col-lg-3 col-md-3 mb-1">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <a href="/admin/kala/DetailNo?b=@item.Product_Id" class="btn btn-primary btn-sm" >  جزییات </a>
+                  <a href="/admin/kala/ReturnShow?b=@item.Product_Id" class="btn btn-warning btn-sm" >  علت </a>
+                   <a  onclick="return confirm('آیا از حذف آیتم مطمئن هستید؟');"  href="/admin/kala/delno?s=@item.Product_Id" class="btn btn-danger btn-sm" 
+                                            > حذف </a>
+                  
+                </div>
+              </div>
+          </td>
+        </tr>
+       i++;
+
+    }
+    
+  }
+
+
+     
+
+
+}
+ </tbody>
+    </table>
+  </div>
+
+      
+
+      </section>
+<!-- Data list view end -->

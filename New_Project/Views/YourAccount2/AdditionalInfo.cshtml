@@ -1,0 +1,198 @@
+@model ViewModel.Entities.User.Vm_User;
+<!-- Start main-content -->
+<main class="main-content dt-sl mt-4 mb-3">
+    <div class="container main-container">
+        <div class="row">
+
+            <!-- Start Sidebar -->
+          
+            <!-- End Sidebar -->
+
+            <!-- Start Content -->
+            <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
+                <div class="row">
+                    <div class="col-md-10 col-sm-12 mx-auto">
+                        <div class="px-3 px-res-0">
+                            <div
+                                class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2 px-res-1">
+                                <h2> ثبت اطلاعات خرید </h2>
+                            </div>
+                   
+                            <div class="form-ui additional-info dt-sl dt-sn pt-4">
+                                <form action="/yourAccount2/Update" method="POST" enctype="multipart/form-data">
+
+                                  
+                                    
+                                        <div class="form-row-title">
+                                            
+                                        <h3> نام و نام خانوادگی</h3>
+                                    </div>
+                                     <input  asp-for="Id"   style="display: none;"  >
+                                    <div class="form-row">
+                                        <input  asp-for="NameFamily"  type="text" class="input-ui pr-2"
+                                            placeholder="نام و خانوادگی خود را وارد نمایید" placeholder="-">
+                                    </div>
+
+                           
+                                    <div class="form-row-title">
+                                        <h3>شماره موبایل</h3>
+                                    </div>
+                                    <div class="form-row" >
+                                        <input asp-for="Phone" type="text" class="input-ui pl-2 text-left dir-ltr"
+                                            placeholder="شماره موبایل خود را وارد نمایید" disabled >
+                                    </div>
+
+
+
+                                    @* <div class="form-row-title">
+                                        <h3> شهر </h3>
+                                    </div>
+                                    <div class="form-row">
+                                        <input asp-for="city" type="text" class="input-ui pl-2 text-left dir-ltr"
+                                            placeholder="شهر محل سکونت خود را وارد نمایید" >
+                                    </div>
+                                    <div class="form-row-title">
+                                        <h3> استان </h3>
+                                    </div>
+                                    <div class="form-row">
+                                        <input asp-for="State" type="text" class="input-ui pl-2 text-left dir-ltr"
+                                            placeholder=" " >
+                                    </div> *@
+                                             <div style="margin-top: 1cm;">
+                                              
+                                           <input type="text" asp-for="State" style="display: none;">
+                                                <div  >
+                        
+                                                <div class="form-group"  class="form-row with-icon">
+                                                    <select id="ostan" autocomplete="off"  oninput="setCustomValidity('')"   style="width: 100%;"  onchange="Func(this.value)">
+                                                
+                                                        <option >استان خود را انتخاب نمایید</option>
+                                                        <option value="آذرشهر ,اسکو ,اهر ,بستان‌آباد ,بناب ,تبریز ,جلفا ,چاراویماق ,سراب ,شبستر ,عجب‌شیر ,کلیبر ,مراغه ,مرند ,ملکان ,میانه ,ورزقان ,هریس ,هشترود">آذربایجان شرقی</option>
+                                                        <option value="  ارومیه ,اشنویه ,بوکان ,پیرانشهر ,تکاب ,چالدران ,خوی ,سردشت ,سلماس ,شاهین‌دژ ,ماکو ,مهاباد ,میاندوآب ,نقده,شوط,چایپاره,پلدشت">آذربایجان غربی</option>
+                                                        <option value="  اردبیل ,بیله‌سوار ,پارس‌آباد ,خلخال ,کوثر ,گِرمی ,مِشگین‌شهر ,نَمین ,نیر">اردبیل</option>
+                                                        <option value="  آران و بیدگل ,اردستان ,اصفهان ,برخوار و میمه ,تیران و کرون ,چادگان ,خمینی‌شهر ,خوانسار ,سمیرم ,شهرضا ,سمیرم سفلی ,فریدن ,فریدون‌شهر ,فلاورجان ,کاشان ,گلپایگان ,لنجان ,مبارکه ,نائین ,نجف‌آباد ,نطنز">اصفهان</option>
+                                                        <option value="  آبدانان ,ایلام ,ایوان ,دره‌شهر ,دهلران ,شیروان و چرداول ,مهران">ایلام</option>
+                                                        <option value="  بوشهر ,تنگستان ,جم ,دشتستان ,دشتی,دیر ,دیلم ,کنگان ,گناوه">بوشهر</option>
+                                                        <option value="  اسلام‌شهر ,پاکدشت ,تهران ,دماوند ,رباط‌کریم ,ری ,ساوجبلاغ ,شمیرانات ,شهریار ,فیروزکوه ,کرج ,نظرآباد ,ورامین">تهران</option>
+                                                        <option value="  ردل ,بروجن ,شهرکرد ,فارسان ,کوهرنگ ,لردگان">چهارمحال و بختیاری</option>
+                                                        <option value="  یرجند ,درمیان ,سرایان ,سربیشه ,فردوس ,قائنات,نهبندان">خراسان جنوبی</option>
+                                                        <option value="  ردسکن ,تایباد ,تربت جام ,تربت حیدریه ,چناران ,خلیل‌آباد ,خواف ,درگز ,رشتخوار ,سبزوار ,سرخس ,فریمان ,قوچان ,کاشمر ,کلات ,گناباد ,مشهد ,مه ولات ,نیشابور">خراسان رضوی</option>
+                                                        <option value="  سفراین ,بجنورد ,جاجرم ,شیروان ,فاروج ,مانه و سملقان">خراسان شمالی</option>
+                                                        <option value="  بادان ,امیدیه ,اندیمشک ,اهواز ,ایذه ,باغ‌ملک ,بندر ماهشهر ,بهبهان ,خرمشهر ,دزفول ,دشت آزادگان ,رامشیر ,رامهرمز ,شادگان ,شوش ,شوشتر ,گتوند ,لالی ,مسجد سلیمان,هندیجان ">خوزستان</option>
+                                                        <option value="  بهر ,ایجرود ,خدابنده ,خرمدره ,زنجان ,طارم ,ماه‌نشان">زنجان</option>
+                                                        <option value="  دامغان ,سمنان ,شاهرود ,گرمسار ,مهدی‌شهر">سمنان</option>
+                                                        <option value="  ایرانشهر ,چابهار ,خاش ,دلگان ,زابل ,زاهدان ,زهک ,سراوان ,سرباز ,کنارک ,نیک‌شهر">سیستان و بلوچستان</option>
+                                                        <option value="  آباده ,ارسنجان ,استهبان ,اقلید ,بوانات ,پاسارگاد ,جهرم ,خرم‌بید ,خنج ,داراب ,زرین‌دشت ,سپیدان ,شیراز ,فراشبند ,فسا ,فیروزآباد ,قیر و کارزین ,کازرون ,لارستان ,لامِرد ,مرودشت ,ممسنی ,مهر ,نی‌ریز">فارس</option>
+                                                        <option value="  آبیک ,البرز ,بوئین‌زهرا ,تاکستان ,قزوین">قزوین</option>
+                                                        <option value="  قم">قم</option>
+                                                        <option value="  بانه ,بیجار ,دیواندره ,سروآباد ,سقز ,سنندج ,قروه ,کامیاران ,مریوان">کردستان</option>
+                                                        <option value="  بافت ,بردسیر ,بم ,جیرفت ,راور ,رفسنجان ,رودبار جنوب ,زرند ,سیرجان ,شهر بابک ,عنبرآباد ,قلعه گنج ,کرمان ,کوهبنان ,کهنوج ,منوجان">کرمان</option>
+                                                        <option value="  اسلام‌آباد غرب ,پاوه ,ثلاث باباجانی ,جوانرود ,دالاهو ,روانسر ,سرپل ذهاب ,سنقر ,صحنه ,قصر شیرین ,کرمانشاه ,کنگاور ,گیلان غرب ,هرسین">کرمانشاه</option>
+                                                        <option value="  بویراحمد ,بهمئی ,دنا ,کهگیلویه ,گچساران">کهگیلویه و بویراحمد</option>
+                                                        <option value="  آزادشهر ,آق‌قلا ,بندر گز ,ترکمن ,رامیان ,علی‌آباد ,کردکوی ,کلاله ,گرگان ,گنبد کاووس ,مراوه‌تپه ,مینودشت">گلستان</option>
+                                                        <option value="  آستارا ,آستانه اشرفیه ,اَملَش ,بندر انزلی ,رشت ,رضوانشهر ,رودبار ,رودسر ,سیاهکل ,شَفت ,صومعه‌سرا ,طوالش ,فومَن ,لاهیجان ,لنگرود ,ماسال">گیلان</option>
+                                                        <option value="  ازنا ,الیگودرز ,بروجرد ,پل‌دختر ,خرم‌آباد ,دورود ,دلفان ,سلسله ,کوهدشت">لرستان</option>
+                                                        <option value="  آمل ,بابل ,بابلسر ,بهشهر ,تنکابن ,جویبار ,چالوس ,رامسر ,ساری ,سوادکوه ,قائم‌شهر ,گلوگاه ,محمودآباد ,نکا ,نور ,نوشهر">مازندران</option>
+                                                        <option value="  آشتیان ,اراک ,تفرش ,خمین ,دلیجان ,زرندیه ,ساوه ,شازند ,کمیجان ,محلات">مرکزی</option>
+                                                        <option value="  ابوموسی ,بستک ,بندر عباس ,بندر لنگه ,جاسک ,حاجی‌آباد ,شهرستان خمیر ,رودان  ,قشم ,گاوبندی ,میناب">هرمزگان</option>
+                                                        <option value="  اسدآباد ,بهار ,تویسرکان ,رزن ,کبودرآهنگ ,ملایر ,نهاوند ,همدان">همدان</option>
+                                                        <option value="  ابرکوه ,اردکان ,بافق ,تفت ,خاتم ,صدوق ,طبس ,مهریز ,مِیبُد ,یزد">یزد</option>
+                                                    </select>
+                    
+                                                </div>
+                                        </div>
+                                         </div>
+                                        <div class="form-row"   class="form-row with-icon">
+                                        <select style="width: 100%;" asp-for="city"  ></select>
+                    
+                        
+		                	        </div>
+
+
+
+
+
+
+
+
+
+                                    <div class="form-row-title">
+                                        <h3> کدپستی </h3>
+                                    </div>
+                                    <div class="form-row">
+                                        <input asp-for="Post" type="text" class="input-ui pl-2 "
+                                            placeholder="کدپستی محل سکونت خود را وارد نمایید" >
+                                    </div>
+
+                                      <div class="form-row-title">
+                                            
+                                        <h3> ادرس</h3>
+                                    </div>
+                                     <input   style="display: none;"  >
+                                    <div class="form-row">
+                                        <input  asp-for="Address"  type="text" class="input-ui pr-2"
+                                            placeholder="لطفا ادرس خود رو وارد کنید" placeholder="-">
+                                    </div>
+
+                                    
+
+                                
+                                  
+                                  
+                                    <hr>
+                                
+                                    <hr>
+                                    <div class="dt-sl">
+                                        <div class="form-row mt-3 justify-content-center">
+                                            <button  type="submit"
+                                                class="btn-primary-cm btn-with-icon ml-2">
+                                                <i class="mdi mdi-account-circle-outline"></i>
+                                                ثبت اطلاعات کاربری
+                                            </button>
+                                            <a href="#"
+                                                class="btn-primary-cm bg-secondary">انصراف</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Content -->
+
+        </div>
+        <!-- Start Product-Slider -->
+   
+        <!-- End Product-Slider -->
+    </div>
+</main>
+<!-- End main-content -->
+
+
+ <script> 
+ function Func(Shahrestanha) {
+  
+
+//////ostan
+         var vSkill = document.getElementById('ostan');
+
+       var vSkillText = vSkill.options[vSkill.selectedIndex].innerHTML;
+
+       document.getElementById('State').value=vSkillText;
+//////////
+
+       var _Shahrestan = document.getElementById("city");
+       _Shahrestan.options.length = 0;
+       if(Shahrestanha != "") {
+          var arr = Shahrestanha.split(",");
+          for(i = 0; i < arr.length; i++) {
+              if(arr[i] != "") {
+                 _Shahrestan.options[_Shahrestan.options.length]=new Option(arr[i],arr[i]);
+              }
+          }
+       }
+   }
+
+
+</script>

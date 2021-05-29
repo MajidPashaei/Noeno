@@ -1,0 +1,153 @@
+
+        <!-- Start main-content -->
+        <main class="main-content dt-sl mt-4 mb-3">
+            <div class="container main-container">
+                <div >
+                     <div class="px-3">
+            <div style="border-radius: 9px; background-image: url(../assets/img/theme/bkg.png);" class="dt-sl dt-sn mb-3">
+                <div class="profile-sidebar-header dt-sl">
+                    @if (ViewBag.I != null)
+                    {
+                        foreach(var item in ViewBag.I){
+                                    <div class="row profile-avatar float-right">
+                                                <img src="~/FileUpload/@item.Image" class="mr-3" alt="">
+                                    <div class="profile-header-content mr-3 mt-2 float-right">
+                                        <span class="d-block profile-username"  style="font-size: 12px;">
+                                            @item.NameFamily  |  @item.State ، @item.city
+                                        </span>
+                                        <span  style="font-size: 12px;">
+                                            @item.Phone  | بازدید : 3ساعت پیش
+                                        </span>
+                                    </div>
+                            </div>
+                            <div class="profile-point mt-3 mb-2 dt-sl">
+                            <div class="row" style="display: flex; justify-content: center;">
+                                <span class="mr-2 ml-2  label-profile-point">تعداد کالا</span>
+                                <span class="mr-2 ml-2  label-profile-point">مدت فعالیت</span>
+                                <span class="mr-2 ml-2  label-profile-point">معامله در نو نو</span>
+                            </div>
+                            <div class="row" style="display: flex; justify-content: center;">
+                                
+                                <span class="mr-3 ml-5 mb-1">8 </span>
+                                <span class="mr-3 ml-3  mb-1">6 ماه </span>
+                                <span class="mr-5 ml-1  mb-1">25  موفق</span>
+                            </div>
+                            </div>
+                            <div class="profile-link mt-2 dt-sl">
+                                <div class="row">
+                                    <div class="col-6 text-center">
+                                        <a style="background-color:#1F8BFF  ;color: #fff;  font-size: 12px;" href="#" class="btn-primary-cm   btn-with-icon" >
+                                            <img src="~/assets/img/theme/chat-cart.png"  alt="">
+                                            چت با فروشنده
+                                        </a>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <a style="background-color:#90A4AE  ;color: #fff;  font-size: 12px;" href="#" class="btn-primary-cm   btn-with-icon" >
+                                                        <img src="~/assets/img/theme/Sh.png" width="24px" height="20px" alt=""> اشترلک گذاری
+                                        </a> 
+                                    </div>
+                                </div>
+                            </div> 
+
+                        }
+                      
+                    }
+                    
+                </div>
+            </div>
+        </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2 px-0">
+                        <nav class="tab-cart-page">
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a  id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">لیست کالا های فروشنده </a>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col-12">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+
+                                            <section class="slider-section dt-sl ">
+                                                        <div class="row p-2" style="">
+                                                            <a class="btn btn-warning" href="#">مشاهده همه</a>
+                                                        </div>
+                                                        <div class="product-carousel carousel-lg owl-carousel owl-theme">
+                                                            <div class="item">
+                                                                <div class="product-card mb-3">
+                                                                    <a class="product-thumb" href="shop-single.html">
+                                                                        <img src="~/assets/img/products/07.jpg" alt="Product Thumbnail">
+                                                                    
+                                                                    <div class="product-card-body">
+                                                                        <h5 class="product-title">
+                                                                            <a href="shop-single.html">مانتو زنانه</a>
+                                                                        </h5>
+                                                                        <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                                                        <span class="product-price">157,000 تومان</span>
+                                                                    </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="product-card mb-3">
+                                                                    <a class="product-thumb" href="shop-single.html">
+                                                                        <img src="~/assets/img/products/07.jpg" alt="Product Thumbnail">
+                                                                    
+                                                                    <div class="product-card-body">
+                                                                        <h5 class="product-title">
+                                                                            <a href="shop-single.html">مانتو زنانه</a>
+                                                                        </h5>
+                                                                        <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                                                        <span class="product-price">157,000 تومان</span>
+                                                                    </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="product-card mb-3">
+                                                                    <a class="product-thumb" href="shop-single.html">
+                                                                        <img src="~/assets/img/products/07.jpg" alt="Product Thumbnail">
+                                                                    
+                                                                    <div class="product-card-body">
+                                                                        <h5 class="product-title">
+                                                                            <a href="shop-single.html">مانتو زنانه</a>
+                                                                        </h5>
+                                                                        <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                                                        <span class="product-price">157,000 تومان</span>
+                                                                    </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="product-card mb-3">
+                                                                    <a class="product-thumb" href="shop-single.html">
+                                                                        <img src="~/assets/img/products/07.jpg" alt="Product Thumbnail">
+                                                                    
+                                                                    <div class="product-card-body">
+                                                                        <h5 class="product-title">
+                                                                            <a href="shop-single.html">مانتو زنانه</a>
+                                                                        </h5>
+                                                                        <a class="product-meta" href="shop-categories.html">لباس زنانه</a>
+                                                                        <span class="product-price">157,000 تومان</span>
+                                                                    </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>           
+                                            </section>
+                               
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+        <!-- End main-content -->

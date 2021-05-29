@@ -1,0 +1,243 @@
+.btn-primary-cm {
+    background-color: #febd69;
+}
+
+header.main-header .search-area form.search button {
+    background: #febd69;
+}
+
+header.main-header .nav-link span.count {
+    background-color: #febd69;
+}
+
+header.main-header .dropdown-menu .dropdown-item:hover,
+header.main-header .dropdown-menu .dropdown-item:focus,
+header.main-header .dropdown-menu .dropdown-item:active {
+    color: #febd69;
+}
+
+header.main-header .main-menu .list>.list-item>a::before {
+    background-color: #febd69;
+}
+
+header.main-header .main-menu .list>.list-item:hover>a {
+    color: #febd69;
+}
+
+header.main-header .main-menu .list .list-item-has-children .sub-menu a:hover {
+    color: #febd69;
+}
+
+header.main-header .main-menu .list .list-item.mega-menu>.sub-menu>li>a:hover {
+    color: #febd69;
+}
+
+header.main-header .main-menu .list .list-item.mega-menu .sub-menu .sub-menu li a:hover {
+    color: #febd69;
+}
+
+.title-wide a {
+    color: #febd69;
+}
+
+.product-carousel .owl-dot.active span,
+.product-carousel .owl-dot:hover span {
+    background: #febd69;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    border-color: #febd69;
+    background-color: #febd69;
+}
+
+.discount span {
+    background: #febd69;
+}
+
+.product-card .product-title>a {
+    color: #febd69;
+}
+
+.promotion-badge {
+    color: #febd69;
+    border-bottom: 1px solid #febd69;
+}
+
+.widget-suggestion .slide-progress {
+    border-color: #febd69;
+}
+
+.widget-suggestion .owl-dot.active span,
+.widget-suggestion .owl-dot:hover span {
+    background: #febd69;
+}
+
+.widget-search button.btn-search-widget {
+    background-color: #febd69;
+}
+
+.filter-product .card .card-header button i {
+    color: #febd69;
+}
+
+.parent-switcher input[type=checkbox]:checked+.ui-statusswitcher-slider {
+    background-color: #febd69;
+    border-color: #febd69;
+}
+
+.noUi-horizontal .noUi-handle.noUi-handle-lower {
+    background-color: #febd69
+}
+
+.noUi-horizontal .noUi-handle.noUi-handle-upper {
+    background-color: #febd69
+}
+
+.noUi-connect {
+    background: #febd69 !important;
+}
+
+.header-cover {
+    background-color: #febd69;
+}
+
+.search-amazing-tab .ah-tab>.ah-tab-item[data-ah-tab-active="true"] {
+    background-color: #febd69;
+}
+
+.pagination a.active-page {
+    background-color: #febd69;
+    border-color: #febd69;
+}
+
+.product-gallery .badge {
+    background-color: #febd69;
+}
+
+.product-gallery .product-thumbnails>li.active>a {
+    border-color: #febd69;
+}
+
+.product-gallery .product-thumbnails>li>a>i {
+    color: #febd69;
+}
+
+input[type=radio]:checked+.ui-variant--check {
+    border-color: #febd69;
+}
+
+.accordion-product h5 button::before {
+    background-color: #febd69;
+}
+
+.rating--general .rating-rate {
+    background-color: #febd69;
+}
+
+.form-ui .form-footer a {
+    color: #febd69;
+    border-bottom: 1px dashed #febd69;
+}
+
+#countdown-verify-end a.btn-link-border {
+    color: #febd69;
+}
+
+#countdown-verify-end a.btn-link-border:after {
+    border-color: #febd69;
+}
+
+.profile-section .list-favorites li button {
+    color: #febd69;
+    outline: none;
+}
+
+a.border-bottom-dt {
+    color: #febd69;
+    border-bottom: 1px dashed #febd69;
+}
+
+.comparison-table .remove-item {
+    color: #febd69;
+}
+
+.tab-cart-page a.active {
+    border-bottom-color: #febd69 !important;
+}
+
+.tab-cart-page a span.count-cart {
+    background-color: #febd69;
+}
+
+.checkout-header--express {
+    color: #febd69;
+    border-bottom-color: #febd69;
+}
+
+.checkout-summary-price-value {
+    color: #febd69;
+}
+
+.shopping-page header.header-shopping .checkout-steps li.active::before {
+    background-color: #febd69;
+}
+
+.shopping-page header.header-shopping .checkout-steps li a.active {
+    color: #febd69;
+}
+
+.shopping-page header.header-shopping .checkout-steps li a.active::after {
+    background-color: #febd69;
+}
+
+.shopping-page .checkout-contact-content:before {
+    background-color: #febd69;
+}
+
+.shopping-page .checkout-contact-btn-edit {
+    color: #febd69 !important;
+    border-bottom: 1px dashed #febd69;
+}
+
+.shopping-page .checkout-contact-badge {
+    border: 1px solid #febd69;
+    color: #febd69;
+}
+
+.checkout-address-box.is-selected .checkout-address-btn-submit {
+    background-color: #febd69;
+}
+
+.shopping-page .checkout-additional-options-checkbox-image {
+    color: #febd69;
+}
+
+footer.main-footer .back-to-top .icon {
+    color: #febd69;
+}
+
+footer.main-footer .newsletter form .btn {
+    background-color: #febd69;
+}
+
+footer.main-footer .newsletter form .btn:focus,
+footer.main-footer .newsletter form .btn:active {
+    background-color: #febd69;
+}
+
+footer.main-footer .newsletter form .btn:hover {
+    background-color: #febd69 !important;
+}
+
+footer.main-footer .socials .footer-social ul li a:hover {
+    background-color: #febd69;
+}
+
+.shopping-page .checkout-contact-content:before {
+    background-color: #febd69;
+}
+
+.shopping-page .checkout-contact-badge {
+    border: 1px solid #febd69;
+    color: #febd69;
+}

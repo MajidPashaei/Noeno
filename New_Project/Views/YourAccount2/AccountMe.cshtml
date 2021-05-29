@@ -1,0 +1,376 @@
+<!-- Start main-content -->
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<main class="main-content dt-sl mt-4 mb-3">
+    <div class="container main-container">
+        <div class="row">
+
+            <!-- Start Sidebar -->
+            @await Html.PartialAsync("_Partial_profile")
+            <!-- End Sidebar -->
+
+            <!-- Start Content -->
+            <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="dt sl dt-sn pt-3 pb-5">
+                            <p style="font-weight: bold; margin-right: 21px;">حساب اعتبار شما</p>
+                            <div class="cart-page cart-empty">
+                               
+                                               
+                                <div>
+
+                                        @if (@HttpContextAccessor.HttpContext.Session.GetString("img") != null)
+      {
+        var b=@HttpContextAccessor.HttpContext.Session.GetString("img");
+       <div class="user-profile"><img style="width: 105px; border-radius: 50px;" src="~/fileupload/@b" alt=""></div>
+          
+      }else
+      {
+        <div class="user-profile"><img style="width: 105px; border-radius: 50px;" src="~/assets/image/users-vector-icon-png_260862" alt=""></div>
+      }
+      
+                             
+                                <p style="font-weight: bold;"> @HttpContextAccessor.HttpContext.Session.GetString("name") <span
+                                        style="color: #858585;">@HttpContextAccessor.HttpContext.Session.GetString("mobile")</span></p>
+
+                                <p style=" font-size: 21px; color: #858585;"> اعتبار فعلی شما: </p>
+                                <div style="font-weight: bold; font-size: 23px;" id="mp"><span>@HttpContextAccessor.HttpContext.Session.GetString("pay")</span> تومان </div>
+                                <br>
+                                <script>
+                                    document.getElementById("mp").innerText=document.getElementById("mp").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                 
+                                </script>
+                                @* <p>می‌توانید برای مشاهده محصولات بیشتر به صفحات زیر بروید:</p> *@
+                                <div class="cart-empty-links mb-5">
+                                    <a href="#" class="border-bottom-dt"> </a>
+                                    <a href="#" class="border-bottom-dt"> </a>
+                                    <a href="#" class="border-bottom-dt"> </a>
+                                </div>
+                                </div>
+                                        
+
+                                <a onclick="myFunction1()" style="background-color: #00c09d; color: #ffffff;"
+                                    class="btn-primary-cm">افزایش اعتبار با کارت بانکی</a>
+                                <br>
+                                <br>
+                              
+
+                                <div style=" text-align: center;" >
+                                  <p style="font-weight: bold;"> مبلغ  را به تومان وارد نمایید </p>
+                                    <input   id="pay25" style="text-align: center; border-radius: 10px;font-size: 19px;"  class="input-ui pl-2 text-left dir-ltr" placeholder="مبلغ راوارد نمایید">
+                                
+                                 <a onclick="sendpay();" style="background-color: #00c09d; color: #ffffff;"
+                                    class="btn-primary-cm"> پرداخت </a>
+                                </div>
+
+                                <br>
+
+                                @* <a onclick="myFunction2()" style="color: #00c09d; font-size: 16px;" >درخواست برداشت </a>
+                                       <br>
+                                <br> *@
+                              
+
+                                @* <div style="display: none; text-align: center;" id="myDIV2">
+                                  <p style="font-weight: bold;"> مبلغ  را به تومان وارد نمایید </p>
+                                    <input style="text-align: center; border-radius: 10px;font-size: 19px;" type="text" class="input-ui pl-2 text-left dir-ltr" placeholder="مبلغ راوارد نمایید">
+                                
+                                 <a href="#" style="background-color: #00c09d; color: #ffffff;"
+                                    class="btn-primary-cm"> برداشت </a>
+                                </div> *@
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <script>
+                        function myFunction1() {
+
+                            var x = document.getElementById("myDIV1");
+                            if (x.style.display === "none") {
+                                x.style.display = "block";
+                            } else {
+                                x.style.display = "none";
+                            }
+                        }
+                    </script>
+
+                     <script>
+                        function myFunction2() {
+
+                            var x = document.getElementById("myDIV2");
+                            if (x.style.display === "none") {
+                                x.style.display = "block";
+                            } else {
+                                x.style.display = "none";
+                            }
+                        }
+                    </script>
+
+
+
+
+                    <div class="col-12 mt-4">
+                        @* <div
+                            class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2 px-res-1">
+                            <h2>تاریخچه مرجوعی</h2>
+                        </div> *@
+                        <div class="dt-sl">
+                            <div class="table-responsive">
+                                <table class="table table-order">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                           <th>ردیف</th>
+                                            <th> مبلغ واریز</th>
+                                            <th> شماره تلفن همراه</th>
+                                            <th>  زمان واریز</th>
+                                            <th> نام و نام خانوادگی</th>
+                                            <th>عملیات پرداخت</th>
+                                            @* <th>جزییات</th> *@
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (ViewBag.list2!=null)
+                                        {
+                                            int i=1;
+                                            
+                                            @foreach (var item in ViewBag.list2)
+                                            {
+                                                
+                                           
+                                            
+                                       
+                                        <tr>
+                                            <td></td>
+                                            <td>@i</td>
+                                            <td>@item.Pay</td>
+                                            <td>@item.Phone</td>
+                                            <td>@item.Paytime</td>
+                                            <td>@item.NameFamily</td>
+                                            <td>پرداخت موفق </td>
+                                            @* <td class="details-link">
+                                                <a href="/YourAccount/OrderDetails">
+                                                    <i class="mdi mdi-chevron-left"></i>
+                                                </a>
+                                            </td> *@
+                                        </tr>
+                                        i++;
+                                         }
+                                      }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- End Content -->
+
+
+
+
+        </div>
+
+        <!-- Start Product-Slider -->
+        <section class="slider-section dt-sl mt-5 mb-5">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="section-title text-sm-title title-wide no-after-title-wide">
+                        <h2>محصولات پیشنهادی برای شما</h2>
+                        <a href="/home/category">مشاهده همه</a>
+                    </div>
+                </div>
+
+                <!-- Start Product-Slider -->
+                <div class="col-12 px-res-0">
+                    <div class="product-carousel carousel-lg owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                    </div>
+                                    <div class="discount">
+                                        <span>20%</span>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/07.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">مانتو زنانه</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس زنانه</a>
+                                    <span class="product-price">157,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/017.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">کت مردانه</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس مردانه</a>
+                                    <span class="product-price">199,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star"></i>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/013.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">مانتو زنانه مدل هودی تیک تین</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس زنانه</a>
+                                    <span class="product-price">135,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star"></i>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/09.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">مانتو زنانه</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس زنانه</a>
+                                    <span class="product-price">145,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/010.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">مانتو زنانه</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس زنانه</a>
+                                    <span class="product-price">170,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star"></i>
+                                    </div>
+                                    <div class="discount">
+                                        <span>20%</span>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/011.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">مانتو زنانه</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس زنانه</a>
+                                    <span class="product-price">185,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="product-card mb-3">
+                                <div class="product-head">
+                                    <div class="rating-stars">
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star active"></i>
+                                        <i class="mdi mdi-star"></i>
+                                    </div>
+                                </div>
+                                <a class="product-thumb" href="/singlepage/index">
+                                    <img src="~/assets/img/products/019.jpg" alt="Product Thumbnail">
+                                </a>
+                                <div class="product-card-body">
+                                    <h5 class="product-title">
+                                        <a href="/singlepage/index">تیشرت مردانه</a>
+                                    </h5>
+                                    <a class="product-meta" href="/singlepage/index">لباس مردانه</a>
+                                    <span class="product-price">54,000 تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Product-Slider -->
+            </div>
+        </section>
+        <!-- End Product-Slider -->
+    </div>
+</main>
+<!-- End main-content -->
+	     <script>
+            function sendpay()
+            {
+             
+             if(document.getElementById('pay25').value != "")
+             {
+                window.location.href="/pay/index/"+document.getElementById('pay25').value;
+             }
+             
+            }
+          </script>

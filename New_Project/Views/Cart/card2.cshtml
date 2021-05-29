@@ -1,0 +1,92 @@
+@{
+    Layout = "_layout";
+}
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@model ViewModel.Entities.User.Vm_User;
+</style>
+<main class="dt-sl mt-2 mb-3">
+
+    <div class="row">
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mr-auto ml-auto">
+            @if (@ViewBag.msg != null)
+            {
+                <p style="background-color: orange; text-align: center;">@ViewBag.msg</p>
+            }
+            <div class="row">
+                <div class="col-md-10 col-sm-12 mx-auto">
+                    <div class="px-3 px-res-0">
+                        <div class="form-ui additional-info dt-sl dt-sn pt-4">
+
+                            <div class="row">
+
+
+                                <div class="col-5">
+                                    مبلغ کل سفارش :
+                                </div>
+                                <div class="col-7 text-success">
+                                    @HttpContextAccessor.HttpContext.Session.GetString("sumall")
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-5">
+                                    اعتبار کیف پول :
+                                </div>
+                                <div class="col-7 text-primary">
+                                    @HttpContextAccessor.HttpContext.Session.GetString("pay")
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                              <div class="col-4">
+                                            <div style=" text-align: center;" >
+                                                <input   id="pay25" style="text-align: center; border-radius: 10px;font-size: 12px;"  class="input-ui pl-2 text-left dir-ltr mb-2" placeholder="مبلغ رابه تومان وارد نمایید">
+                                                <a onclick="sendpay();" style="background-color: #00c09d; color: #ffffff; font-size: 10px;" class="btn-primary-cm mt-2" >درخواست پرداخت </a>
+                                            </div>
+                                        </div>
+                                        </div>
+                            <form action="/cart/payUser2" method="POST">
+                                <div class="row">
+                                    @* <div class="col-12 text-danger" style="font-size: 10px;">
+                                        در صورت تمایل برای استفاده از اعتبار کیف پول قبل از ادامه مقدار مورد نظر را وارد
+                                        نمایید و در صور عدم تمایل روند خرید را ادامه دهید.
+                                        </div>
+                                        <div class="col-12 text-warning mt-2">
+                                        <input asp-for="Price" class="form-control form-control-sm" type="number"
+                                        placeholder="میزان استفاده از اعتبار کیف پول (تومان) ">
+                                        </div> *@
+                                </div>
+                                <hr>
+
+                                <div class="dt-sl">
+                                    <div class="form-row mt-3 justify-content-center">
+                                        <button type="submit" class="btn-primary-cm btn-with-icon ml-2 text-white">
+                                            <i class="mdi mdi-account-circle-outline"></i>
+                                            ادامه خرید
+                                        </button>
+                                        <a href="#" class="btn-primary-cm bg-secondary">بازگشت</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+    <script>
+            function sendpay()
+            {
+             
+             if(document.getElementById('pay25').value != "")
+             {
+                window.location.href="/pay/index2/"+document.getElementById('pay25').value;
+             }
+             
+            }
+          </script>
+
+          

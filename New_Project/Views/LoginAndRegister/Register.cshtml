@@ -1,0 +1,166 @@
+@model ViewModel.Entities.User.Vm_User
+<!-- Start mini-header -->
+@* <header class="mini-header pt-4 pb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="logo-area-mini-header">
+                    <a href="#">
+                        <img src="~/assets/img/logo.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header> *@
+<!-- End mini-header -->
+
+<!-- Start main-content -->
+<main class="main-content dt-sl mt-4 mb-3">
+    <div class="container main-container">
+
+        <div class="row">
+            <div class="col-xl-4 col-lg-5 col-md-7 col-12 mx-auto">
+                <div class="form-ui dt-sl dt-sn pt-4">
+                    <div class="section-title title-wide mb-1 no-after-title-wide">
+                        <h2 class="font-weight-bold">ثبت‌نام / تکمیل اطلاعات</h2>
+                    </div>
+                   @if (ViewBag.msg != null)
+                        {
+                            <p class="alert alert-danger"> @ViewBag.msg</p>
+                        }
+                    <form action="/LoginAndRegister/Add">
+                        <div class="form-row-title">
+                            <h3>لطفا اطلاعات زیر را وارد کنید.</h3>
+                        </div>
+                        <div class="form-row with-icon">
+                            <input type="text" autocomplete="off"  required oninvalid="this.setCustomValidity(' نام و نام خانوادگی خود را بطور صحیح وارد نمایید.')" oninput="setCustomValidity('')"  asp-for="NameFamily"  class="input-ui pr-2" placeholder="  نام و نام خانوادگی">
+                            <i class="mdi mdi-account-circle-outline"></i>
+                        </div>
+                        <br>
+                          <div class="form-row with-icon">
+                            <input type="password" required asp-for="Password"  minlength="6"   class="input-ui pr-2" placeholder="رمز عبور (حداقل 6 کاراکتر)" autocomplete="off"  required oninvalid="this.setCustomValidity('رمز عبور  خود را بطور صحیح وارد نمایید.')" oninput="setCustomValidity('')" >
+                            <i >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                                <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z"/>
+                                <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                </svg>
+                            </i>
+                        </div>
+                         <br>
+                        
+
+                                 <div class="form-row with-icon">
+                            <input type="Password" autocomplete="off"  required oninvalid="this.setCustomValidity('تکرار رمز عبور  خود را بطور صحیح وارد نمایید.')" oninput="setCustomValidity('')"  asp-for="RPass"  minlength="6"   class="input-ui pr-2" placeholder="   تکرار رمز عبور">
+                            <i >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                                    <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+                                    <path d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99a1.5 1.5 0 1 1 2-1.415z"/>
+                                </svg>
+                            </i>
+                        </div>
+                        <br>
+                         <div class="form-row with-icon">
+                            <input type="text"  asp-for="Code" class="input-ui pr-2" placeholder="  کد معرف">
+                            <i >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upc" viewBox="0 0 16 16">
+  <path d="M3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z"/>
+</svg>
+                            </i>
+                        </div>
+
+                        <br>
+           
+                              <input type="text"  asp-for="State" style="display: none;">
+     	                         <div >
+        
+                                <div class="form-group"  class="form-row with-icon">
+                                    <select id="ostan" autocomplete="off"  required oninvalid="this.setCustomValidity(' استان و شهرستان محل سکونت خود را انتخاب نمایید.')" oninput="setCustomValidity('')"   style="width: 100%;"  onchange="Func(this.value)">
+                              	 
+                                        <option >استان خود را انتخاب نمایید</option>
+                                        <option value="آذرشهر ,اسکو ,اهر ,بستان‌آباد ,بناب ,تبریز ,جلفا ,چاراویماق ,سراب ,شبستر ,عجب‌شیر ,کلیبر ,مراغه ,مرند ,ملکان ,میانه ,ورزقان ,هریس ,هشترود">آذربایجان شرقی</option>
+                                        <option value="  ارومیه ,اشنویه ,بوکان ,پیرانشهر ,تکاب ,چالدران ,خوی ,سردشت ,سلماس ,شاهین‌دژ ,ماکو ,مهاباد ,میاندوآب ,نقده,شوط,چایپاره,پلدشت">آذربایجان غربی</option>
+                                        <option value="  اردبیل ,بیله‌سوار ,پارس‌آباد ,خلخال ,کوثر ,گِرمی ,مِشگین‌شهر ,نَمین ,نیر">اردبیل</option>
+                                        <option value="  آران و بیدگل ,اردستان ,اصفهان ,برخوار و میمه ,تیران و کرون ,چادگان ,خمینی‌شهر ,خوانسار ,سمیرم ,شهرضا ,سمیرم سفلی ,فریدن ,فریدون‌شهر ,فلاورجان ,کاشان ,گلپایگان ,لنجان ,مبارکه ,نائین ,نجف‌آباد ,نطنز">اصفهان</option>
+                                        <option value="  آبدانان ,ایلام ,ایوان ,دره‌شهر ,دهلران ,شیروان و چرداول ,مهران">ایلام</option>
+                                        <option value="  بوشهر ,تنگستان ,جم ,دشتستان ,دشتی,دیر ,دیلم ,کنگان ,گناوه">بوشهر</option>
+                                        <option value="  اسلام‌شهر ,پاکدشت ,تهران ,دماوند ,رباط‌کریم ,ری ,ساوجبلاغ ,شمیرانات ,شهریار ,فیروزکوه ,کرج ,نظرآباد ,ورامین">تهران</option>
+                                        <option value="  ردل ,بروجن ,شهرکرد ,فارسان ,کوهرنگ ,لردگان">چهارمحال و بختیاری</option>
+                                        <option value="  یرجند ,درمیان ,سرایان ,سربیشه ,فردوس ,قائنات,نهبندان">خراسان جنوبی</option>
+                                        <option value="  ردسکن ,تایباد ,تربت جام ,تربت حیدریه ,چناران ,خلیل‌آباد ,خواف ,درگز ,رشتخوار ,سبزوار ,سرخس ,فریمان ,قوچان ,کاشمر ,کلات ,گناباد ,مشهد ,مه ولات ,نیشابور">خراسان رضوی</option>
+                                        <option value="  سفراین ,بجنورد ,جاجرم ,شیروان ,فاروج ,مانه و سملقان">خراسان شمالی</option>
+                                        <option value="  بادان ,امیدیه ,اندیمشک ,اهواز ,ایذه ,باغ‌ملک ,بندر ماهشهر ,بهبهان ,خرمشهر ,دزفول ,دشت آزادگان ,رامشیر ,رامهرمز ,شادگان ,شوش ,شوشتر ,گتوند ,لالی ,مسجد سلیمان,هندیجان ">خوزستان</option>
+                                        <option value="  بهر ,ایجرود ,خدابنده ,خرمدره ,زنجان ,طارم ,ماه‌نشان">زنجان</option>
+                                        <option value="  دامغان ,سمنان ,شاهرود ,گرمسار ,مهدی‌شهر">سمنان</option>
+                                        <option value="  ایرانشهر ,چابهار ,خاش ,دلگان ,زابل ,زاهدان ,زهک ,سراوان ,سرباز ,کنارک ,نیک‌شهر">سیستان و بلوچستان</option>
+                                        <option value="  آباده ,ارسنجان ,استهبان ,اقلید ,بوانات ,پاسارگاد ,جهرم ,خرم‌بید ,خنج ,داراب ,زرین‌دشت ,سپیدان ,شیراز ,فراشبند ,فسا ,فیروزآباد ,قیر و کارزین ,کازرون ,لارستان ,لامِرد ,مرودشت ,ممسنی ,مهر ,نی‌ریز">فارس</option>
+                                        <option value="  آبیک ,البرز ,بوئین‌زهرا ,تاکستان ,قزوین">قزوین</option>
+                                        <option value="  قم">قم</option>
+                                        <option value="  بانه ,بیجار ,دیواندره ,سروآباد ,سقز ,سنندج ,قروه ,کامیاران ,مریوان">کردستان</option>
+                                        <option value="  بافت ,بردسیر ,بم ,جیرفت ,راور ,رفسنجان ,رودبار جنوب ,زرند ,سیرجان ,شهر بابک ,عنبرآباد ,قلعه گنج ,کرمان ,کوهبنان ,کهنوج ,منوجان">کرمان</option>
+                                        <option value="  اسلام‌آباد غرب ,پاوه ,ثلاث باباجانی ,جوانرود ,دالاهو ,روانسر ,سرپل ذهاب ,سنقر ,صحنه ,قصر شیرین ,کرمانشاه ,کنگاور ,گیلان غرب ,هرسین">کرمانشاه</option>
+                                        <option value="  بویراحمد ,بهمئی ,دنا ,کهگیلویه ,گچساران">کهگیلویه و بویراحمد</option>
+                                        <option value="  آزادشهر ,آق‌قلا ,بندر گز ,ترکمن ,رامیان ,علی‌آباد ,کردکوی ,کلاله ,گرگان ,گنبد کاووس ,مراوه‌تپه ,مینودشت">گلستان</option>
+                                        <option value="  آستارا ,آستانه اشرفیه ,اَملَش ,بندر انزلی ,رشت ,رضوانشهر ,رودبار ,رودسر ,سیاهکل ,شَفت ,صومعه‌سرا ,طوالش ,فومَن ,لاهیجان ,لنگرود ,ماسال">گیلان</option>
+                                        <option value="  ازنا ,الیگودرز ,بروجرد ,پل‌دختر ,خرم‌آباد ,دورود ,دلفان ,سلسله ,کوهدشت">لرستان</option>
+                                        <option value="  آمل ,بابل ,بابلسر ,بهشهر ,تنکابن ,جویبار ,چالوس ,رامسر ,ساری ,سوادکوه ,قائم‌شهر ,گلوگاه ,محمودآباد ,نکا ,نور ,نوشهر">مازندران</option>
+                                        <option value="  آشتیان ,اراک ,تفرش ,خمین ,دلیجان ,زرندیه ,ساوه ,شازند ,کمیجان ,محلات">مرکزی</option>
+                                        <option value="  ابوموسی ,بستک ,بندر عباس ,بندر لنگه ,جاسک ,حاجی‌آباد ,شهرستان خمیر ,رودان  ,قشم ,گاوبندی ,میناب">هرمزگان</option>
+                                        <option value="  اسدآباد ,بهار ,تویسرکان ,رزن ,کبودرآهنگ ,ملایر ,نهاوند ,همدان">همدان</option>
+                                        <option value="  ابرکوه ,اردکان ,بافق ,تفت ,خاتم ,صدوق ,طبس ,مهریز ,مِیبُد ,یزد">یزد</option>
+                                    </select>
+	
+                                </div>
+						</div>
+
+			             <div    required oninvalid="this.setCustomValidity(' استان و شهرستان محل سکونت خود را انتخاب نمایید.')" oninput="setCustomValidity('')"   class="form-row with-icon">
+		             	<select  required oninvalid="this.setCustomValidity(' استان و شهرستان محل سکونت خود را انتخاب نمایید.')" oninput="setCustomValidity('')"   style="width: 100%;" asp-for="city"  ></select>
+     
+		
+		                	</div>
+
+
+
+                        
+                        <div class="form-row mt-3">
+                            <button type="submit" style="text-align: center;"
+                                class="btn-primary-cm btn-with-icon mx-auto w-100">
+                                <i class="mdi mdi-login-variant"></i>
+                                تایید و ورود به نوِنو
+                            </button>
+                        </div>
+                   
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+<!-- End main-content -->
+     <script> 
+ function Func(Shahrestanha) {
+  
+
+//////ostan
+         var vSkill = document.getElementById('ostan');
+
+       var vSkillText = vSkill.options[vSkill.selectedIndex].innerHTML;
+
+       document.getElementById('State').value=vSkillText;
+//////////
+
+       var _Shahrestan = document.getElementById("city");
+       _Shahrestan.options.length = 0;
+       if(Shahrestanha != "") {
+          var arr = Shahrestanha.split(",");
+          for(i = 0; i < arr.length; i++) {
+              if(arr[i] != "") {
+                 _Shahrestan.options[_Shahrestan.options.length]=new Option(arr[i],arr[i]);
+              }
+          }
+       }
+   }
+
+
+</script>

@@ -1,0 +1,139 @@
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<style>
+
+                                                    .tooltip {
+                                                            position: relative;
+                                                            display: inline-block;
+                                                            }
+
+                                                            .tooltip .tooltiptext {
+                                                            visibility: hidden;
+                                                            width: 140px;
+                                                            background-color: #555;
+                                                            color: #fff;
+                                                            text-align: center;
+                                                            border-radius: 6px;
+                                                            padding: 5px;
+                                                            position: absolute;
+                                                            z-index: 1;
+                                                            bottom: 150%;
+                                                            left: 50%;
+                                                            margin-left: -75px;
+                                                            opacity: 0;
+                                                            transition: opacity 0.3s;
+                                                            }
+
+                                                            .tooltip .tooltiptext::after {
+                                                            content: "";
+                                                            position: absolute;
+                                                            top: 100%;
+                                                            left: 50%;
+                                                            margin-left: -5px;
+                                                            border-width: 5px;
+                                                            border-style: solid;
+                                                            border-color: #555 transparent transparent transparent;
+                                                            }
+
+                                                            .tooltip:hover .tooltiptext {
+                                                            visibility: visible;
+                                                            opacity: 1;
+                                                            }
+
+
+
+                                                </style>
+            <div class="row">
+
+                <div style="border-radius: 9px; background-image: url(../assets/img/theme/14.jpg);margin-top: 25px; background-size: cover;" class="mr-auto ml-auto card mb-3 shadow">
+                   
+                     @* @if (ViewBag.I != null)
+                        {
+                            foreach(var item in ViewBag.I){  *@
+                                <div class=" mt-2 " style="text-align: center;">
+                                    <div class="row" >
+                                        <h5 class="mr-5 ml-5 pr-5 pl-5 text-info">دعوت دوستان به نو نو</h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 text-center  mt-2">
+                                            <span class="d-block profile-username  text-info mb-2"  style="font-size: 12px;"> لینک دعوت من :
+                                                <span class="text-info">
+                                                            <!-- The text field -->
+                                                            @{
+                                                                var s = HttpContextAccessor.HttpContext.Session.GetString("RLink");
+                                                                    if (s !=null)
+                                                                    {
+                                                                        <!-- The text field -->
+                                                                        <input type="text" value="www.noeno.ir/invite/@s" id="myInput">
+                                                                        <!-- The button used to copy the text -->
+                                                                        <button class="btn-info" onclick="myFunction()"> کپی </button>
+
+                                                                    }
+                                                            }
+                                                </span> 
+                                            </span>
+                                        </div>
+                                               
+                                    </div>
+                                </div>
+                                <div class="profile-point mt-1 mb-2">
+                                    <div class="row" style="display: flex; justify-content: center;">
+                                        <h6 class=" ml-2  label-profile-point">کد معرف من:</h6>
+                                            <h6 class=" ml-2  label-profile-point text-info"> @User.Identity.GetId()</h6>
+                                    </div>
+                                </div>
+                                <div class="profile-point mt-1 mb-2">
+                                    <div class="row" style="display: flex; justify-content: center;">
+                                        <h6 class=" ml-2  label-profile-point" style="font-size: 14px;">تعداد دعوت شدگان:</h6>
+                                        <h6 class=" ml-2  label-profile-point text-info"> @ViewBag.s نفر </h6>
+                                      
+                                    </div>
+                                    <div class="row" style="display: flex; justify-content: center;">
+                                        <h6 class=" ml-2  label-profile-point" style="font-size: 14px;">تعداد دعوت شدگان تبدیل شده به مشتری:</h6>
+                                        <h6 class=" ml-2  label-profile-point text-info"> @ViewBag.o نفر </h6>
+                                      
+                                    </div>
+                                    <div class="row" style="display: flex; justify-content: center;">
+                                        <h6 class=" ml-2  label-profile-point" style="font-size: 14px;">جایزه حاصل شده از دعوت ها :</h6>
+                                        <h6 class=" ml-2  label-profile-point text-info" id="mp"> @ViewBag.t تومان </h6>
+                                        <script>
+                                                document.getElementById("mp").innerText=document.getElementById("mp").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                                
+                                        </script>
+                                      
+                                    </div>
+                                </div>
+                            @* }
+                        } *@
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <a  href="/YourAccount/InviteDetail" class="btn btn-info ml-2 mt-2 mb-2 shadow" >
+                                                       مشاهده جزئیات
+                                            </a> 
+                                        </div>
+                                    </div>
+                </div>
+            </div>
+
+
+                                                 <script>
+                                                     function myFunction() {
+                                                        /* Get the text field */
+                                                        var copyText = document.getElementById("myInput");
+
+                                                        /* Select the text field */
+                                                        copyText.select();
+                                                        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+                                                        /* Copy the text inside the text field */
+                                                        document.execCommand("copy");
+
+                                                        /* Alert the copied text */
+                                                        alert("Copied the text: " + copyText.value);
+                                                        }
+
+
+                                                </script>
+                
+                

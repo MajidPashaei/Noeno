@@ -1,0 +1,61 @@
+
+
+            <div class="row">
+
+                <div style="border-radius: 9px; background-image: url(../assets/img/theme/14.jpg);margin-top: 25px; background-size: cover;" class="mr-auto ml-auto card mb-3 shadow">
+                   
+                        @if (ViewBag.I != null)
+                        {
+                            foreach(var item in ViewBag.I){
+                                <div class=" mt-2 ">
+                                    <div class="row">
+                                        <h4 class="mr-5 ml-5 text-info">تبریک شما به نو نو دعوت شدید</h4>
+                                    </div>
+                                    <div class="row">
+                                        <img src="~/FileUpload/@item.Image" width="80px" height="80px" style="border-radius: 35px;" class="mr-5" alt="">
+                                        <div class=" mr-2 mt-2 ml-3">
+                                            <span class="d-block profile-username"  style="font-size: 14px;"> دعوت از طریق :
+                                                <span class="text-info">@item.NameFamily  </span> 
+                                            </span>
+                                            <span class="d-block profile-username"  style="font-size: 14px;">
+                                                   @item.State  ،  @item.city
+                                            </span>
+                                            <span  style="font-size: 12px;">
+                                                @item.Phone
+                                            </span>
+                                        </div>
+                                     
+                                    
+                                    </div>
+                                </div>
+                                <div class="profile-point mt-3 mb-2">
+                                    <div class="row" style="display: flex; justify-content: center;">
+                                        <h6 class="mr-2 ml-2  label-profile-point">کد معرف :</h6>
+                                        <h6 class="mr-2 ml-2  label-profile-point text-info"> @item.Id</h6>
+                                    </div>
+                                    <div class="row" style="display: flex; justify-content: center;">
+                                        <h6 class="mr-2 ml-2  label-profile-point"> لینک دعوت :</h6>
+                                        <a href="/invite/@item.Random_Link" class="mr-2 ml-2  label-profile-point text-info"> www.noeno.ir/invite/@item.Random_Link</a>
+                                      
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                         <div class="col-6 text-left">
+                                            <a  href="/@item.Random_Link" class="btn btn-warning mr-2 mt-2 mb-2 shadow" >
+                                                            مشاهده پروفایل کاربری  
+                                            </a> 
+                                        </div>
+                                        <div class="col-6 text-right">
+                                            <a  href="/LoginAndRegister/Login" class="btn btn-success ml-2 mt-2 mb-2 shadow" >
+                                                        تایید و ورود به نو نو 
+                                            </a> 
+                                        </div>
+                                    </div>
+
+                            }
+                        
+                        }
+                </div>
+            </div>
+                
+                
