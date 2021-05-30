@@ -6,32 +6,48 @@
           <th></th>
           <th>ردیف</th>
           <th> کد ثبت </th>
+           <th> کد کاربر </th>
           <th>  عنوان  </th>
            <th> زمان ثبت </th>
-           <th> عکس کالا </th>
+           
            <th> کاربر  </th>
+            <th> مبلغ درخواستی  </th>
           <th> عملیات</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
+        @if (ViewBag.pay!=null)
+        {
+          int i=1;
+          @foreach (var item in ViewBag.pay)
+          {
+             <tr>
           <td></td>
-          <td class="product-category">1</td>
-          <td class="product-name">2</td>
-            <td class="product-category">3 </td>
+          <td class="product-category">@i</td>
+          <td class="product-name">@item.Id</td>
+           <td class="product-name">@item.iduser</td>
+            <td class="product-category">  درخواست برداشت از کیف پول </td>
 
-            <td class="product-category">item.Time </td>
-            <td class="product-category"> tytyyt</td>
-               <td class="product-category">item.Name</td>
+            <td class="product-category">@item.havesttime </td>
+           
+               <td class="product-category">@item.NameFamily</td>
+                <td class="product-category">@item.Harvest</td>
            <td class="product-action">
              <div class="col-lg-3 col-md-3 mb-1">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                  <a href="/admin/Pay/Detail?b=item.Product_Id" class="btn btn-primary btn-sm" >  جزییات </a>
+                  <a href="/admin/Pay/Ok/@item.Id" class="btn btn-success btn-sm" >  تایید </a>
+                  <a href="/admin/Pay/index/@item.Id" class="btn btn-danger btn-sm" >  عدم تایید </a>
+                  
                   
                 </div>
               </div>
           </td>
         </tr>
+          }
+          i++;
+            
+        }
+       
       </tbody>
     </table>
   </div>

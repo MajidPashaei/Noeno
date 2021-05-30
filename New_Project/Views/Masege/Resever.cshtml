@@ -1,0 +1,118 @@
+<!-- Start main-content -->
+@model ViewModel.Entities.User.Vm_User;
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<main class="main-content dt-sl mt-2 mb-2">
+    <div class="container main-container">
+        <div class="row">
+
+            <!-- Start Sidebar -->
+            @await Html.PartialAsync("_Partial_profile")
+            <!-- End Sidebar -->
+
+            <!-- Start Content -->
+            <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
+                <div class="row">
+                
+ 
+             
+
+
+
+                    <!-- Start main-content -->
+                    <main class="main-content dt-sl mt-1 mb-1 mr-2 ml-2">
+                        <div class="container main-container">
+
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2 px-0">
+                                    <nav class="tab-cart-page">
+                                        
+                                            <div class="row" style="text-align: center;display: flex; justify-content: center;">
+                                                <p class="alert alert-warning form-control" >لیست پیام ها</p>
+                                            </div>
+                                        
+                                    
+                                    </nav>
+                                </div>
+                                <div class="col-12">
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div  class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" >
+                                        
+                                                        <div class="col-12 mt-2">
+                                                            <div class="dt-sl">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-order">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th></th>
+                                                                            <th>ردیف</th>
+                                                                                <th>عنوان پیام</th>
+                                                                                <th> نوع پیام</th>
+                                                                                
+                                                                                
+                                                                                <th>تاریخ/ساعت</th>
+                                                                                
+                                                                                <th>عملیات </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            @if (ViewBag.sms!=null)
+                                                                            {
+                                                                                int i=1;
+                                                                                
+                                                                                @foreach (var item in ViewBag.sms)
+                                                                                {
+                                                                                    
+                                                                            
+                                                                                
+                                                                        
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td>@i</td>
+                                                                                <td>@item.Language</td>
+                                                                                @if (@item.State==true)
+                                                                                {
+                                                                                    <td><p>خوانده شده</p></td>
+                                                                                }else
+                                                                                {
+                                                                                    <td><p>خوانده نشده</p></td>
+                                                                                }
+
+                                                                                 
+                                                                               
+                                                                                <td>@item.DateComment</td>
+                                                                                <td> <a class="btn btn-success"  href="/Masege/Read/@item.Id">خواندن</a>
+                                                                                <a class="btn btn-danger"  href="/masege/dell/@item.Id">حذف</a> </td>
+
+                                                                            </tr>
+                                                                            i++;
+                                                                            }
+                                                                        }
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                        </div>
+                     
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </main>
+                    
+                    <!-- End main-content -->
+                </div>
+            </div>
+            <!-- End Content -->
+
+
+
+
+        </div>
+
+    </div>
+</main>
+<!-- End main-content -->
+	  

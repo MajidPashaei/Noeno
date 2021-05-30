@@ -168,88 +168,498 @@ Layout= "_Layout2";
 
                                         @* دسته بندی *@
 
-                                        <div id="aghahi">
-                                            <div class="form-row-title">
-                                                <h3> دستهٔ جدید کالا را انتخاب کنید </h3>
-                                            </div>
-                                            <br>
+                                          <div id="aghahi">
+                                                <div class="form-row-title">
+                                                    <h3> دستهٔ کالا را انتخاب کنید </h3>
+                                                </div>
+                                                <br>
 
 
 
 
-                                            <link
-                                                href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css"
-                                                rel="stylesheet" type="text/css" />
+                                                <link
+                                                    href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css"
+                                                    rel="stylesheet" type="text/css" />
 
 
 
-                                            <nav class="tree-nav">
+                                                <nav class="tree-nav">
 
-                                                @foreach (var item in menu.cat)
-                                                {
-                                                if (item.FatherIdCat == -1)
-                                                {
-                                                <details class="tree-nav__item is-expandable  "
-                                                    style="font-size: 12px; ">
-                                                    <summary class="tree-nav__item-title alert alert-dark m-2 p-2">@item.NameCat
-                                                    </summary>
-                                                    @foreach (var item1 in menu.cat)
-                                                    {
-                                                    if (item1.FatherIdCat == item.Id)
-                                                    {
-                                                    <details class="tree-nav__item is-expandable">
-                                                        <summary class="tree-nav__item-title alert m-2 p-2"
-                                                            style="background-color: #cfd8e3;">@item1.NameCat</summary>
-                                                        
-
-                                                            @foreach (var item2 in menu.cat)
+                                                    <details class="tree-nav__item is-expandable  "
+                                                        style="font-size: 10px; ">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                            کالای دیجیتال
+                                                        </summary>
+                                                        @foreach (var item in menu.D)
+                                                        {
+                                                            if (item.FatherIdCat == -1)
                                                             {
-                                                            if (item2.FatherIdCat == item1.Id)
-                                                            {
-                                                            <div class="tree-nav__item">
-                                                                <table style="width:95%">
-                                                                    <tr>
-                                                                        <th class="">
+                                                                <details class="tree-nav__item is-expandable">
+                                                                    <summary class="tree-nav__item-title alert m-2 p-2"
+                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                    </summary>
 
-                                                                            <a onclick="send(@item2.Id);"
+
+                                                                    @foreach (var item1 in menu.D)
+                                                                    {
+                                                                        if (item1.FatherIdCat == item.Id)
+                                                                        {
+                                                                            <div class="tree-nav__item">
+                                                                                <table style="width:95%; ">
+                                                                                    <tr>
+                                                                                        <th class="">
+
+                                                                                            <a onclick="send(@item1.Id);"
                                                                                 class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
-                                                                                style="background-color: #E8EDF2; cursor: pointer;">
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
 
-                                                                                @item2.NameCat
-                                                                                
-                                                                            </a>
+                                                                                                @item1.NameCat
 
-
-                                                                        </th>
+                                                                                            </a>
 
 
-                                                                    </tr>
-                                                                </table>
-                                                            </div>
+                                                                                        </th>
 
+
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        }
+                                                                    }
+
+
+                                                                </details>
                                                             }
-                                                            }
+                                                        }
 
-                                                       
+
                                                     </details>
+
+
+                                                    <input asp-for="Category" type="text" style="display: none;">
+
+                                                </nav>
+
+                                                <nav class="tree-nav">
+
+                                                    <details class="tree-nav__item is-expandable  "
+                                                        style="font-size: 10px; ">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                            بهداشتی و سلامت
+                                                        </summary>
+                                                        @foreach (var item in menu.A)
+                                                        {
+                                                            if (item.FatherIdCat == -1)
+                                                            {
+                                                                <details class="tree-nav__item is-expandable">
+                                                                    <summary class="tree-nav__item-title alert m-2 p-2"
+                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                    </summary>
+
+
+                                                                    @foreach (var item1 in menu.A)
+                                                                    {
+                                                                        if (item1.FatherIdCat == item.Id)
+                                                                        {
+                                                                            <div class="tree-nav__item">
+                                                                                <table style="width:95%; ">
+                                                                                    <tr>
+                                                                                        <th class="">
+
+                                                                                            <a onclick="send(@item1.Id);"
+                                                                                class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+
+                                                                                                @item1.NameCat
+
+                                                                                            </a>
+
+
+                                                                                        </th>
+
+
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        }
+                                                                    }
+
+
+                                                                </details>
+                                                            }
+                                                        }
+
+
+                                                    </details>
+
+
+                                                    <input asp-for="Category" type="text" style="display: none;">
+
+                                                </nav>
+
+                                                <nav class="tree-nav">
+
+                                                    <details class="tree-nav__item is-expandable  "
+                                                        style="font-size: 10px; ">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                            خودرو وابزار اداری
+                                                        </summary>
+                                                        @foreach (var item in menu.kh)
+                                                        {
+                                                            if (item.FatherIdCat == -1)
+                                                            {
+                                                                <details class="tree-nav__item is-expandable">
+                                                                    <summary class="tree-nav__item-title alert m-2 p-2"
+                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                    </summary>
+
+
+                                                                    @foreach (var item1 in menu.kh)
+                                                                    {
+                                                                        if (item1.FatherIdCat == item.Id)
+                                                                        {
+                                                                            <div class="tree-nav__item">
+                                                                                <table style="width:95%; ">
+                                                                                    <tr>
+                                                                                        <th class="">
+
+                                                                                            <a onclick="send(@item1.Id);"
+                                                                                class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+
+                                                                                                @item1.NameCat
+
+                                                                                            </a>
+
+
+                                                                                        </th>
+
+
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        }
+                                                                    }
+
+
+                                                                </details>
+                                                            }
+                                                        }
+
+
+                                                    </details>
+
+
+                                                    <input asp-for="Category" type="text" style="display: none;">
+
+                                                </nav>
+
+                                                <nav class="tree-nav">
+
+                                                    <details class="tree-nav__item is-expandable  "
+                                                        style="font-size: 10px; ">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                            مد و پوشاک
+                                                        </summary>
+                                                        @foreach (var item in menu.M)
+                                                        {
+                                                            if (item.FatherIdCat == -1)
+                                                            {
+                                                                <details class="tree-nav__item is-expandable">
+                                                                    <summary class="tree-nav__item-title alert m-2 p-2"
+                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                    </summary>
+
+
+                                                                    @foreach (var item1 in menu.M)
+                                                                    {
+                                                                        if (item1.FatherIdCat == item.Id)
+                                                                        {
+                                                                            <div class="tree-nav__item">
+                                                                                <table style="width:95%; ">
+                                                                                    <tr>
+                                                                                        <th class="">
+
+                                                                                            <a onclick="send(@item1.Id);"
+                                                                                class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+
+                                                                                                @item1.NameCat
+
+                                                                                            </a>
+
+
+                                                                                        </th>
+
+
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        }
+                                                                    }
+
+
+                                                                </details>
+                                                            }
+                                                        }
+
+
+                                                    </details>
+
+
+                                                    <input asp-for="Category" type="text" style="display: none;">
+
+                                                </nav>
+
+                                                <nav class="tree-nav">
+
+                                                    <details class="tree-nav__item is-expandable  "
+                                                        style="font-size: 10px; ">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                            خانه و اشپز خانه
+                                                        </summary>
+                                                        @foreach (var item in menu.Kitchen)
+                                                        {
+                                                            if (item.FatherIdCat == -1)
+                                                            {
+                                                                <details class="tree-nav__item is-expandable">
+                                                                    <summary class="tree-nav__item-title alert m-2 p-2"
+                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                    </summary>
+
+
+                                                                    @foreach (var item1 in menu.Kitchen)
+                                                                    {
+                                                                        if (item1.FatherIdCat == item.Id)
+                                                                        {
+                                                                            <div class="tree-nav__item">
+                                                                                <table style="width:95%; ">
+                                                                                    <tr>
+                                                                                        <th class="">
+
+                                                                                            <a onclick="send(@item1.Id);"
+                                                                                class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+
+                                                                                                @item1.NameCat
+
+                                                                                            </a>
+
+
+                                                                                        </th>
+
+
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        }
+                                                                    }
+
+
+                                                                </details>
+                                                            }
+                                                        }
+
+
+                                                    </details>
+
+
+                                                    <input asp-for="Category" type="text" style="display: none;">
+
+                                                </nav>
+
+                                                <nav class="tree-nav">
+
+                                                    <details class="tree-nav__item is-expandable  "
+                                                        style="font-size: 10px; ">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                            لوازم اتحریر و هنر
+                                                        </summary>
+                                                        @foreach (var item in menu.L)
+                                                        {
+                                                            if (item.FatherIdCat == -1)
+                                                            {
+                                                                <details class="tree-nav__item is-expandable">
+                                                                    <summary class="tree-nav__item-title alert m-2 p-2"
+                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                    </summary>
+
+
+                                                                    @foreach (var item1 in menu.L)
+                                                                    {
+                                                                        if (item1.FatherIdCat == item.Id)
+                                                                        {
+                                                                            <div class="tree-nav__item">
+                                                                                <table style="width:95%; ">
+                                                                                    <tr>
+                                                                                        <th class="">
+
+                                                                                            <a onclick="send(@item1.Id);"
+                                                                                class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+
+                                                                                                @item1.NameCat
+
+                                                                                            </a>
+
+
+                                                                                        </th>
+
+
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        }
+                                                                    }
+
+
+                                                                </details>
+                                                            }
+                                                        }
+
+
+                                                    </details>
+
+
+                                                    <input asp-for="Category" type="text" style="display: none;">
+
+                                                </nav>
+
+                                                <nav class="tree-nav">
+
+                                                    <details class="tree-nav__item is-expandable  "
+                                                        style="font-size: 10px; ">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                            کودک و نوزاد
+                                                        </summary>
+                                                        @foreach (var item in menu.N)
+                                                        {
+                                                            if (item.FatherIdCat == -1)
+                                                            {
+                                                                <details class="tree-nav__item is-expandable">
+                                                                    <summary class="tree-nav__item-title alert m-2 p-2"
+                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                    </summary>
+
+
+                                                                    @foreach (var item1 in menu.N)
+                                                                    {
+                                                                        if (item1.FatherIdCat == item.Id)
+                                                                        {
+                                                                            <div class="tree-nav__item">
+                                                                                <table style="width:95%; ">
+                                                                                    <tr>
+                                                                                        <th class="">
+
+                                                                                            <a onclick="send(@item1.Id);"
+                                                                                class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+
+                                                                                                @item1.NameCat
+
+                                                                                            </a>
+
+
+                                                                                        </th>
+
+
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        }
+                                                                    }
+
+
+                                                                </details>
+                                                            }
+                                                        }
+
+
+                                                    </details>
+
+
+                                                    <input asp-for="Category" type="text" style="display: none;">
+
+                                                </nav>
+                                                <nav class="tree-nav">
+
+                                                    <details class="tree-nav__item is-expandable  "
+                                                        style="font-size: 10px; ">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                            ورزش و سفر
+                                                        </summary>
+                                                        @foreach (var item in menu.S)
+                                                        {
+                                                            if (item.FatherIdCat == -1)
+                                                            {
+                                                                <details class="tree-nav__item is-expandable">
+                                                                    <summary class="tree-nav__item-title alert m-2 p-2"
+                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                    </summary>
+
+
+                                                                    @foreach (var item1 in menu.S)
+                                                                    {
+                                                                        if (item1.FatherIdCat == item.Id)
+                                                                        {
+                                                                            <div class="tree-nav__item">
+                                                                                <table style="width:95%; ">
+                                                                                    <tr>
+                                                                                        <th class="">
+
+                                                                                            <a onclick="send(@item1.Id);"
+                                                                                class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+
+                                                                                                @item1.NameCat
+
+                                                                                            </a>
+
+
+                                                                                        </th>
+
+
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        }
+                                                                    }
+
+
+                                                                </details>
+                                                            }
+                                                        }
+
+
+                                                    </details>
+
+
+                                                    <input asp-for="Category" type="text" style="display: none;">
+
+                                                </nav>
+
+
+
+
+
+
+
+
+                                                <script>
+                                                    function send(a) {
+                                                        debugger
+                                                        document.getElementById("Category").value = a;
+                                                        gotoaks();
                                                     }
-                                                    }
-
-
-                                                </details>
-
-                                                }
-                                                }
-                                                <input asp-for="Category" type="text" style="display: none;">
-
-                                            </nav>
-                                            <script>
-                                                function send(a) {
-                                                    debugger
-                                                    document.getElementById("Category").value = a;
-                                                    gotoaks();
-                                                }
-                                            </script>
+                                                </script>
 
 
 
@@ -257,7 +667,7 @@ Layout= "_Layout2";
 
 
 
-                                        </div>
+                                            </div>
 
                                         @* عکس *@
 

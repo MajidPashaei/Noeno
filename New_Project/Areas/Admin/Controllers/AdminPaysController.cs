@@ -32,7 +32,7 @@ namespace New_Project.Areas.Admin.Controllers
         }
         public IActionResult AddPay(Vm_AdminPay VAP)
         {
-            var s=db.Tbl_Users.Where(s=>s.Id.ToString()== VAP.IdUser).SingleOrDefault().Id.ToString();
+            var s=db.Tbl_Users.Where(s=>s.Random_Link.ToString()== VAP.IdUser).SingleOrDefault().Id.ToString();
             AdminPay tb = new AdminPay () {
                 IdUser=s,
                 Price=VAP.Price,

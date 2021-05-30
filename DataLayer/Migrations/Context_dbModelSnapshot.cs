@@ -233,6 +233,12 @@ namespace DataLayer.Migrations
                     b.Property<string>("Language")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Resever_Id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Send_Id")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("State")
                         .HasColumnType("bit");
 
@@ -855,6 +861,9 @@ namespace DataLayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StatusP")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("havesttime")

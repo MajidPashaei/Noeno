@@ -162,14 +162,6 @@ namespace New_Project.Controllers
 
 
 
-
-
-
-
-
-
-
-
         public IActionResult payUser(Vm_User A)
         {
 
@@ -186,6 +178,7 @@ namespace New_Project.Controllers
                         iduser = Convert.ToInt32(User.Identity.GetId()),
                         Paytime = DateTime.UtcNow,
                         NameFamily = q.NameFamily,
+                        StatusP="T",
 
 
                     };
@@ -208,9 +201,6 @@ namespace New_Project.Controllers
 
             return RedirectToAction("AccountMe", "YourAccount");
         }
-
-
-
         ///////////////////////////////////////////////////
 
 

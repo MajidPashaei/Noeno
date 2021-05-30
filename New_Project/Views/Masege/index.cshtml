@@ -1,0 +1,311 @@
+@{
+    Layout = "_Layout2";
+}
+@model ViewModel.Entities.User.Vm_Advertising;
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="~/assets/css/vendor/bootstrap.min.css">
+<!-- Plugins -->
+<link rel="stylesheet" href="~/assets/css/vendor/owl.carousel.min.css">
+<link rel="stylesheet" href="~/assets/css/vendor/jquery.horizontalmenu.css">
+<link rel="stylesheet" href="~/assets/css/vendor/nouislider.min.css">
+<!-- Font Icon -->
+<link rel="stylesheet" href="~/assets/css/vendor/materialdesignicons.min.css">
+<!-- Main CSS File -->
+<link rel="stylesheet" href="~/assets/css/main.css">
+<link rel="stylesheet" href="~/assets/css/colors/default.css" id="colorswitch">
+<!-- UpMultiImg CSS  -->
+
+<link rel="stylesheet" type="text/css" href="~/Css-Js-UpMultiImg/style.css">
+
+
+<form action="/masege/add" method="POST" enctype="multipart/form-data">
+
+
+    <div class="row " style="display: flex; justify-content: center;">
+     
+
+        <!-- Start main-content -->
+        <main class="main-content dt-sl mt-4 mb-3">
+            <div class="container main-container">
+                <div class="row">
+
+                    <!-- Start Sidebar -->
+                    @* @await Html.PartialAsync("_Partial_profile") *@
+                    <!-- End Sidebar -->
+
+
+
+                    <!-- Start Content -->
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="row">
+
+                            <div class="col-md-10 col-sm-12 mx-auto">
+                                @if (ViewBag.msg != null)
+                                {
+                                    <p class="alert alert-success"> @ViewBag.msg</p>
+                                }
+                                <div class="px-3 px-res-0">
+                                    <div
+                                        class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2 px-res-1">
+                                        <div style=" border-radius: 10px;" class="bg-secondary text-light text-center">
+                                            <h2 class="text-light" style="font-size: 16px;">ثبت پیام </h2>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="px-3">
+                                        <div style=" border-radius: 9px;"
+                                            class="form-ui additional-info dt-sl dt-sn pt-4 ">
+
+                                            <script>
+
+
+                                                function gotoaks() {
+
+                                                    document.getElementById('aghahi').style.display = "none";
+                                                    document.getElementById('aks').style.display = "block";
+                                                }
+
+
+                                                function gotoname() {
+
+
+                                                    if ((document.getElementById('Img').value != "")  && (document.getElementById('Img1').value != "")  && (document.getElementById('Img2').value != "")  && (document.getElementById('Img3').value != "")) {
+                                                        document.getElementById('aks').style.display = "none";
+                                                        document.getElementById('name').style.display = "block";
+
+                                                    }
+                                                    else {
+                                                        document.getElementById('eImg').innerText = "عکس شاخص و عکس های ضافی را انتخاب نمایید";
+                                                    }
+                                                }
+
+
+
+                                                function gototype() {
+
+
+                                                    if ((document.getElementById('Title_Pro').value != "") && (document.getElementById('Discreption_Pro').value != "")) {
+                                                        document.getElementById('name').style.display = "none";
+                                                        document.getElementById('type').style.display = "block";
+
+                                                    }
+                                                    else {
+                                                        document.getElementById('eTitle_Pro').innerText = "عنوان کالا وارد نمایید.";
+                                                        document.getElementById('eDiscreption_Pro').innerText = "توضیحات کالا وارد نمایید.";
+                                                    }
+                                                }
+
+
+
+
+                                                function gotoprice() {
+                                                    document.getElementById('type').style.display = "none";
+                                                    document.getElementById('price').style.display = "block";
+                                                }
+
+                                                function gotochone() {
+                                                    debugger
+
+                                                    if ((document.getElementById('Main_Price').value != "") && (document.getElementById('Discount_Price').value != "") && (document.getElementById('Number').value != "")) {
+
+                                                        var a = parseInt(document.getElementById('Main_Price').value)
+                                                        var b = parseInt(document.getElementById('Discount_Price').value)
+                                                        if (a < 10000 ) {
+                                                            document.getElementById('eMain_Price').innerText = "مبلغ نمیتواند از ده هزار تومان کمتر باشد.";
+                                                        }
+                                                        else if (b < 10000 ) {
+                                                            document.getElementById('eDiscount_Price').innerText = "مبلغ نمیتواند از ده هزار تومان کمتر باشد.";
+                                                        }
+                                                        else if (b > a) {
+                                                            document.getElementById('eDiscount_Price').innerText = "مبلغ تخفیف نمیتواند از مبلغ اصلی بیشتر باشد.";
+                                                        }
+                                                        else {
+                                                            document.getElementById('price').style.display = "none";
+                                                            document.getElementById('chone').style.display = "block";
+                                                        }
+                                                    }
+                                                    else {
+                                                        document.getElementById('eNumber').innerText = "تعداد موجودی کالا را وارد نمایید.";
+                                                        document.getElementById('eMain_Price').innerText = "مبلغ را وارد نمایید.";
+                                                        document.getElementById('eDiscount_Price').innerText = "قیمت تخفیف را وارد نمایید.";
+                                                    }
+
+                                                }
+
+
+
+
+
+
+                                                function backtoaghahi() {
+                                                    document.getElementById('aks').style.display = "none";
+                                                    document.getElementById('aghahi').style.display = "block";
+
+                                                }
+                                                function backtoaks() {
+                                                    document.getElementById('name').style.display = "none";
+                                                    document.getElementById('aks').style.display = "block";
+
+                                                }
+                                                function backtoname() {
+                                                    document.getElementById('type').style.display = "none";
+                                                    document.getElementById('name').style.display = "block";
+
+                                                }
+                                                function backtotype() {
+                                                    document.getElementById('price').style.display = "none";
+                                                    document.getElementById('type').style.display = "block";
+
+                                                }
+                                                function backtoprice() {
+                                                    document.getElementById('chone').style.display = "none";
+                                                    document.getElementById('price').style.display = "block";
+
+                                                }
+
+
+
+
+
+
+                                            </script>
+
+
+                                      
+
+                                            @* نام وتوضیحات آگهی *@
+
+
+
+                                            <div  >
+
+                                                <div class="form-row-title">
+                                                    <h3>عنوان پیام</h3>
+                                                </div>
+                                             <input asp-for="Id" style="display: none;">
+                                                <div class="form-row">
+                                                    <input asp-for="Title_Pro" type="text" class="input-ui pr-2"
+                                                        placeholder=" عنوان پیام را وارد نمایید">
+                                                    <p style="color: #828282;font-size: 11px; font-weight: bold;">
+                                                        <span style="color: red; font-size: 16px;">*</span>
+                                                       
+                                                    </p>
+
+                                                </div>
+                                                <p id="eTitle_Pro" class="mt-3 text-danger"></p>
+
+
+                                                <div class="form-row-title">
+                                                    <h3>توضیحات پیام</h3>
+                                                </div>
+                                                <div class="form-row">
+                                                    <textarea class="input-ui pr-2 pt-2" rows="5"
+                                                        placeholder=" توضیحات پیام را وارد نمایید"
+                                                        asp-for="Discreption_Pro">
+                                                        </textarea>
+                                                    <p style="color: #828282;font-size: 11px; font-weight: bold;">
+                                                        <span style="color: red; font-size: 16px;">*</span>
+                                                    
+                                                    </p>
+
+                                                </div>
+                                                <p id="eDiscreption_Pro" class="mt-3 text-danger"></p>
+                                                <div style="text-align: center;">
+                                                    <button type="submit" class="btn btn-secondary mt-3 text-light "
+                                                       >ثبت</button >
+                                                   
+
+                                                </div>
+
+
+                                            </div>
+
+
+
+
+
+
+                                  
+
+
+
+                                        </div>
+
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Content -->
+            </div>
+    </div>
+    </main>
+</form>
+
+<!-- End main-content -->
+<script>
+    function myFunction1() {
+        // Get the checkbox
+        var checkBox = document.getElementById("myCheck1");
+        // Get the output text
+        var text = document.getElementById("text1");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+</script>
+<script>
+    function myFunction2() {
+        // Get the checkbox
+        var checkBox = document.getElementById("myCheck2");
+        // Get the output text
+        var text = document.getElementById("text2");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true) {
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function My() {
+        document.getElementById('Advert1').style.display = "none";
+    }
+    }
+</script>
+
+<script>
+    document.getElementById('Footer1').style.display = "none";
+</script>
+
+<!-- Core JS Files -->
+<script src="~/assets/js/vendor/jquery-3.4.1.min.js"></script>
+<script src="~/assets/js/vendor/popper.min.js"></script>
+<script src="~/assets/js/vendor/bootstrap.min.js"></script>
+<!-- Plugins -->
+<script src="~/assets/js/vendor/owl.carousel.min.js"></script>
+<script src="~/assets/js/vendor/jquery.horizontalmenu.js"></script>
+<script src="~/assets/js/vendor/nouislider.min.js"></script>
+<script src="~/assets/js/vendor/wNumb.js"></script>
+<script src="~/assets/js/vendor/ResizeSensor.min.js"></script>
+<script src="~/assets/js/vendor/theia-sticky-sidebar.min.js"></script>
+<!-- Main JS File -->
+<script src="~/assets/js/main.js"></script>
+
+<!-- UpMultiImg JS  -->
+<script src="~/Css-Js-UpMultiImg/script.js"></script>
