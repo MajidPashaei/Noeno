@@ -32,32 +32,32 @@ namespace New_Project.Areas.Admin.Controllers
              ViewBag.lselect= new SelectList(qlist, "Id", "NameCat");
            ////////////////////////////////////////////////////////////////////////////list view bag complete
            ///    //////////////////////////////////////////////////////////////////////////////////select list
-             var qlist1=db.tbl_category.Where(a =>a.Language=="آرایشی و بهداشتی"&&a.FatherIdCat==-1).ToList();
+             var qlist1=db.tbl_category.Where(a =>a.Language=="زیبایی و سلامتی"&&a.FatherIdCat==-1).ToList();
            
              ViewBag.lselect1= new SelectList(qlist1, "Id", "NameCat");
            ////////////////////////////////////////////////////////////////////////////list view bag complete
            ///    //////////////////////////////////////////////////////////////////////////////////select list
-             var qlist2=db.tbl_category.Where(a =>a.Language=="خودرو و ابزاراداری"&&a.FatherIdCat==-1).ToList();
+             var qlist2=db.tbl_category.Where(a =>a.Language=="ابزارآلات و تجهیزات"&&a.FatherIdCat==-1).ToList();
            
              ViewBag.lselect2= new SelectList(qlist2, "Id", "NameCat");
            ////////////////////////////////////////////////////////////////////////////list view bag complete
            ///    //////////////////////////////////////////////////////////////////////////////////select list
-             var qlist3=db.tbl_category.Where(a =>a.Language=="مدوپوشاک"&&a.FatherIdCat==-1).ToList();
+             var qlist3=db.tbl_category.Where(a =>a.Language=="مد و پوشاک"&&a.FatherIdCat==-1).ToList();
            
              ViewBag.lselec3= new SelectList(qlist3, "Id", "NameCat");
            ////////////////////////////////////////////////////////////////////////////list view bag complete
            ///    //////////////////////////////////////////////////////////////////////////////////select list
-             var qlist4=db.tbl_category.Where(a =>a.Language=="خانه و اشپزخانه"&&a.FatherIdCat==-1).ToList();
+             var qlist4=db.tbl_category.Where(a =>a.Language=="خانه و آشپزخانه"&&a.FatherIdCat==-1).ToList();
            
              ViewBag.lselect4= new SelectList(qlist4, "Id", "NameCat");
            ////////////////////////////////////////////////////////////////////////////list view bag complete
            ///    //////////////////////////////////////////////////////////////////////////////////select list
-             var qlist5=db.tbl_category.Where(a =>a.Language=="لوزم و تحریرو هنر"&&a.FatherIdCat==-1).ToList();
+             var qlist5=db.tbl_category.Where(a =>a.Language=="فرهنگ و هنر"&&a.FatherIdCat==-1).ToList();
            
              ViewBag.lselect5= new SelectList(qlist5, "Id", "NameCat");
            ////////////////////////////////////////////////////////////////////////////list view bag complete
            ///    //////////////////////////////////////////////////////////////////////////////////select list
-             var qlist6=db.tbl_category.Where(a =>a.Language=="کودک و نوزاد"&&a.FatherIdCat==-1).ToList();
+             var qlist6=db.tbl_category.Where(a =>a.Language=="سرگرمی،کودک و نوزاد"&&a.FatherIdCat==-1).ToList();
            
              ViewBag.lselect6= new SelectList(qlist6, "Id", "NameCat");
            ////////////////////////////////////////////////////////////////////////////list view bag complete
@@ -84,11 +84,11 @@ namespace New_Project.Areas.Admin.Controllers
                }
                else if (item.FatherIdCat==-4)
                {
-                   NewFileName="مدوپوشاک";
+                   NewFileName="مد و پوشاک";
                }
                else if (item.FatherIdCat==-5)
                {
-                   NewFileName="خانه واشپز خانه";
+                   NewFileName="خانه وآشپز خانه";
                }
                  else if (item.FatherIdCat==-6)
                {

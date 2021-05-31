@@ -248,10 +248,19 @@
 
 
 
-                            <a style="background-color:#1F8BFF  ;  font-size: 12px;" href="#" class="btn-primary-cm  btn-with-icon" >
+                            @if (User.Identity.IsAuthenticated )
+                              {
+                            <a style="background-color:#1F8BFF  ;  font-size: 12px;" href="/masege/index/@item.Id" class="btn-primary-cm  btn-with-icon" >
                                 <img src="~/assets/img/theme/chat-cart.png" alt="">
                                 چت با فروشنده
                             </a>
+                            }else
+                            {
+                                 <a style="background-color:#1F8BFF  ;  font-size: 12px;"  href="/loginandregister/login"  class="btn-primary-cm  btn-with-icon" >
+                                <img src="~/assets/img/theme/chat-cart.png" alt="">
+                                چت با فروشنده
+                            </a>
+                            }
                             <div class="col-lg-8 col-md-6 pb-5 ps-relative">
                     <!-- Product Options-->
                     <div class="mt-1" style="text-align: right;">

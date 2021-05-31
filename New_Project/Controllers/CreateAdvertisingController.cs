@@ -48,6 +48,7 @@ namespace New_Project.Controllers {
         }
          public async Task<IActionResult> Update(Vm_Advertising Vm_Advert)
         {
+             var A=db.tbl_category.Where (a => a.Id.ToString() == Vm_Advert.Category).SingleOrDefault();
             var s=db.tbl_Advertisings.Where(a=>a.Id == Vm_Advert.Id).SingleOrDefault();
                 if (Vm_Advert.Img != null)
                 {
@@ -85,14 +86,15 @@ namespace New_Project.Controllers {
                             await Vm_Advert.Img3.CopyToAsync (stream);
                         }
                 }
-
+              
             
            
-          
+        
             
 
-
-
+                 
+                s.Father=A.Language;
+                s.FatherIdCat=A.FatherIdCat.ToString();
                 s.Category = Vm_Advert.Category;
                 s.Title_Pro = Vm_Advert.Title_Pro;
                 s.Discreption_Pro = Vm_Advert.Discreption_Pro;

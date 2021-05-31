@@ -37,6 +37,9 @@ namespace New_Project.Controllers
             var A= db.Tbl_Factors.Where(a =>a.Id_Order.ToString()==User.Identity.GetId()&&a.Pay!="Ok").ToList().Count();
              HttpContext.Session.SetString ("count", A.ToString() );
 
+             var sms=db.Tbl_Comments.Where(a =>a.Resever_Id==User.Identity.GetId()&&a.State==false).ToList().Count();
+              HttpContext.Session.SetString ("sms", sms.ToString() );
+
             setdata();
             ////////////////////////////////////////////////////////////////////////////////////////////////address
             var address = db.Tbl_Adress.Where(a => a.Language == ln).ToList();
@@ -137,7 +140,7 @@ namespace New_Project.Controllers
 
         public IActionResult CAtegory(int id)
         {
-            ViewBag.menu=db.tbl_Advertisings.Where(a =>a.Category==id.ToString()).ToList();
+            ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Category==id.ToString()).ToList();
             return View();
         }
            public IActionResult CAtegory4(int c)
@@ -179,27 +182,27 @@ namespace New_Project.Controllers
             }
                if (c==2)
             {
-                ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Father=="آرایشی و بهداشتی").ToList();  
+                ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Father=="زیبایی و سلامتی").ToList();  
             }
                if (c==3)
             {
-                 ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Father=="خودرو و ابزاراداری").ToList(); 
+                 ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Father=="ابزارآلات و تجهیزات").ToList(); 
             }
                if (c==4)
             {
-                 ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Father=="مدوپوشاک").ToList(); 
+                 ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Father=="مد و پوشاک").ToList(); 
             }
                if (c==5)
             {
-                 ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Father=="خانه و اشپزخانه").ToList(); 
+                 ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Father=="خانه و آشپزخانه").ToList(); 
             }
                if (c==6)
             {
-                 ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Father=="لوزم و تحریرو هنر").ToList(); 
+                 ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Father=="فرهنگ و هنر").ToList(); 
             }
                if (c==7)
             {
-                 ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Father=="کودک و نوزاد").ToList(); 
+                 ViewBag.oll=db.tbl_Advertisings.Where(a =>a.Father=="سرگرمی،کودک و نوزاد").ToList(); 
             }
                if (c==8)
             {

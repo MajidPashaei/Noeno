@@ -1,8 +1,10 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ViewModel.AdminViewModel.Comment {
-    public class Vm_Comment {
+namespace ViewModel.AdminViewModel.Comment
+{
+    public class Vm_Comment
+    {
         [Key]
         public int Id { get; set; }
         public string User_Id { get; set; }
@@ -15,6 +17,8 @@ namespace ViewModel.AdminViewModel.Comment {
         public string username { get; set; }
         public string dateshamsi { get; set; }
         public string image { get; set; }
+        public string Resever_Id { get; set; }
+        public string Send_Id { get; set; }
 
     }
 

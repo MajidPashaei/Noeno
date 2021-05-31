@@ -8,28 +8,67 @@
             <!-- End Sidebar -->
 
                     <!-- Start Content -->
-                    <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
+                            <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
                         <div class="row">
-                            <div class="col-12">
-                                <div class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2 px-res-1">
-                                    <h2>درخواست مرجوعی</h2>
-                                </div>
-                                <div class="dt-sl dt-sn">
-                                    <div class="order-return text-center pt-2 pb-2">
-                                        <p class="text-center">در حال حاضر کالایی برای مرجوع کردن ندارید.</p>
-                                        <a href="#" class="border-bottom-dt">مشاهده زمان مرجوعی برای کالاهای مختلف</a>
+                            <div class="dt-sl">
+                                @if (ViewBag.s != null)
+                                {
+                                    <div class="row m-1">
+                                        @foreach (var item in ViewBag.s)
+                                        {
+                                            <div class="col-lg-6 col-md-6 col-12 ">
+                                                        <div class="card-horizontal-product shadow">
+                                                            <div class="row">
+                                                                <a href="/singlepage/index/@item.Product_Id" class="m-2">
+                                                                    <img src="~/fileupload/@item.Image" style="width: 75px; height: 75px; border-radius: 10px;" alt="">
+                                                                </a>
+                                                                <div class="cl-6">
+                                                                    <p style="font-size: 10px;">شماره فاکتور : <span>  @item.Id_Factro </span></p>
+                                                                    <p style="font-size: 10px;">کد سفارش: <span> @item.Id </span></p>
+                                                                    <p style="font-size: 10px;">  تاریخ سفارش: <span> 99/02/31 </span></p>
+
+                                                                </div>
+                                                                <div class="cl-6 mr-3">
+                                                                    <p style="font-size: 10px;">نام محصول : <span> @item.product_Name </span></p>
+                                                                    <p style="font-size: 10px;">مبلغ : <span> @item.product_Price </span> تومان </p>
+                                                                    <p style="font-size: 10px;">وضعیت :<span style="font-size: 8px;"> @item.StatusM </span></p>
+                                                                </div>
+                                                            </div>
+                                                            <p style="font-size: 10px;"> آدرس:
+                                                                
+                                                                    <span> @item.State-@item.City-@item.FirstAddress |@item.Post| @item.TellBuy </span>
+                                                                
+                                                            </p>
+                                                                
+                                                                @if (@item.StatusM=="قصد مرجوعی خریدار")
+                                                                {
+                                                                    <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                            <a href="/YourAccount/TahvilNOShow?c=@item.Id" class="btn btn-success">مشاهده علت  </a>
+                                                                            در انتظار تایید مرجوعی
+                                                                    </div>
+                                                                }
+                                                                @if (@item.StatusM=="مرجوع شده")
+                                                                {
+                                                                    <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                               <a href="/YourAccount/TahvilNOShow?c=@item.Id" class="btn btn-success">مشاهده علت  </a>
+                                                                    </div>
+                                                                }
+                                                                @if (@item.StatusM=="عدم تایید قصد مرجوعی")
+                                                                {
+                                                                    <div style="font-size: 10px; text-align: center;" class="mt-1">
+                                                                           عملیات فروش موفق
+                                                                    </div>
+                                                                }
+                                                                @if (@item.StatusM=="مرجوع ارسال شده")
+                                                                {
+                                                                    <p style="font-size: 10px;"> کد مرسوله: @item.Send_Order_Code </p> 
+                                                                }
+                                                                
+                                                        </div>
+                                            </div>
+                                        }
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-12 mt-4">
-                                <div class="section-title text-sm-title title-wide mb-1 no-after-title-wide dt-sl mb-2 px-res-1">
-                                    <h2>تاریخچه مرجوعی</h2>
-                                </div>
-                                <div class="dt-sl dt-sn">
-                                    <div class="order-return text-center pt2 pb-2">
-                                        <p class="text-center">خوشبختانه تا به حال کالایی را مرجوع نکرده‌اید و تاریخچه مرجوعی شما خالی است. 🎉</p>
-                                    </div>
-                                </div>
+                                }
                             </div>
                         </div>
                     </div>

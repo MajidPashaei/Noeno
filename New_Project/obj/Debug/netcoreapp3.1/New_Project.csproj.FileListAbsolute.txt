@@ -4875,6 +4875,7 @@ c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\stat
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.dll
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.pdb
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.genruntimeconfig.cache
+<<<<<<< HEAD
 c:\Users\MS\Desktop\Noeno\New_Project\bin\Debug\netcoreapp3.1\appsettings.Development.json
 c:\Users\MS\Desktop\Noeno\New_Project\bin\Debug\netcoreapp3.1\appsettings.json
 c:\Users\MS\Desktop\Noeno\New_Project\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -5433,3 +5434,11 @@ c:\Users\MS\Desktop\Noeno\New_Project\obj\Debug\netcoreapp3.1\staticwebassets\Ne
 c:\Users\MS\Desktop\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.dll
 c:\Users\MS\Desktop\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.pdb
 c:\Users\MS\Desktop\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.genruntimeconfig.cache
+=======
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\Masege\index.cshtml.g.cs
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\Masege\Read.cshtml.g.cs
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\Masege\Resever.cshtml.g.cs
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AdminPays\No.cshtml.g.cs
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AdminPays\Ok.cshtml.g.cs
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Pay\List.cshtml.g.cs
+>>>>>>> 21715bc6b99474a77173caf7cd9c1bf51f1ea9ea

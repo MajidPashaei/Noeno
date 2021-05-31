@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(Context_db))]
-    [Migration("20210529045146_jkjk")]
-    partial class jkjk
+    [Migration("20210530142517_fgfg")]
+    partial class fgfg
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -233,6 +233,12 @@ namespace DataLayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Language")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Resever_Id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Send_Id")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("State")
@@ -857,6 +863,9 @@ namespace DataLayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StatusP")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("havesttime")

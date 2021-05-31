@@ -96,22 +96,23 @@ namespace New_Project.Controllers
             ///////////////////////////////////////////////////////////////////////////logo & titel
             var D = db.tbl_category.Where(a => a.Language == "کالای دیجیتال").ToList();
             menu.D = D;
-            var A = db.tbl_category.Where(a => a.Language == "آرایشی و بهداشتی" ).ToList();
+            var A = db.tbl_category.Where(a => a.Language == "زیبایی و سلامتی").ToList();
             menu.A = A;
-            var kh = db.tbl_category.Where(a => a.Language == "خودرو و ابزاراداری" ).ToList();
+            var kh = db.tbl_category.Where(a => a.Language == "ابزارآلات و تجهیزات" ).ToList();
             menu.kh = kh;
-            var M = db.tbl_category.Where(a => a.Language == "مدوپوشاک").ToList();
+            var M = db.tbl_category.Where(a => a.Language == "مد و پوشاک").ToList();
             menu.M = M;
-            var Kitchen = db.tbl_category.Where(a => a.Language == "خانه و اشپزخانه" ).ToList();
+            var Kitchen = db.tbl_category.Where(a => a.Language == "خانه و آشپزخانه" ).ToList();
             menu.Kitchen = Kitchen;
-            var L = db.tbl_category.Where(a => a.Language == "لوزم و تحریرو هنر"  ).ToList();
+            var L = db.tbl_category.Where(a => a.Language == "فرهنگ و هنر"  ).ToList();
             menu.L = L;
-            var N = db.tbl_category.Where(a => a.Language == "کودک و نوزاد" ).ToList();
+            var N = db.tbl_category.Where(a => a.Language == "سرگرمی،کودک و نوزاد" ).ToList();
             menu.N = N;
             var S = db.tbl_category.Where(a => a.Language == "ورزش و سفر" ).ToList();
             menu.S = S;
             /////////////////////////////////////////////////////////////////////////////////favicon
-
+            var j = db.tbl_Advertisings.ToList();
+            menu.j = j;
             ////////////////////////////////////////////////////////////////////////////////social network
             var social = db.Tbl_SocialNetwork.ToList();
             if (social != null)

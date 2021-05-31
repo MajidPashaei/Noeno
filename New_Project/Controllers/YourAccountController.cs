@@ -144,6 +144,9 @@ namespace New_Project.Controllers
 
             return View();
         }
+
+
+
         public IActionResult Detail(int b)
         {
 
@@ -155,7 +158,11 @@ namespace New_Project.Controllers
             var C = db.tbl_category.Where(a => a.Id == CK.FatherIdCat).SingleOrDefault();
             var Cat = C.NameCat;
             var FC = db.tbl_category.Where(a => a.Id == C.FatherIdCat).SingleOrDefault();
-            var FatherCat = FC.NameCat;
+            if (FC!=null)
+            {
+               ViewBag.FatherCat = FC.NameCat;
+            }
+            
 
 
             List<Vm_Detail> sd = new List<Vm_Detail>();
@@ -179,7 +186,7 @@ namespace New_Project.Controllers
                 PhoneCreator = u.Phone,
                 Total = t.Number,
                 Special = t.Special,
-                FatherCat = FatherCat,
+                FatherCat = ViewBag.FatherCat,
                 Cat = Cat,
                 ChildCat = ChildCat,
 
@@ -192,7 +199,11 @@ namespace New_Project.Controllers
             return View();
 
         }
-        public IActionResult DetailOk(int b)
+
+
+
+
+                public IActionResult DetailOk(int b)
         {
 
             var t = db.tbl_Advertisings.Where(a => a.Id == b).SingleOrDefault();
@@ -339,7 +350,7 @@ namespace New_Project.Controllers
        
         public IActionResult OrdersReturn()
         {
-            // ViewBag.s=db.Tbl_Factors.Where(a=>a.Id_Order == User.Identity.GetId() && (a.StatusM=="قصد مرجوعی خریدار" || a.StatusM)).ToList();
+            ViewBag.s=db.Tbl_Factors.Where(a=>a.Id_Order.ToString() == User.Identity.GetId() && (a.StatusM=="قصد مرجوعی خریدار" || a.StatusM=="مرجوع شده" || a.StatusM=="عدم تایید قصد مرجوعی" || a.StatusM=="مرجوع ارسال شده")).ToList();
             return View();
         }
         public IActionResult TahvilOrder(int c)
@@ -545,7 +556,7 @@ namespace New_Project.Controllers
         }
         public IActionResult AccountMe()
         {
-          
+              
 
 
             List<Vm_Pay> A = new List<Vm_Pay>();
@@ -581,8 +592,10 @@ namespace New_Project.Controllers
             int B1 = db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "No").Sum(a => a.product_Price);
             int B2 = db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "Ok").Sum(a => a.product_Price);
             int pay = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId()) && a.status == true).Sum(a => a.Pay);
-            int horvest = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())).Sum(a => a.Harvest);
+            int horvest = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.StatusP=="OK").Sum(a => a.Harvest);
              ViewBag.Oll=(B1+B2+pay)-horvest;
+
+            
 
             return View();
         }

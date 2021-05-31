@@ -169,7 +169,7 @@
                                             
                         
                                             <li class="sub-menu">
-                                                <a href="#"  style="font-size: 12px;"> بهداشتی و سلامت</a>
+                                                <a href="#"  style="font-size: 12px;"> زیبایی وسلامت </a>
                                                 <ul>
                                                                           
                                     @foreach (var item in menu.A)
@@ -204,7 +204,7 @@
                                             
                         
                                             <li class="sub-menu">
-                                                <a href="#"  style="font-size: 12px;">خودرو و ابزار اداری</a>
+                                                <a href="#"  style="font-size: 12px;">بزارآلات و تجهیزات</a>
                                                 <ul>
                                                                           
                                     @foreach (var item in menu.kh)
@@ -239,7 +239,7 @@
                                             
                         
                                             <li class="sub-menu">
-                                                <a href="#"  style="font-size: 12px;" >مدوپوشاک</a>
+                                                <a href="#"  style="font-size: 12px;" >مد و پوشاک</a>
                                                 <ul>
                                                                           
                                     @foreach (var item in menu.M)
@@ -274,7 +274,7 @@
                                             
                         
                                             <li class="sub-menu">
-                                                <a href="#"  style="font-size: 12px;">خانه و اشپزخانه</a>
+                                                <a href="#"  style="font-size: 12px;">خانه و آشپزخانه</a>
                                                 <ul>
                                                                           
                                     @foreach (var item in menu.Kitchen)
@@ -309,7 +309,7 @@
                                             
                         
                                             <li class="sub-menu">
-                                                <a href="#"  style="font-size: 12px;">لوازم التحریروهنر</a>
+                                                <a href="#"  style="font-size: 12px;">فرهنگ و هنر</a>
                                                 <ul>
                                                                           
                                     @foreach (var item in menu.L)
@@ -344,7 +344,7 @@
                                             
                         
                                             <li class="sub-menu">
-                                                <a href="#"  style="font-size: 12px;">کودک و نوزاد</a>
+                                                <a href="#"  style="font-size: 12px;">سرگرمی،کودک و نوزاد</a>
                                                 <ul>
                                                                           
                                     @foreach (var item in menu.N)
@@ -457,26 +457,22 @@
                                 <form action="" class="search">
                                     <input type="text"
                                         placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…">
-                                         @* <div class="autocomplete" style="width:300px;">
-    <input id="myInput" type="text" name="myCountry" placeholder="Country" autocomplete="off">
-  </div> *@
+                                        
                                     <button type="submit"><img src="~/assets/img/theme/search.png" alt=""></button>
                                     <button class="close-search-result" type="button"><i
                                             class="mdi mdi-close"></i></button>
                                     <div class="search-result">
                                         <ul>
-                                            <li>
-                                                <a href="#">موبایل</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">مد و پوشاک</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">میکروفن</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">میز تلویزیون</a>
-                                            </li>
+                                            @if (menu.j != null)
+                                            {
+                                               @foreach (var item in menu.j)
+                                                {
+                                                    <li>
+                                                        <a href="#">@item.Title_Pro</a>
+                                                    </li>
+                                                } 
+                                            }
+                                            
                                         </ul>
                                     </div>
                                 </form>
@@ -501,16 +497,34 @@
                                             <!-- <span class="count">2</span> -->
                                         </a>
                                     </div>
+                                     @if (User.Identity.IsAuthenticated)
+                                        {
                                      <div style="padding-left: 3px; padding-right: 3px;">
-                                        <a style="text-align: center;" class="nav-link" href="#" aria-haspopup="true"
+                                        <a style="text-align: center;" class="nav-link" href="/masege/Resever" aria-haspopup="true"
                                             aria-expanded="false">
                                             <i style="font-size: 24px;" class="mdi mdi-comment-text"></i>
                                             <br>
                                             <span style="margin-top: -2px; font-size: 12px;" class="label-dropdown">پیام
                                                 ها</span>
+                                                 <span class="badge badge-warning">
+                                                      @HttpContextAccessor.HttpContext.Session.GetString("sms")</span>
                                             <!-- <span class="count">2</span> -->
                                         </a>
                                     </div>
+                                        }else
+                                        {
+                                             <div style="padding-left: 3px; padding-right: 3px;">
+                                        <a style="text-align: center;" class="nav-link" href="/loginandregister/login" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <i style="font-size: 24px;" class="mdi mdi-comment-text"></i>
+                                            <br>
+                                            <span style="margin-top: -2px; font-size: 12px;" class="label-dropdown">پیام
+                                                ها</span>
+                                               
+                                            <!-- <span class="count">2</span> -->
+                                        </a>
+                                            </div>
+                                        }
                                     <div style="padding-left: 3px; padding-right: 3px;">
                                        @if (User.Identity.IsAuthenticated)
                                         {
@@ -670,7 +684,7 @@
                             <!-- mega menu 2 column -->
                             <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
                                 
-                                <a class="nav-link" href="#" style="font-size: small;">بهداشتی و سلامت</a>
+                                <a class="nav-link" href="#" style="font-size: small;">زیبایی و سلامت</a>
                                 
                                 <ul class="sub-menu nav">
                                 
@@ -726,7 +740,7 @@
                             <!-- mega menu 2 column -->
                             <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
                                 
-                                <a class="nav-link" href="#" style="font-size: small;">خودرو,ابزارواداری</a>
+                                <a class="nav-link" href="#" style="font-size: small;">ابزارآلات و تجهیزات</a>
                                 
                                 <ul class="sub-menu nav">
                                 
@@ -780,7 +794,7 @@
                             <!-- mega menu 2 column -->
                             <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
                                 
-                                <a class="nav-link" href="#" style="font-size: small;">مدوپوشاک </a>
+                                <a class="nav-link" href="#" style="font-size: small;">مد و پوشاک </a>
                                 
                                 <ul class="sub-menu nav">
                                 
@@ -834,7 +848,7 @@
                             <!-- mega menu 2 column -->
                             <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
                                 
-                                <a class="nav-link" href="#" style="font-size: small;">خانه و اشپزخانه </a>
+                                <a class="nav-link" href="#" style="font-size: small;">خانه و آشپزخانه </a>
                                 
                                 <ul class="sub-menu nav">
                                 
@@ -888,7 +902,7 @@
                             <!-- mega menu 2 column -->
                             <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
                                 
-                                <a class="nav-link" href="#" style="font-size: small;">لوازم التحریر وهنر</a>
+                                <a class="nav-link" href="#" style="font-size: small;">فرهنگ و هنر</a>
                                 
                                 <ul class="sub-menu nav">
                                 
@@ -942,7 +956,7 @@
                             <!-- mega menu 2 column -->
                             <li class="list-item list-item-has-children mega-menu mega-menu-col-5">
                                 
-                                <a class="nav-link" href="#" style="font-size: small;">کودک و نوزاد</a>
+                                <a class="nav-link" href="#" style="font-size: small;">سرگرمی،کودک و نوزاد</a>
                                 
                                 <ul class="sub-menu nav">
                                 
@@ -1154,8 +1168,8 @@
 @* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// *@
                   @if (User.Identity.IsAuthenticated )
                    {
-                        <ul class="nav float-left">
-                            <li style="margin-top: 6px;" class="nav-item account ">
+                        <ul class="nav float-left ">
+                            <li style="margin-top: 6px;" class="nav-item account  btn btn-warning">
                                 <a class="nav-link" href="/CreateAdvertising/index" aria-haspopup="true" aria-expanded="false">
                                     <span>ثبت کالای جدید</span>
                                 </a>
@@ -1165,7 +1179,7 @@
                     }else
                     {
                         <ul class="nav float-left">
-                            <li style="margin-top: 6px;" class="nav-item account ">
+                            <li style="margin-top: 6px;" class="nav-item account  btn btn-warning ">
                                 <a class="nav-link" href="/loginandregister/login" aria-haspopup="true" aria-expanded="false">
                                     <span>ثبت کالای جدید</span>
                                 </a>
