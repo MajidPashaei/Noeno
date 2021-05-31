@@ -131,7 +131,7 @@ namespace New_Project.Controllers {
                 s.Number=Vm_Advert.Number;
                 db.tbl_Advertisings.Update (s);
                 db.SaveChanges ();
-                return View("index");
+                return View("profile","YourAccount" );
         }
         
         
@@ -201,7 +201,7 @@ namespace New_Project.Controllers {
             db.SaveChanges ();
             massage = ":کالای شما با موفقیت ثبت شد";
 
-            return RedirectToAction ("Index", "CreateAdvertising");
+            return RedirectToAction ("profile","YourAccount" );
         }
 
     }
