@@ -111,7 +111,8 @@ namespace New_Project.Controllers
             var S = db.tbl_category.Where(a => a.Language == "ورزش و سفر" ).ToList();
             menu.S = S;
             /////////////////////////////////////////////////////////////////////////////////favicon
-
+            var j = db.tbl_Advertisings.ToList();
+            menu.j = j;
             ////////////////////////////////////////////////////////////////////////////////social network
             var social = db.Tbl_SocialNetwork.ToList();
             if (social != null)

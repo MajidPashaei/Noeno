@@ -457,26 +457,22 @@
                                 <form action="" class="search">
                                     <input type="text"
                                         placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…">
-                                         @* <div class="autocomplete" style="width:300px;">
-    <input id="myInput" type="text" name="myCountry" placeholder="Country" autocomplete="off">
-  </div> *@
+                                        
                                     <button type="submit"><img src="~/assets/img/theme/search.png" alt=""></button>
                                     <button class="close-search-result" type="button"><i
                                             class="mdi mdi-close"></i></button>
                                     <div class="search-result">
                                         <ul>
-                                            <li>
-                                                <a href="#">موبایل</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">مد و پوشاک</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">میکروفن</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">میز تلویزیون</a>
-                                            </li>
+                                            @if (menu.j != null)
+                                            {
+                                               @foreach (var item in menu.j)
+                                                {
+                                                    <li>
+                                                        <a href="#">@item.Title_Pro</a>
+                                                    </li>
+                                                } 
+                                            }
+                                            
                                         </ul>
                                     </div>
                                 </form>

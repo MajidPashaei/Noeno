@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using DataLayer.AdminEntities.Category;
 using DataLayer.AdminEntities.Logo;
 using DataLayer.AdminEntities.SocialNetwork;
+using DataLayer.Entities.User;
 namespace New_Project.Models
 {
     public static class menu
@@ -20,6 +21,7 @@ namespace New_Project.Models
         public static List<Tb_Category> L = new List<Tb_Category>();
         public static List<Tb_Category> N = new List<Tb_Category>();
         public static List<Tb_Category> S = new List<Tb_Category>();
+        public static List<Tbl_Advertising> j = new List<Tbl_Advertising>();
         public static List<string> find { get; set; }
         
         

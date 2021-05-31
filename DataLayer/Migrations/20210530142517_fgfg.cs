@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataLayer.Migrations
 {
-    public partial class jkjk : Migration
+    public partial class fgfg : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -199,6 +199,8 @@ namespace DataLayer.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     User_Id = table.Column<string>(nullable: true),
+                    Resever_Id = table.Column<string>(nullable: true),
+                    Send_Id = table.Column<string>(nullable: true),
                     blog_id = table.Column<int>(nullable: false),
                     product_id = table.Column<int>(nullable: false),
                     Comment = table.Column<string>(nullable: true),
@@ -432,7 +434,8 @@ namespace DataLayer.Migrations
                     havesttime = table.Column<DateTime>(nullable: false),
                     status = table.Column<bool>(nullable: false),
                     iduser = table.Column<int>(nullable: false),
-                    Id_Factro = table.Column<int>(nullable: false)
+                    Id_Factro = table.Column<int>(nullable: false),
+                    StatusP = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

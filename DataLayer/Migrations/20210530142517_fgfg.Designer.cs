@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(Context_db))]
-    [Migration("20210530082613_hjhjhjh")]
-    partial class hjhjhjh
+    [Migration("20210530142517_fgfg")]
+    partial class fgfg
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -863,6 +863,9 @@ namespace DataLayer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StatusP")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("havesttime")
