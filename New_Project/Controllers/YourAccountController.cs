@@ -24,22 +24,16 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using ViewModels.AdminViewModel.Wallet;
 using ViewModel.AdminViewModel.Order;
 using DataLayer.AdminEntities.Order;
-
-
 namespace New_Project.Controllers
 {
-
     [Authorize]
     public class YourAccountController : Controller
     {
         public static string massage, eror, NewFileName, NewFileName2, msg;
         public static int IdP;
         public static string FileExtension1,NewFileName1;
-
-
         private readonly Context_db db;
         private readonly IWebHostEnvironment env;
-
         public YourAccountController(Context_db _db, IWebHostEnvironment _env)
         {
             db = _db;
@@ -144,9 +138,6 @@ namespace New_Project.Controllers
 
             return View();
         }
-
-
-
         public IActionResult Detail(int b)
         {
 
@@ -199,10 +190,6 @@ namespace New_Project.Controllers
             return View();
 
         }
-
-
-
-
                 public IActionResult DetailOk(int b)
         {
 
@@ -301,7 +288,6 @@ namespace New_Project.Controllers
             eror = "آگهی با موفقیت حذف شد";
             return RedirectToAction("profile");
         }
-
         public async Task<IActionResult> Edit(int b)
             {
             var Tb_Advert = db.tbl_Advertisings.Where(a => a.Id == b).SingleOrDefault();
@@ -347,7 +333,6 @@ namespace New_Project.Controllers
             ViewBag.list= db.Tbl_Factors.Where(a => a.Id == c).ToList();
             return View();
         }
-       
         public IActionResult OrdersReturn()
         {
             ViewBag.s=db.Tbl_Factors.Where(a=>a.Id_Order.ToString() == User.Identity.GetId() && (a.StatusM=="قصد مرجوعی خریدار" || a.StatusM=="مرجوع شده" || a.StatusM=="عدم تایید قصد مرجوعی" || a.StatusM=="مرجوع ارسال شده")).ToList();
@@ -367,8 +352,6 @@ namespace New_Project.Controllers
             IdP=c;
              return View("OrderDetails");
         }
-
-
          public async Task<IActionResult> OrderDetails(Vm_Factor Vf)
         {
 
@@ -391,10 +374,6 @@ namespace New_Project.Controllers
             db.SaveChanges();
             return RedirectToAction("Orders");
         }
-
-
-
-
         [AllowAnonymous, Route("/Invite/{id}")]
         public IActionResult Invite(string? id)
         {
@@ -404,12 +383,7 @@ namespace New_Project.Controllers
            
             return View();
         }
-
-
-
-
 /// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
         public IActionResult Sales()
         {
 
@@ -452,8 +426,6 @@ namespace New_Project.Controllers
             db.SaveChanges();
             return RedirectToAction("Sales");
         }
-
-
         public IActionResult Send(Vm_Factor vf)
         {
             var s= db.Tbl_Factors.Where(a => a.Id == vf.Id).SingleOrDefault();
@@ -481,13 +453,6 @@ namespace New_Project.Controllers
 
              return RedirectToAction("Orders");
         }
-
-
-
-
-
-
-
         public IActionResult ShowInvite()
         {
             var s=db.Tbl_Users.Where(a=>a.Code == User.Identity.GetId()).ToList();
@@ -529,7 +494,6 @@ namespace New_Project.Controllers
 
             return View();
         }
-        
         public IActionResult DelFavorite(int id)
         {
             var qorder = db.Tbl_MyFavorites.Where(a => a.IdKala == id && a.IdUser.ToString()==User.Identity.GetId()).SingleOrDefault();
@@ -537,7 +501,6 @@ namespace New_Project.Controllers
             db.SaveChanges();
             return RedirectToAction("Favorites");
         }
-        
         public IActionResult Comments()
         {
             return View();
@@ -714,7 +677,12 @@ namespace New_Project.Controllers
         }
              public IActionResult harvest()
         {
-             ViewBag.harvest =db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.Pay==0 &&a.Harvest!=0).ToList();
+             ViewBag.harvest =db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.Pay==0 &&a.Harvest!=0 && a.StatusP=="Ok").ToList();
+            return View();
+        }
+        public IActionResult HarvestRequest()
+        {
+            ViewBag.harvest =db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.Pay==0 &&a.Harvest!=0).ToList();
             return View();
         }
         public IActionResult success()
@@ -737,13 +705,5 @@ namespace New_Project.Controllers
              ViewBag.NoBuy =db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" &&a.StatusA=="No").ToList();
             return View();
         }
-    
-
-
-
-
-
-
-
     }
 }
