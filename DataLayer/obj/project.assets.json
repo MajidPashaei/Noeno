@@ -5726,11 +5726,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj",
       "projectName": "DataLayer",
       "projectPath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj",
       "packagesPath": "C:\\Users\\MS\\.nuget\\packages\\",
       "outputPath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\obj\\",
+=======
+      "projectUniqueName": "c:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj",
+      "projectName": "DataLayer",
+      "projectPath": "c:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj",
+      "packagesPath": "C:\\Users\\MS\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\obj\\",
+>>>>>>> 384e5d7283581251e1629c0adb73390db3e96d74
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\MS\\AppData\\Roaming\\NuGet\\NuGet.Config"

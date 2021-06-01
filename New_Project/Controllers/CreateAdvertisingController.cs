@@ -26,7 +26,7 @@ namespace New_Project.Controllers {
     
      
     public class CreateAdvertisingController : Controller {
-        public static string massage, NewFileName,NewFileName2, NewFileName1,NewFileName3;
+        public  string massage, NewFileName,NewFileName2, NewFileName1,NewFileName3;
 
         private readonly Context_db db;
         private readonly IWebHostEnvironment env;
@@ -131,7 +131,7 @@ namespace New_Project.Controllers {
                 s.Number=Vm_Advert.Number;
                 db.tbl_Advertisings.Update (s);
                 db.SaveChanges ();
-                return View("profile","YourAccount" );
+                return RedirectToAction("profile","YourAccount" );
         }
         
         
@@ -141,30 +141,58 @@ namespace New_Project.Controllers {
             var A=db.tbl_category.Where (a => a.Id.ToString() == Vm_Advert.Category).SingleOrDefault();
 
             /////////////////////////////////////////////////////////////////////////////////upload file
-            string FileExtension1 = Path.GetExtension (Vm_Advert.Img.FileName);
+            if (Vm_Advert.Img != null)
+            {
+                string FileExtension1 = Path.GetExtension (Vm_Advert.Img.FileName);
             NewFileName = String.Concat (Guid.NewGuid ().ToString (), FileExtension1);
             var path = $"{env.WebRootPath}\\fileupload\\{NewFileName}";
             using (var stream = new FileStream (path, FileMode.Create)) {
                 await Vm_Advert.Img.CopyToAsync (stream);
             }
-            string FileExtension2 = Path.GetExtension (Vm_Advert.Img1.FileName);
+                
+            }
+            
+
+
+          if (Vm_Advert.Img1 != null)
+          {
+               string FileExtension2 = Path.GetExtension (Vm_Advert.Img1.FileName);
             NewFileName2 = String.Concat (Guid.NewGuid ().ToString (), FileExtension2);
             var path1 = $"{env.WebRootPath}\\fileupload\\{NewFileName2}";
             using (var stream = new FileStream (path1, FileMode.Create)) {
                 await Vm_Advert.Img1.CopyToAsync (stream);
             }
-            string FileExtension3 = Path.GetExtension (Vm_Advert.Img2.FileName);
+              
+          }
+           
+              
+
+
+
+              if (Vm_Advert.Img2!=null)
+              {
+                   string FileExtension3 = Path.GetExtension (Vm_Advert.Img2.FileName);
             NewFileName3= String.Concat (Guid.NewGuid ().ToString (), FileExtension3);
             var path2 = $"{env.WebRootPath}\\fileupload\\{NewFileName3}";
             using (var stream = new FileStream (path2, FileMode.Create)) {
                 await Vm_Advert.Img2.CopyToAsync (stream);
             }
-            string FileExtension4 = Path.GetExtension (Vm_Advert.Img3.FileName);
+
+                  
+              }
+
+           if (Vm_Advert.Img3 != null)
+           {
+               string FileExtension4 = Path.GetExtension (Vm_Advert.Img3.FileName);
             NewFileName1= String.Concat (Guid.NewGuid ().ToString (), FileExtension4);
             var path3 = $"{env.WebRootPath}\\fileupload\\{NewFileName1}";
             using (var stream = new FileStream (path3, FileMode.Create)) {
                 await Vm_Advert.Img3.CopyToAsync (stream);
             }
+               
+           }
+
+            
             
             //////////////////////////end upload file 
 
