@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "1wUkm9NJZ5RS+avKkN2c459zrTZ6x8ASl0LW9ybtj985LGO9sX2+xBRbO3p2Ng+6AgVy76/wZMBSj8OgRK9IKg==",
   "success": true,
   "projectFilePath": "c:\\Users\\ms\\Desktop\\Noeno\\New_Project\\New_Project.csproj",
+=======
+  "dgSpecHash": "FQiKHIg6IUM6Fky2nZen21q6kRWibqdLCcq6KhkCqH58IxlV0S7IafIIqH23owXOHObYKRVNKArWuwGRs+YRGQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\MS\\Desktop\\Noeno\\New_Project\\New_Project.csproj",
+>>>>>>> 094e4d0bdcd27dcc9d52686059f31379799321aa
   "expectedPackageFiles": [
     "C:\\Users\\ms\\.nuget\\packages\\kavenegar\\1.2.4\\kavenegar.1.2.4.nupkg.sha512",
     "C:\\Users\\ms\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
