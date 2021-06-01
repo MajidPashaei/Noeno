@@ -1,0 +1,44 @@
+@{
+    Layout = null;
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#febd69">
+    <meta name="msapplication-navbutton-color" content="#febd69">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#febd69">
+
+
+    @if (menu.Title != null)
+    {
+        <meta name="author" content="@menu.Title">
+        <meta name="description" content="@menu.Title">
+        <meta name="keywords" content="@menu.Title">
+        <title>@menu.Title</title>
+    }
+    else
+    {
+        <title>عنوان وب سایت شما</title>
+    }
+    <link rel="icon" type="image/ico" href="~/fileupload/@menu.favicon" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/assets/css/vendor/bootstrap.min.css">
+    <!-- Plugins -->
+    <link rel="stylesheet" href="~/assets/css/vendor/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/assets/css/vendor/jquery.horizontalmenu.css">
+    <!-- Plugins Category Page -->
+    <link rel="stylesheet" href="~/assets/css/vendor/nouislider.min.css">
+    <!-- Plugins Single Product -->
+    <link rel="stylesheet" href="~/assets/css/vendor/fancybox.min.css">
+    <!-- Plugins Page Addresses -->
+    <link rel="stylesheet" href="~/assets/css/vendor/nice-select.css">
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/assets/css/vendor/materialdesignicons.min.css">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="~/assets/css/main.css">
+    <link rel="stylesheet" href="~/assets/css/colors/default.css" id="colorswitch">
+    <link rel="stylesheet" href="~/css/find.css">
+
+</head>

@@ -73,6 +73,7 @@ namespace New_Project.Controllers {
                         sd.Add(q);
                 
                 ViewBag.Details = sd;
+                ViewBag.s=db.Tbl_MyFavorites.Where(a=>a.IdKala==id && a.IdUser.ToString()==User.Identity.GetId()).FirstOrDefault();
             return View ();
         }
 

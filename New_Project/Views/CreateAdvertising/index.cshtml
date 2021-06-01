@@ -822,7 +822,7 @@
 
                                                                     image.src = output.src;
 
-                                                                   
+
                                                                 }
 
                                                                 image.onload = function () {
@@ -858,9 +858,9 @@
                                                     </div>
                                                     <script>
                                                         $(".image-box1").click(function (event) {
-                                                            
-                                                                var image = new Image();
-                                                                var c = 0;
+
+                                                            var image = new Image();
+                                                            var c = 0;
                                                             var previewImg1 = $(this).children("img");
 
                                                             $(this)
@@ -877,25 +877,25 @@
 
                                                                     reader1.onload = function (e) {
                                                                         debugger
-                                                                         urll1 = e.target.result;
+                                                                        urll1 = e.target.result;
                                                                         $(previewImg1).attr("src", urll1);
                                                                         previewImg1.parent().css("background", "transparent");
                                                                         previewImg1.show();
                                                                         previewImg1.siblings("p").hide();
-                                                                      
-                                                                    var height = e.height;
-                                                                    var width = e.width;
-                                                                   
-                                                                                                                                                
-                                                                    };
-                                                                    
-                                                                   
-                                                                    
-                                                                    
-                                                                        reader1.readAsDataURL(this.files[0]);
 
-                                                                   
-                                                                    
+                                                                        var height = e.height;
+                                                                        var width = e.width;
+
+
+                                                                    };
+
+
+
+
+                                                                    reader1.readAsDataURL(this.files[0]);
+
+
+
                                                                 });
                                                         });
 
@@ -1395,7 +1395,7 @@
                                                 <div class="dt-sl">
                                                     <div class="form-row mt-3 justify-content-center">
                                                         <button type="submit" name="submit"
-                                                            class="btn-primary-cm btn-with-icon ml-2">
+                                                            class="btn-primary-cm btn-with-icon ml-2" onclick="test();">
                                                             <i class="mdi mdi-account-circle-outline"></i>
                                                             ثبت نهایی کالا
                                                         </button>
@@ -1404,6 +1404,28 @@
                                                             class="btn-primary-cm bg-secondary">انصراف</a>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <script>
+                                                function test() {
+                                                               document.getElementById('chone').style.display = "none";
+                                                            document.getElementById('load').style.display = "block";
+                                                }
+                                            </script>
+
+
+                                            <div id="load" style="display: none;">
+                                               <div class="text-center" >
+    
+                                <div class="spinner-border text-warning m-5 text-center " role="status">
+                                    <span class="sr-only">Loading...</span>
+                                    
+                                </div>
+                               
+                               <p> ....در حال ثبت اطلاعات</p>
+                           
+</div>
+
+
                                             </div>
 
 

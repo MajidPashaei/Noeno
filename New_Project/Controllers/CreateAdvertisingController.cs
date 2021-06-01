@@ -203,6 +203,10 @@ namespace New_Project.Controllers {
 
             return RedirectToAction ("profile","YourAccount" );
         }
-
+        public IActionResult Loading()
+        {
+            return View();
+        }
+        
     }
 }
