@@ -71,8 +71,8 @@ namespace New_Project.Controllers
             var result = await _payment.Request(new DtoRequest()
             {
                 Mobile = quser.Phone,
-                // CallbackUrl = "https://localhost:5001/pay/validate",
-                CallbackUrl = "https://noeno.hampadcoteam.ir/pay/validate",
+                CallbackUrl = "https://localhost:5001/pay/validate",
+                // CallbackUrl = "https://noeno.hampadcoteam.ir/pay/validate",
                 Description = quser.NameFamily,
                 Email = "tak1.ghasemi@gmail.com",
                 Amount = qpay.Pay,
@@ -241,7 +241,7 @@ namespace New_Project.Controllers
             var result = await _payment.Request(new DtoRequest()
             {
                 Mobile = quser.Phone,
-                CallbackUrl = "https://noeno.hampadcoteam.ir/pay/validate2",
+                CallbackUrl = "https://localhost:5001/pay/validate2",
                 Description = quser.NameFamily,
                 Email = "tak1.ghasemi@gmail.com",
                 Amount = qpay.Pay,
