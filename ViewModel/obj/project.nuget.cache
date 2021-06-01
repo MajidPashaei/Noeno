@@ -1,20 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "i8P0sxzyXsHgj8MG1KRDJ+lf4fp5hyHuOqjKGJ6KjZKutBfiv8zc20ie1nadL9fniskrPRtP8evcFZg9OD0gdw==",
   "success": true,
   "projectFilePath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\ViewModel\\ViewModel.csproj",
-=======
-<<<<<<< HEAD
-  "dgSpecHash": "xbsASzWLnwtHhNen97qaKfn9bD3ZzC6haRr2ot/aTlfq+jnauNn3n609am51chKwrjm1vZZvvZfTDavTQNW8SQ==",
-  "success": true,
-  "projectFilePath": "c:\\Users\\MS\\Desktop\\Noeno\\ViewModel\\ViewModel.csproj",
-=======
-  "dgSpecHash": "i8P0sxzyXsHgj8MG1KRDJ+lf4fp5hyHuOqjKGJ6KjZKutBfiv8zc20ie1nadL9fniskrPRtP8evcFZg9OD0gdw==",
-  "success": true,
-  "projectFilePath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\ViewModel\\ViewModel.csproj",
->>>>>>> 027e2a0fe64ba443da3c53cf64b5e1d41e71bc26
->>>>>>> 384e5d7283581251e1629c0adb73390db3e96d74
   "expectedPackageFiles": [
     "C:\\Users\\MS\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
     "C:\\Users\\MS\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
@@ -123,5 +111,12 @@
     "C:\\Users\\MS\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\MS\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\ViewModel\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

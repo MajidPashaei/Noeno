@@ -1,20 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "4bQgMFZXHwvb7Y+6j5nQK9pEVMMPOWn+fjoh8xvtNNL245hZ+1jY56h8exkR/0piWNqOwZAGqopeH703fGnpog==",
   "success": true,
   "projectFilePath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\New_Project\\New_Project.csproj",
-=======
-<<<<<<< HEAD
-  "dgSpecHash": "bnbZ6t5EjJmluw4y/l40E09L2x0UY6WS3WOjt4zXXEw9uYuGit2A6e3M5bPhRo1vSW9QtJ3Hbeuk2DygWFYUew==",
-  "success": true,
-  "projectFilePath": "c:\\Users\\MS\\Desktop\\Noeno\\New_Project\\New_Project.csproj",
-=======
-  "dgSpecHash": "4bQgMFZXHwvb7Y+6j5nQK9pEVMMPOWn+fjoh8xvtNNL245hZ+1jY56h8exkR/0piWNqOwZAGqopeH703fGnpog==",
-  "success": true,
-  "projectFilePath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\New_Project\\New_Project.csproj",
->>>>>>> 027e2a0fe64ba443da3c53cf64b5e1d41e71bc26
->>>>>>> 384e5d7283581251e1629c0adb73390db3e96d74
   "expectedPackageFiles": [
     "C:\\Users\\MS\\.nuget\\packages\\kavenegar\\1.2.4\\kavenegar.1.2.4.nupkg.sha512",
     "C:\\Users\\MS\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
@@ -146,5 +134,12 @@
     "C:\\Users\\MS\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Users\\MS\\.nuget\\packages\\zarinpal\\3.0.1\\zarinpal.3.0.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\New_Project\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
