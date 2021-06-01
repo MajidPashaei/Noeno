@@ -6393,11 +6393,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\MS\\Desktop\\Noeno\\New_Project\\New_Project.csproj",
+      "projectUniqueName": "C:\\Users\\MS\\Desktop\\Noeno\\New_Project\\New_Project.csproj",
       "projectName": "New_Project",
-      "projectPath": "c:\\Users\\MS\\Desktop\\Noeno\\New_Project\\New_Project.csproj",
+      "projectPath": "C:\\Users\\MS\\Desktop\\Noeno\\New_Project\\New_Project.csproj",
       "packagesPath": "C:\\Users\\MS\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\MS\\Desktop\\Noeno\\New_Project\\obj\\",
+      "outputPath": "C:\\Users\\MS\\Desktop\\Noeno\\New_Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\MS\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -6411,11 +6411,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "c:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "c:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj"
+            "C:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "C:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj"
             },
-            "c:\\Users\\MS\\Desktop\\Noeno\\ViewModel\\ViewModel.csproj": {
-              "projectPath": "c:\\Users\\MS\\Desktop\\Noeno\\ViewModel\\ViewModel.csproj"
+            "C:\\Users\\MS\\Desktop\\Noeno\\ViewModel\\ViewModel.csproj": {
+              "projectPath": "C:\\Users\\MS\\Desktop\\Noeno\\ViewModel\\ViewModel.csproj"
             }
           }
         }

@@ -76,7 +76,7 @@
                                                 function gotoname() {
 
 
-                                                    if ((document.getElementById('Img').value != "")  && (document.getElementById('Img1').value != "")  && (document.getElementById('Img2').value != "")  && (document.getElementById('Img3').value != "")) {
+                                                    if ((document.getElementById('Img').value != "")) {
                                                         document.getElementById('aks').style.display = "none";
                                                         document.getElementById('name').style.display = "block";
 
@@ -117,10 +117,10 @@
 
                                                         var a = parseInt(document.getElementById('Main_Price').value)
                                                         var b = parseInt(document.getElementById('Discount_Price').value)
-                                                        if (a < 10000 ) {
+                                                        if (a < 10000) {
                                                             document.getElementById('eMain_Price').innerText = "مبلغ نمیتواند از ده هزار تومان کمتر باشد.";
                                                         }
-                                                        else if (b < 10000 ) {
+                                                        else if (b < 10000) {
                                                             document.getElementById('eDiscount_Price').innerText = "مبلغ نمیتواند از ده هزار تومان کمتر باشد.";
                                                         }
                                                         else if (b > a) {
@@ -199,7 +199,8 @@
 
                                                     <details class="tree-nav__item is-expandable  "
                                                         style="font-size: 10px; ">
-                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2"
+                                                            style="font-size: 15px;">
                                                             کالای دیجیتال
                                                         </summary>
                                                         @foreach (var item in menu.D)
@@ -208,7 +209,8 @@
                                                             {
                                                                 <details class="tree-nav__item is-expandable">
                                                                     <summary class="tree-nav__item-title alert m-2 p-2"
-                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                style="background-color: #cfd8e3; font-size: 13px;">
+                                                                        @item.NameCat
                                                                     </summary>
 
 
@@ -223,7 +225,7 @@
 
                                                                                             <a onclick="send(@item1.Id);"
                                                                                 class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
-                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 12px;">
 
                                                                                                 @item1.NameCat
 
@@ -257,7 +259,8 @@
 
                                                     <details class="tree-nav__item is-expandable  "
                                                         style="font-size: 10px; ">
-                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2"
+                                                            style="font-size: 15px;">
                                                             بهداشتی و سلامت
                                                         </summary>
                                                         @foreach (var item in menu.A)
@@ -266,7 +269,8 @@
                                                             {
                                                                 <details class="tree-nav__item is-expandable">
                                                                     <summary class="tree-nav__item-title alert m-2 p-2"
-                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                style="background-color: #cfd8e3; font-size: 13px;">
+                                                                        @item.NameCat
                                                                     </summary>
 
 
@@ -281,7 +285,7 @@
 
                                                                                             <a onclick="send(@item1.Id);"
                                                                                 class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
-                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 12px;">
 
                                                                                                 @item1.NameCat
 
@@ -315,7 +319,8 @@
 
                                                     <details class="tree-nav__item is-expandable  "
                                                         style="font-size: 10px; ">
-                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2"
+                                                            style="font-size: 15px;">
                                                             خودرو وابزار اداری
                                                         </summary>
                                                         @foreach (var item in menu.kh)
@@ -324,7 +329,8 @@
                                                             {
                                                                 <details class="tree-nav__item is-expandable">
                                                                     <summary class="tree-nav__item-title alert m-2 p-2"
-                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                style="background-color: #cfd8e3; font-size: 13px;">
+                                                                        @item.NameCat
                                                                     </summary>
 
 
@@ -339,7 +345,7 @@
 
                                                                                             <a onclick="send(@item1.Id);"
                                                                                 class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
-                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 12px;">
 
                                                                                                 @item1.NameCat
 
@@ -373,7 +379,8 @@
 
                                                     <details class="tree-nav__item is-expandable  "
                                                         style="font-size: 10px; ">
-                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2"
+                                                            style="font-size: 15px;">
                                                             مد و پوشاک
                                                         </summary>
                                                         @foreach (var item in menu.M)
@@ -382,7 +389,8 @@
                                                             {
                                                                 <details class="tree-nav__item is-expandable">
                                                                     <summary class="tree-nav__item-title alert m-2 p-2"
-                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                style="background-color: #cfd8e3; font-size: 13px;">
+                                                                        @item.NameCat
                                                                     </summary>
 
 
@@ -397,7 +405,7 @@
 
                                                                                             <a onclick="send(@item1.Id);"
                                                                                 class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
-                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 12px;">
 
                                                                                                 @item1.NameCat
 
@@ -431,7 +439,8 @@
 
                                                     <details class="tree-nav__item is-expandable  "
                                                         style="font-size: 10px; ">
-                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2"
+                                                            style="font-size: 15px;">
                                                             خانه و اشپز خانه
                                                         </summary>
                                                         @foreach (var item in menu.Kitchen)
@@ -440,7 +449,8 @@
                                                             {
                                                                 <details class="tree-nav__item is-expandable">
                                                                     <summary class="tree-nav__item-title alert m-2 p-2"
-                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                style="background-color: #cfd8e3; font-size: 13px;">
+                                                                        @item.NameCat
                                                                     </summary>
 
 
@@ -455,7 +465,7 @@
 
                                                                                             <a onclick="send(@item1.Id);"
                                                                                 class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
-                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 12px;">
 
                                                                                                 @item1.NameCat
 
@@ -489,7 +499,8 @@
 
                                                     <details class="tree-nav__item is-expandable  "
                                                         style="font-size: 10px; ">
-                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2"
+                                                            style="font-size: 15px;">
                                                             لوازم اتحریر و هنر
                                                         </summary>
                                                         @foreach (var item in menu.L)
@@ -498,7 +509,8 @@
                                                             {
                                                                 <details class="tree-nav__item is-expandable">
                                                                     <summary class="tree-nav__item-title alert m-2 p-2"
-                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                style="background-color: #cfd8e3; font-size: 13px;">
+                                                                        @item.NameCat
                                                                     </summary>
 
 
@@ -513,7 +525,7 @@
 
                                                                                             <a onclick="send(@item1.Id);"
                                                                                 class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
-                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 12px;">
 
                                                                                                 @item1.NameCat
 
@@ -547,7 +559,8 @@
 
                                                     <details class="tree-nav__item is-expandable  "
                                                         style="font-size: 10px; ">
-                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2"
+                                                            style="font-size: 15px;">
                                                             کودک و نوزاد
                                                         </summary>
                                                         @foreach (var item in menu.N)
@@ -556,7 +569,8 @@
                                                             {
                                                                 <details class="tree-nav__item is-expandable">
                                                                     <summary class="tree-nav__item-title alert m-2 p-2"
-                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                style="background-color: #cfd8e3; font-size: 13px;">
+                                                                        @item.NameCat
                                                                     </summary>
 
 
@@ -571,7 +585,7 @@
 
                                                                                             <a onclick="send(@item1.Id);"
                                                                                 class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
-                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 12px;">
 
                                                                                                 @item1.NameCat
 
@@ -604,7 +618,8 @@
 
                                                     <details class="tree-nav__item is-expandable  "
                                                         style="font-size: 10px; ">
-                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2">
+                                                        <summary class="tree-nav__item-title alert alert-dark m-2 p-2"
+                                                            style="font-size: 15px;">
                                                             ورزش و سفر
                                                         </summary>
                                                         @foreach (var item in menu.S)
@@ -613,7 +628,8 @@
                                                             {
                                                                 <details class="tree-nav__item is-expandable">
                                                                     <summary class="tree-nav__item-title alert m-2 p-2"
-                                                                style="background-color: #cfd8e3;">@item.NameCat
+                                                                style="background-color: #cfd8e3; font-size: 13px;">
+                                                                        @item.NameCat
                                                                     </summary>
 
 
@@ -628,7 +644,7 @@
 
                                                                                             <a onclick="send(@item1.Id);"
                                                                                 class=" tree-nav__item-title alert  m-1 p-2   form-control text-center"
-                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 10px;">
+                                                                                style="background-color: #E8EDF2; cursor: pointer;font-size: 12px;">
 
                                                                                                 @item1.NameCat
 
@@ -700,10 +716,11 @@
                                                                 <input asp-for="Img" onchange="preview_image(event)"
                                                                     type="file" class="custom-file-input"
                                                                     aria-describedby="inputGroupFileAddon04"
-                                                                    accept="image/*">
+                                                                    accept="image/*" ma>
 
 
-                                                                <label style="font-size: 12px;" onchange="preview_image(event)"
+                                                                <label style="font-size: 12px;"
+                                                                    onchange="preview_image(event)"
                                                                     class="custom-file-label text-right"
                                                                     for="inputGroupFile04">بر ای انتخاب
                                                                     عکس اصلی کلیک کنید</label>
@@ -713,10 +730,11 @@
 
                                                         </div>
                                                         <p id="eImg" class="mt-3 text-danger "></p>
-                                                        <p style="font-size: 10px; color: red;"> برای  تغییر عکس های اضافی روی عکس مورد نظر کلیک کنید </p>
+                                                        <p style="font-size: 10px; color: red;"> برای تغییر عکس های
+                                                            اضافی روی عکس مورد نظر کلیک کنید </p>
                                                     </div>
 
-                                                    
+
 
 
 
@@ -726,38 +744,38 @@
 
                                                 </div>
 
-                                                
+
 
 
 
                                                 <!-- upload multi image -->
                                                 <script
                                                     src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
-                                                </script>
+                                                    </script>
                                                 <script>
                                                     $(document).ready(function () {
                                                         if (window.File && window.FileList && window.FileReader) {
                                                             $("#files").on("change", function (e) {
                                                                 var files = e.target.files,
                                                                     filesLength = files.length;
-                                                                   
-                                                                   for (var i = 0; i < filesLength; i++) {
+
+                                                                for (var i = 0; i < filesLength; i++) {
                                                                     var f = files[i]
                                                                     var fileReader = new FileReader();
                                                                     fileReader.onload = (function (e) {
                                                                         var file = e.target;
-                                                                      
-                                                                             $("<span class=\"pip\">" +
+
+                                                                        $("<span class=\"pip\">" +
                                                                             "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
                                                                             "<br/><span class=\"remove\">حذف</span>" +
                                                                             "</span>").insertAfter("#files");
-                                                                            $(".remove").click(function () {
-                                                                                $(this).parent(".pip").remove();
-                                                                            });
+                                                                        $(".remove").click(function () {
+                                                                            $(this).parent(".pip").remove();
+                                                                        });
 
-                                                                       
 
-                                                                       
+
+
 
                                                                         // Old code here
                                                                         /*$("<img></img>", {
@@ -783,36 +801,66 @@
 
                                                 <!-- end upload image -->
                                                 <div class="row">
-                                                        <div class="col-ting col-lg-3 col-md-3 col-6 ">
-                                                            <div class="mr-1">
-                                                                <img id="output_image" src="~/assets/img/products/d1.jpg"
-                                                                    alt=""   style="max-width: 150px; max-height: 150px; min-width: 150px; min-height: 150px; border: 1px solid #000;">
+                                                    <div class="col-ting col-lg-3 col-md-3 col-6 ">
+                                                        <div class="mr-1">
+                                                            <img id="output_image" src="~/assets/img/products/d1.jpg"
+                                                                alt=""
+                                                                style=" max-width: 150px; max-height: 150px; min-width: 150px; min-height: 150px; border: 1px solid #000;">
 
-                                                            </div>
-                                                            <script>
-                                                                function preview_image(event) {
-                                                                    var reader = new FileReader();
-                                                                    reader.onload = function () {
-                                                                        var output = document.getElementById('output_image');
-                                                                        output.src = reader.result;
-                                                                    }
-                                                                    reader.readAsDataURL(event.target.files[0]);
-                                                                }
-                                                            </script>
-                                                        </div>
-                                                        <div class="col-ting col-lg-3 col-md-3 col-6 "  >
-                                                            <div class="control-group file-upload m-1" id="file-upload1">
-                                                            <div class="image-box1 text-center">
-                                                                 <img src="~/assets/img/products/d2.jpg"
-                                                                    alt=""   style="max-width: 150px; max-height: 150px; min-width: 150px; min-height: 150px; border: 1px solid #000;">
-                                                                </div>
-                                                            <div class="controls" style="display: none;">
-                                                                    <input type="file"  accept="image/*" asp-for="Img1"/>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                         <script>
-                                                            $(".image-box1").click(function(event) {
+                                                            function preview_image(event) {
+                                                                var image = new Image();
+                                                                var c = 0;
+
+                                                                var reader = new FileReader();
+                                                                reader.onload = function () {
+                                                                    debugger
+                                                                    var output = document.getElementById('output_image');
+                                                                    output.src = reader.result;
+
+
+                                                                    image.src = output.src;
+
+                                                                   
+                                                                }
+
+                                                                image.onload = function () {
+                                                                    var height = this.height;
+                                                                    var width = this.width;
+                                                                    debugger
+                                                                    if (height < 600 || width < 600) {
+                                                                        c = 1
+                                                                        alert("طول و عرض عکس نمی تواند کمتر از 600 پیکسل باشد");
+                                                                        document.getElementById('output_image').src = "/assets/img/products/d1.jpg";
+                                                                    }
+
+                                                                };
+
+                                                                if (c == 0) {
+                                                                    reader.readAsDataURL(event.target.files[0]);
+                                                                }
+
+                                                            }
+
+                                                        </script>
+                                                    </div>
+                                                    <div class="col-ting col-lg-3 col-md-3 col-6 ">
+                                                        <div class="control-group file-upload m-1" id="file-upload1">
+                                                            <div class="image-box1 text-center">
+                                                                <img src="~/assets/img/products/d2.jpg" id="c" alt=""
+                                                                    style="max-width: 150px; max-height: 150px; min-width: 150px; min-height: 150px; border: 1px solid #000;">
+                                                            </div>
+                                                            <div class="controls" style="display: none;">
+                                                                <input type="file" accept="image/*" asp-for="Img1" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <script>
+                                                        $(".image-box1").click(function (event) {
+                                                            
+                                                                var image = new Image();
+                                                                var c = 0;
                                                             var previewImg1 = $(this).children("img");
 
                                                             $(this)
@@ -823,34 +871,48 @@
                                                             $(this)
                                                                 .siblings()
                                                                 .children("input")
-                                                                .change(function() {
+                                                                .change(function () {
                                                                     var reader1 = new FileReader();
+                                                                    var urll1
 
-                                                                    reader1.onload = function(e) {
-                                                                        var urll1 = e.target.result;
+                                                                    reader1.onload = function (e) {
+                                                                        debugger
+                                                                         urll1 = e.target.result;
                                                                         $(previewImg1).attr("src", urll1);
                                                                         previewImg1.parent().css("background", "transparent");
                                                                         previewImg1.show();
                                                                         previewImg1.siblings("p").hide();
+                                                                      
+                                                                    var height = e.height;
+                                                                    var width = e.width;
+                                                                   
+                                                                                                                                                
                                                                     };
-                                                                    reader1.readAsDataURL(this.files[0]);
-                                                                });
-                                                                });
+                                                                    
+                                                                   
+                                                                    
+                                                                    
+                                                                        reader1.readAsDataURL(this.files[0]);
 
-                                                        </script>
-                                                        <div class="col-ting col-lg-3 col-md-3 col-6 ">
-                                                            <div class="control-group file-upload m-1" id="file-upload2">
+                                                                   
+                                                                    
+                                                                });
+                                                        });
+
+                                                    </script>
+                                                    <div class="col-ting col-lg-3 col-md-3 col-6 ">
+                                                        <div class="control-group file-upload m-1" id="file-upload2">
                                                             <div class="image-box2 text-center">
-                                                                    <img src="~/assets/img/products/d2.jpg"
-                                                                    alt=""   style="max-width: 150px; max-height: 150px; min-width: 150px; min-height: 150px; border: 1px solid #000;">
-                                                                </div>
+                                                                <img src="~/assets/img/products/d2.jpg" alt=""
+                                                                    style="max-width: 150px; max-height: 150px; min-width: 150px; min-height: 150px; border: 1px solid #000;">
+                                                            </div>
                                                             <div class="controls" style="display: none;">
-                                                                    <input type="file"  accept="image/*" asp-for="Img2" />
-                                                                </div>
+                                                                <input type="file" accept="image/*" asp-for="Img2" />
                                                             </div>
                                                         </div>
-                                                        <script>
-                                                            $(".image-box2").click(function(event) {
+                                                    </div>
+                                                    <script>
+                                                        $(".image-box2").click(function (event) {
                                                             var previewImg2 = $(this).children("img");
 
                                                             $(this)
@@ -861,10 +923,10 @@
                                                             $(this)
                                                                 .siblings()
                                                                 .children("input")
-                                                                .change(function() {
+                                                                .change(function () {
                                                                     var reader2 = new FileReader();
 
-                                                                    reader2.onload = function(e) {
+                                                                    reader2.onload = function (e) {
                                                                         var urll2 = e.target.result;
                                                                         $(previewImg2).attr("src", urll2);
                                                                         previewImg2.parent().css("background", "transparent");
@@ -873,22 +935,22 @@
                                                                     };
                                                                     reader2.readAsDataURL(this.files[0]);
                                                                 });
-                                                                });
+                                                        });
 
-                                                        </script>
-                                                        <div class="col-ting col-lg-3 col-md-3 col-6 ">
-                                                            <div class="control-group file-upload m-1" id="file-upload1">
+                                                    </script>
+                                                    <div class="col-ting col-lg-3 col-md-3 col-6 ">
+                                                        <div class="control-group file-upload m-1" id="file-upload1">
                                                             <div class="image-box3 text-center">
-                                                                     <img src="~/assets/img/products/d2.jpg"
-                                                                    alt=""   style="max-width: 150px; max-height: 150px; min-width: 150px; min-height: 150px; border: 1px solid #000;">
-                                                                </div>
+                                                                <img src="~/assets/img/products/d2.jpg" alt=""
+                                                                    style="max-width: 150px; max-height: 150px; min-width: 150px; min-height: 150px; border: 1px solid #000;">
+                                                            </div>
                                                             <div class="controls" style="display: none;">
-                                                                    <input type="file"  accept="image/*" asp-for="Img3"/>
-                                                                </div>
+                                                                <input type="file" accept="image/*" asp-for="Img3" />
                                                             </div>
                                                         </div>
-                                                        <script>
-                                                            $(".image-box3").click(function(event) {
+                                                    </div>
+                                                    <script>
+                                                        $(".image-box3").click(function (event) {
                                                             var previewImg3 = $(this).children("img");
 
                                                             $(this)
@@ -899,10 +961,10 @@
                                                             $(this)
                                                                 .siblings()
                                                                 .children("input")
-                                                                .change(function() {
+                                                                .change(function () {
                                                                     var reader3 = new FileReader();
 
-                                                                    reader3.onload = function(e) {
+                                                                    reader3.onload = function (e) {
                                                                         var urll3 = e.target.result;
                                                                         $(previewImg3).attr("src", urll3);
                                                                         previewImg3.parent().css("background", "transparent");
@@ -911,9 +973,9 @@
                                                                     };
                                                                     reader3.readAsDataURL(this.files[0]);
                                                                 });
-                                                                });
+                                                        });
 
-                                                        </script>
+                                                    </script>
 
                                                 </div>
 
@@ -1073,7 +1135,8 @@
                                                     <div class="checkout-shipment mb-4">
                                                         <div class="custom-control custom-radio pl-0 pr-3">
                                                             <input checked="checked" id="Type_Transaction"
-                                                                name="Type_Transaction" type="radio" value="بصورت مستقیم">
+                                                                name="Type_Transaction" type="radio"
+                                                                value="بصورت مستقیم">
                                                             <label>
                                                                 بصورت مستقیم
                                                             </label>
