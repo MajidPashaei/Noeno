@@ -62,6 +62,7 @@
                 <div class="topbar dt-sl">
                     <div class="row">
 
+                    
                         <!-- Start bottom-header -->
                         <div style="margin-top: 14px;"
                             class="bottom-header dt-sl mb-sm-bottom-header col-lg-2 col-md-3 col-4 d-md-none d-lg-none d-xl-none">
@@ -450,32 +451,37 @@
 
 
 
-
 @* ////////////////////////////////////////////////////////////////////////////////////////////////////////// *@
                         <div style="margin-top: 14px;" class="col-lg-6 col-md-5 hidden-sm ">
                             <div class="search-area dt-sl">
-                                <form action="" class="search">
-                                    <input type="text"
-                                        placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…">
+
+                            
+
+
+
+
+
+                              
+
+
+
+                                <form action="/home/search" class="search">
+                                    <input autocomplete="off" type="text"placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…"   id="myInput" >
                                         
-                                    <button type="submit"><img src="~/assets/img/theme/search.png" alt=""></button>
+                                    <button onclick="send();" type="button"><img src="~/assets/img/theme/search.png" alt=""></button>
+                                    <script>
+                                        function send()
+                                        {
+                                            window.location.href="/home/search?myInput="+document.getElementById('myInput').value;
+                                        }
+                                    </script>
                                     
                                             
-                                    <div class="search-result">
-                                        <ul>
-                                            @if (menu.j != null)
-                                            {
-                                               @foreach (var item in menu.j)
-                                                {
-                                                    <li>
-                                                        <a href="#">@item.Title_Pro</a>
-                                                    </li>
-                                                } 
-                                            }
-                                            
-                                        </ul>
-                                    </div>
+                                    
                                 </form>
+
+
+
                             </div>
                         </div>
 @* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// *@
@@ -1452,6 +1458,7 @@
 
 
         </header>
+    @await Html.PartialAsync("_partial_search.cshtml")
 
 
 
@@ -1925,7 +1932,13 @@
         </ul>
     </div> -->
     <!-- end colorPanel -->
+    @* search************************************* *@
 
+
+
+
+
+@* ///////////////////////////////////////////////////////// *@
 
 
 

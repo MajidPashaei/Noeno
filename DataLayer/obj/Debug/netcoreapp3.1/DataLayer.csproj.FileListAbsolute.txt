@@ -9,6 +9,7 @@ c:\Users\MS\Desktop\Noeno00-03-06\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLa
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.dll
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.pdb
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.genruntimeconfig.cache
+<<<<<<< HEAD
 c:\Users\MS\Desktop\Noeno\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.deps.json
 c:\Users\MS\Desktop\Noeno\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.runtimeconfig.json
 c:\Users\MS\Desktop\Noeno\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.runtimeconfig.dev.json
@@ -21,3 +22,6 @@ c:\Users\MS\Desktop\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csproj.Cor
 c:\Users\MS\Desktop\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.dll
 c:\Users\MS\Desktop\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.pdb
 c:\Users\MS\Desktop\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.genruntimeconfig.cache
+=======
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csprojAssemblyReference.cache
+>>>>>>> 027e2a0fe64ba443da3c53cf64b5e1d41e71bc26

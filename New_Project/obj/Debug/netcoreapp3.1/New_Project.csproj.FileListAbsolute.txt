@@ -1130,4 +1130,10 @@ c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\stat
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.dll
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.pdb
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.genruntimeconfig.cache
+<<<<<<< HEAD
 c:\Users\MS\Desktop\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\YourAccount\HarvestRequest.cshtml.g.cs
+=======
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\test.cshtml.g.cs
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_partial_search.cshtml.g.cs
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\Home\search.cshtml.g.cs
+>>>>>>> 027e2a0fe64ba443da3c53cf64b5e1d41e71bc26

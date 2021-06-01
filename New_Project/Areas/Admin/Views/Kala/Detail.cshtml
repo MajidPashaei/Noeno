@@ -264,21 +264,38 @@
                                                         عکس های فرعی:
                                                     </label>
                                                 </div>
+<<<<<<< HEAD
                                                  <div class="col-4 mb-1">
+=======
+                                                 
+                                                  @if (@item.Image1 != null)
+                                              {
+                                                  <div class="col-4 mb-1">
+>>>>>>> 027e2a0fe64ba443da3c53cf64b5e1d41e71bc26
                                                     <a href="~/fileupload/@item.Image1" data-fancybox="gallery1" data-hash="two">
                                                         <img src="~/fileupload/@item.Image1" class="p-1" style="width: 100% ;height: 100%;border-radius: 10%;">
                                                     </a>
                                                 </div>
+                                              }
+                                                
+
+                                                 @if (@item.Image2 != null)
+                                              {
                                                 <div class="col-4 mb-1">
                                                     <a href="~/fileupload/@item.Image2" data-fancybox="gallery1" data-hash="three">
                                                         <img src="~/fileupload/@item.Image2" class="p-1" style="width: 100% ;height: 100%;border-radius: 10%;">
                                                     </a>
                                                 </div>
+                                              }
+
+                                               @if (@item.Image3 != null)
+                                              {
                                                 <div class="col-4 mb-1">
                                                     <a href="~/fileupload/@item.Image3" data-fancybox="gallery1" data-hash="four">
                                                         <img src="~/fileupload/@item.Image3" class="p-1" style="width: 100% ;height: 100%;border-radius: 10%;">
                                                     </a>
                                                 </div>
+                                              }
                                                  
                                             
                                           </div>
