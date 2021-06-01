@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\ms\\Desktop\\Noeno\\New_Project\\New_Project.csproj": {}
+    "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\New_Project\\New_Project.csproj": {}
   },
   "projects": {
-    "c:\\Users\\ms\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj": {
+    "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ms\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "c:\\Users\\ms\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj",
-        "packagesPath": "C:\\Users\\ms\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ms\\Desktop\\Noeno\\DataLayer\\obj\\",
+        "projectPath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj",
+        "packagesPath": "C:\\Users\\MS\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ms\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\MS\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -66,21 +66,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "c:\\Users\\ms\\Desktop\\Noeno\\New_Project\\New_Project.csproj": {
+    "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\New_Project\\New_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ms\\Desktop\\Noeno\\New_Project\\New_Project.csproj",
+        "projectUniqueName": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\New_Project\\New_Project.csproj",
         "projectName": "New_Project",
-        "projectPath": "c:\\Users\\ms\\Desktop\\Noeno\\New_Project\\New_Project.csproj",
-        "packagesPath": "C:\\Users\\ms\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ms\\Desktop\\Noeno\\New_Project\\obj\\",
+        "projectPath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\New_Project\\New_Project.csproj",
+        "packagesPath": "C:\\Users\\MS\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\New_Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ms\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\MS\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -91,11 +91,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "c:\\Users\\ms\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj": {
-                "projectPath": "c:\\Users\\ms\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj"
+              "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj"
               },
-              "c:\\Users\\ms\\Desktop\\Noeno\\ViewModel\\ViewModel.csproj": {
-                "projectPath": "c:\\Users\\ms\\Desktop\\Noeno\\ViewModel\\ViewModel.csproj"
+              "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\ViewModel\\ViewModel.csproj": {
+                "projectPath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\ViewModel\\ViewModel.csproj"
               }
             }
           }
@@ -152,21 +152,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "c:\\Users\\ms\\Desktop\\Noeno\\ViewModel\\ViewModel.csproj": {
+    "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\ViewModel\\ViewModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ms\\Desktop\\Noeno\\ViewModel\\ViewModel.csproj",
+        "projectUniqueName": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\ViewModel\\ViewModel.csproj",
         "projectName": "ViewModel",
-        "projectPath": "c:\\Users\\ms\\Desktop\\Noeno\\ViewModel\\ViewModel.csproj",
-        "packagesPath": "C:\\Users\\ms\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ms\\Desktop\\Noeno\\ViewModel\\obj\\",
+        "projectPath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\ViewModel\\ViewModel.csproj",
+        "packagesPath": "C:\\Users\\MS\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\ViewModel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ms\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\MS\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -177,8 +177,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "c:\\Users\\ms\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj": {
-                "projectPath": "c:\\Users\\ms\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj"
+              "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "c:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj"
               }
             }
           }
@@ -212,7 +212,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

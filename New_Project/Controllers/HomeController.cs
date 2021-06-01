@@ -20,6 +20,7 @@ using DataLayer.Entities.User;
 using ViewModel.Entities.User;
 using ViewModel.AdminViewModel.Order;
 using DataLayer.AdminEntities.Order;
+using Newtonsoft.Json;
 
 namespace New_Project.Controllers
 {
@@ -33,7 +34,8 @@ namespace New_Project.Controllers
 
         public IActionResult Index()
         {
-            menu.find=db.tbl_Advertisings.Select(a=>a.Title_Pro).ToList();
+             menu.find=db.tbl_Advertisings.Select(a=>a.Title_Pro).ToList();
+            
             var A= db.Tbl_Factors.Where(a =>a.Id_Order.ToString()==User.Identity.GetId()&&a.Pay!="Ok").ToList().Count();
              HttpContext.Session.SetString ("count", A.ToString() );
 
@@ -169,6 +171,16 @@ namespace New_Project.Controllers
           
         
                 ViewBag.oll=db.tbl_Advertisings.Where(a =>a.FatherIdCat==id.ToString()).ToList();
+               
+           
+            return View();
+        }
+
+         public IActionResult search(string myInput)
+        {
+          
+        
+                ViewBag.oll=db.tbl_Advertisings.Where(a=>a.Title_Pro.Contains(myInput)).ToList();
                
            
             return View();
@@ -381,5 +393,18 @@ namespace New_Project.Controllers
             }
             return RedirectToAction("index", "Cart");
         }
+
+        ////test serch
+        public IActionResult test()
+        {
+           menu.find=db.tbl_Advertisings.Select(a=>a.Title_Pro).ToList();
+             
+           
+            return View();
+        }
+
+
+         
+        
     }
 }
