@@ -9,3 +9,4 @@ c:\Users\MS\Desktop\Noeno00-03-06\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLa
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.dll
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.pdb
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.genruntimeconfig.cache
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csprojAssemblyReference.cache
