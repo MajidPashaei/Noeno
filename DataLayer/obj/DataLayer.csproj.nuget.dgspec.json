@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj": {}
+    "c:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj": {
+    "c:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "c:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "C:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj",
+        "projectPath": "c:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj",
         "packagesPath": "C:\\Users\\MS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\obj\\",
+        "outputPath": "c:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MS\\AppData\\Roaming\\NuGet\\NuGet.Config"

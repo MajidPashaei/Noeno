@@ -13,7 +13,7 @@
             <!-- Start Content -->
             <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
                 <div class="row">
-                    <div class="col-12">
+                    @* <div class="col-12">
                         <div class="dt sl dt-sn pt-3 mt-2 pb-5">
                             <div class="cart-page cart-empty">
                                 <div class="row">
@@ -36,47 +36,26 @@
                                         document.getElementById("3").innerText=document.getElementById("3").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                         document.getElementById("4").innerText=document.getElementById("4").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                     </script>
-                                        
-                                            @* <div class="row " style="display: flex; justify-content: center; justify-items: center; justify-self: center;">
-                                                <input   id="pay25" style="border-radius: 10px;font-size: 12px;"  class="col-8 input-ui pl-2  mb-2" placeholder="مبلغ رابه تومان وارد نمایید">
-                                                <a onclick="sendpay();" style="background-color: #00c09d; color: #ffffff; font-size: 10px;" class=" col-4 btn-primary-cm mt-2" >درخواست پرداخت </a>
-                                            </div> *@ 
-                                            <div class="row " style="display: flex; justify-content: center; justify-items: center; justify-self: center;">
-                                                <input  id="pay25" style=" border-radius: 10px;font-size: 12px;"  class="input-ui pl-2 col-8   mb-2" placeholder="مبلغ رابه تومان وارد نمایید">
-                                                <a  onclick="sendpay();" style="background-color: #00c09d; color: #ffffff; font-size: 10px; height: 30px; " class=" btn-primary-cm btn-sm mt-2 mr-1" >درخواست پرداخت</a>
+                                <div class="row">
+                                        <div class="col-6">
+                                            <div style=" text-align: center;" >
+                                                <input   id="pay25" style="text-align: center; border-radius: 10px;font-size: 12px;"  class="input-ui pl-2 text-left dir-ltr mb-2" placeholder="مبلغ رابه تومان وارد نمایید">
+                                                <a onclick="sendpay();" style="background-color: #00c09d; color: #ffffff; font-size: 10px;" class="btn-primary-cm mt-2" >درخواست پرداخت </a>
                                             </div>
+                                        </div>
                                         <form action="/pay/payUser" method="POST">
-                                            <div class="row " style="display: flex; justify-content: center; justify-items: center; justify-self: center;">
-                                                <input   asp-for="Price" style=" border-radius: 10px;font-size: 12px;"  class="input-ui pl-2 col-8   mb-2" placeholder="مبلغ رابه تومان وارد نمایید">
-                                                <button  type="submit" style="background-color: #00c09d; color: #ffffff; font-size: 10px; height: 30px; " class=" btn-primary-cm btn-sm mt-2 mr-1" >درخواست برداشت</button>
+                                        <div class="col-6">
+                                           <div style=" text-align: center;" >
+                                                 <input   asp-for="Price" style="text-align: center; border-radius: 10px;font-size: 12px;"  class="input-ui pl-2 text-left dir-ltr mb-2" placeholder="مبلغ رابه تومان وارد نمایید">
+                                                <button  type="submit" style="background-color: #00c09d; color: #ffffff; font-size: 10px;" class="btn-primary-cm mt-2" >درخواست برداشت </إ>
                                             </div>
+                                        </div>
                                         </form>
-
-                                        <div style=" text-align: center;" class="m-3" >
-                                                <div class="row justify-content-center" >
-                                                    <a href="/YourAccount/Pay"  class=" mr-1 ml-1 col-12 btn-primary-cm mt-2  col-xl-3" >واریزی ها </a>
-                                                    <a href="/YourAccount/harvest"  class=" mr-1 ml-1  col-12 btn-primary-cm mt-2   col-xl-3">برداشت ها </a>
-                                                    <a href="/YourAccount/HarvestRequest"  class=" mr-1 ml-1  col-12 btn-primary-cm mt-2   col-xl-3" >درخوست های برداشت</a>
-                                                </div>
-                                                <div class="row justify-content-center ">
-                                                    <a href="/YourAccount/success" class=" mr-1 ml-1  col-12 btn-primary-cm mt-2   col-xl-3" >فروش  های موفق </a>
-                                                    <a href="/YourAccount/NOsuccess"  class=" mr-1 ml-1  col-12 btn-primary-cm mt-2   col-xl-3" >فروش  های ناموفق  </a>
-                                                    <a href="/YourAccount/NOsuccess" class=" mr-1 ml-1  col-12 btn-primary-cm mt-2   col-xl-3" >فروش های درحال انجام</a>
-                                                </div>
-                                                <div class="row justify-content-center">
-                                                    <a href="/YourAccount/Buy"  class=" mr-1 ml-1  col-12 btn-primary-cm mt-2    col-xl-3" >خرید  های موفق </a>
-                                                    <a href="/YourAccount/NOBuy"  class=" mr-1 ml-1  col-12 btn-primary-cm mt-2   col-xl-3" >خرید   های ناموفق </a>
-                                                    <a href="#"  class=" mr-1 ml-1  col-12 btn-primary-cm mt-2  col-xl-3 " >    واریزی های مدیر  </a>
-                                                </div>
-                                                
-
-                                               
-                                            </div>
-                                
+                                </div>
                                 
                             </div>
                         </div>
-                    </div>
+                    </div> *@
 
       @* <form action="/pay/payUser" method="POST">
                                         <div class="col-6">
@@ -96,7 +75,7 @@
                          
                         </div>
                                         </form> *@
-                    <script>
+                    @* <script>
                         function myFunction1() {
 
                             var x = document.getElementById("myDIV1");
@@ -118,12 +97,12 @@
                                 x.style.display = "none";
                             }
                         }
-                    </script>
+                    </script> *@
 
-    
+
 
                     <!-- Start main-content -->
-                    @* <main class="main-content dt-sl mt-1 mb-1 mr-2 ml-2">
+                    <main class="main-content dt-sl mt-1 mb-1 mr-2 ml-2">
                         <div class="container main-container">
 
                             <div class="row">
@@ -134,11 +113,11 @@
                                                 <p class="alert alert-warning form-control" >لیست تراکنش ها</p>
                                             </div>
                                         
-                                        <div class="row nav nav-tabs" id="nav-tab" role="tablist">
+                                        @* <div class="row nav nav-tabs" id="nav-tab" role="tablist">
                                             <a class="col-6 nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">واریزی ها</a>
                                             <a class="col-6 nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">برداشت ها</a>
                                            
-                                        </div>
+                                        </div> *@
                                     </nav>
                                 </div>
                                 <div class="col-12">
@@ -153,18 +132,18 @@
                                                                             <tr>
                                                                                 <th></th>
                                                                             <th>ردیف</th>
-                                                                                <th> مبلغ واریز</th>
-                                                                                <th> توضیحات </th>
-                                                                                <th>  زمان واریز</th>
+                                                                                <th> مبلغ برداشت </th>
+                                                                                
+                                                                                <th>  زمان برداشت</th>
                                                                                 <th>عملیات پرداخت</th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            @if (ViewBag.list2!=null)
+                                                                            @if ( ViewBag.harvest!=null)
                                                                             {
                                                                                 int i=1;
                                                                                 
-                                                                                @foreach (var item in ViewBag.list2)
+                                                                                @foreach (var item in ViewBag.harvest)
                                                                                 {
                                                                                     
                                                                             
@@ -173,10 +152,28 @@
                                                                             <tr>
                                                                                 <td></td>
                                                                                 <td>@i</td>
-                                                                                <td>@item.Pay</td>
-                                                                                <td> موفق </td>
-                                                                                <td>@item.Paytime</td>
-                                                                                <td> موفق </td>
+                                                                                <td>@item.Harvest</td>
+                                                                               
+                                                                                <td>@item.havesttime</td>
+                                                                                <td>
+                                                                                    @if ( @item.StatusP == "R")
+                                                                                    {
+                                                                                        <p> درحال واریز </p>
+                                                                                    }
+                                                                                    @if (@item.StatusP == "No")
+                                                                                    {
+                                                                                       <p> عدم تایید </p>
+                                                                                    }
+                                                                                    @if (@item.StatusP == "T")
+                                                                                    {
+                                                                                        <p> درحال تایید </p>
+                                                                                    }
+                                                                                    @if (@item.StatusP == "Ok")
+                                                                                    {
+                                                                                       <p> واریز شده</p>
+                                                                                    }
+                                                                                </td>
+                                                                               
 
                                                                             </tr>
                                                                             i++;
@@ -188,7 +185,7 @@
                                                             </div>
                                                         </div>
                                         </div>
-                                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                        @* <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                                     <div class="col-12 mt-2">
                                                             <div class="dt-sl">
                                                                 <div class="table-responsive">
@@ -231,22 +228,14 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                        </div>
+                                        </div> *@
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-                    </main> *@
-                      <main class="main-content dt-sl mt-1 mb-1 mr-2 ml-2">
-                        <div class="container main-container">
-
-                            <div class="row">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2 px-0">
-                                    
+                    </main>
                     
-                                            
-                                   </div>
                     <!-- End main-content -->
                 </div>
             </div>
@@ -259,11 +248,6 @@
 
     </div>
 </main>
-            </div>
-                            </div>
-
-                        </div>
-                    </main> 
 <!-- End main-content -->
 	     <script>
             function sendpay()

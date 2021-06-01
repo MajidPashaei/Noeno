@@ -1130,3 +1130,4 @@ c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\stat
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.dll
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.pdb
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.genruntimeconfig.cache
+c:\Users\MS\Desktop\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\YourAccount\HarvestRequest.cshtml.g.cs
