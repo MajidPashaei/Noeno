@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -244,6 +244,11 @@ namespace New_Project.Controllers
 
           public IActionResult AddCart(Vm_Advertising order, int id)
         {
+
+             
+
+
+
             var Count = db.Tbl_Factors.Where(a => a.Product_Id == id&&a.Id_Order.ToString()==User.Identity.GetId()&&a.Pay!="Ok").ToList().Count();
             var Count1 = db.tbl_Advertisings.Where(a => a.Id == order.Id).SingleOrDefault().Number;
 
@@ -338,10 +343,11 @@ namespace New_Project.Controllers
             }
             }
 
+                var sd= db.Tbl_Factors.Where(a =>a.Id_Order.ToString()==User.Identity.GetId()&&a.Pay!="Ok").ToList().Count();
+             HttpContext.Session.SetString ("count", sd.ToString() );
 
 
-
-            return RedirectToAction("index");
+            return RedirectToAction("index","singlepage", new{id});
         }
         public IActionResult AddCart2(int id)
         {   var A6 = db.Tbl_Factors.Where(a => a.Id == id && a.Id_Order == Convert.ToInt32(User.Identity.GetId()) && a.Pay == null).SingleOrDefault().Product_Id;

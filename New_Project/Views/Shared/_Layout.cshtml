@@ -430,7 +430,7 @@
                                 <a href="/Home/Index">
                                     @if(menu.logo != null)
                                     {
-                                    <div class="d-none d-lg-block d-md-block ">
+                                    <div class="">
                                         <img style="width:128px; height: 53px;" src="/fileupload/@menu.logo"
                                             alt="محل لوگوی شما">
 
@@ -439,7 +439,7 @@
                                     }
                                     else
                                     {
-                                    <img style="width: 299px; height: 77px;"
+                                    <img style="width: 128px; height: 53px;"
                                         src="/app-assets/images/icons/defaultlogo.png" alt="محل لوگوی شما">
                                     }
 
@@ -459,8 +459,8 @@
                                         placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…">
                                         
                                     <button type="submit"><img src="~/assets/img/theme/search.png" alt=""></button>
-                                    <button class="close-search-result" type="button"><i
-                                            class="mdi mdi-close"></i></button>
+                                    
+                                            
                                     <div class="search-result">
                                         <ul>
                                             @if (menu.j != null)
@@ -1466,40 +1466,140 @@
                         بالا</span></a>
             </div>
             <div class="container main-container">
-                <div class="footer-services">
-                    <div class="row">
-                        @* <div class="service-item col">
-                            <a href="#" target="_blank">
-                                <img src="~/assets/img/svg/delivery.svg">
-                            </a>
-                            <p>تحویل اکسپرس</p>
-                        </div> *@
-                        <div class="service-item col">
-                            <a href="#" target="_blank">
-                                <img src="~/assets/img/svg/contact-us.svg">
-                            </a>
-                            <p>پشتیبانی 24 ساعته</p>
-                        </div>
-                        <div class="service-item col">
-                            <a href="#" target="_blank">
-                                <img src="~/assets/img/svg/payment-terms.svg">
-                            </a>
-                            <p>پرداخت درمحل</p>
-                        </div>
-                        <div class="service-item col">
-                            <a href="#" target="_blank">
-                                <img src="~/assets/img/svg/return-policy.svg">
-                            </a>
-                            <p>۷ روز ضمانت بازگشت</p>
-                        </div>
-                        <div class="service-item col">
-                            <a href="#" target="_blank">
-                                <img src="~/assets/img/svg/origin-guarantee.svg">
-                            </a>
-                            <p>ضمانت اصل بودن کالا</p>
-                        </div>
-                    </div>
+               
+                    <!-- Start Category-Section -->
+                <div class="row mt-3 mb-5 d-lg-block d-md-block d-xl-block d-none" style="background-color: #232f3e;">
+                  
+                       
+                            <div class="category-section-slider " style="width: 100% !important;"  >
+                                <div class="category-slider owl-carousel row">
+
+                                      <div class="item d-none ">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/1.svg" alt="">
+                                            <h4 class="promotion-category-name" style="color: white;">ارسال رایگان</h4>
+                                        </a>
+                                    </div>
+                                      
+
+                                    <div class="item ">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/1.svg" alt="">
+                                            <h4 class="promotion-category-name" style="color: white;">ارسال رایگان</h4>
+                                        </a>
+                                    </div>
+
+                                    <div class="item ">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/2.svg" alt="">
+                                            <h4 class="promotion-category-name"  style="color: white;">پرداخت امن</h4>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/3.svg" alt="">
+                                            <h4 class="promotion-category-name"  style="color: white;">پشتیبانی آنلاین و تلفنی</h4>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/4.svg" alt="">
+                                            <h4 class="promotion-category-name"  style="color: white;">تضمین بازگشت پول و مرجوعی</h4>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/5.svg" alt="">
+                                            <h4 class="promotion-category-name"  style="color: white;">چت آنلاین</h4>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/6.svg" alt="">
+                                            <h4 class="promotion-category-name"  style="color: white;">سیستم بازرسی کالا</h4>
+                                        </a>
+                                    </div>
+                                     <div class="item d-none">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/6.svg" alt="">
+                                            <h4 class="promotion-category-name"  style="color: white;">سیستم بازرسی کالا</h4>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                  
+                
+
+
+
+
+
                 </div>
+
+
+                     <div class="row mt-3 mb-5 d-lg-none d-xl-none d-md-none " style="background-color: #232f3e;">
+                  
+                       
+                            <div class="category-section-slider " style="width: 100% !important;"  >
+                                <div class="category-slider owl-carousel row">
+
+                                     
+                                      
+
+                                    <div class="item ">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/1.svg" alt="">
+                                            <h4 class="promotion-category-name" style="color: white;">ارسال رایگان</h4>
+                                        </a>
+                                    </div>
+
+                                    <div class="item ">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/2.svg" alt="">
+                                            <h4 class="promotion-category-name"  style="color: white;">پرداخت امن</h4>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/3.svg" alt="">
+                                            <h4 class="promotion-category-name"  style="color: white;">پشتیبانی آنلاین و تلفنی</h4>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/4.svg" alt="">
+                                            <h4 class="promotion-category-name"  style="color: white;">تضمین بازگشت پول و مرجوعی</h4>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/5.svg" alt="">
+                                            <h4 class="promotion-category-name"  style="color: white;">چت آنلاین</h4>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="#" class="promotion-category">
+                                            <img src="~/assets/img/svg/6.svg" alt="">
+                                            <h4 class="promotion-category-name"  style="color: white;">سیستم بازرسی کالا</h4>
+                                        </a>
+                                    </div>
+                                     
+                                </div>
+                            </div>
+                        
+                  
+                
+
+
+
+
+
+                      </div>
+
+
+
+
                 <div style="color:#fff;" class="footer-widgets d-md-none d-lg-none d-xl-none">
                     <div class="row">
 
@@ -1759,11 +1859,7 @@
                             <h1 class="site-title d-md-none d-lg-none d-xl-none" style="font-size: 14px;">فروشگاه
                                 اینترنتی نوِنو، بررسی، انتخاب و خرید آنلاین</h1>
                             <p>
-                                نوِنو به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی با بیش از یک دهه تجربه، با پایبندی
-                                به سه اصل کلیدی، پرداخت در محل، 7 روز ضمانت بازگشت کالا و تضمین اصل‌بودن کالا، موفق شده
-                                تا همگام با فروشگاه‌های معتبر جهان، به بزرگ‌ترین فروشگاه اینترنتی ایران تبدیل
-                                شود. به محض ورود به نوِنو با یک سایت پر از کالا رو به رو می‌شوید! هر آنچه که نیاز دارید
-                                و به ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد.
+                              فروشگاه اینترنتی نونو با شعار «اسراف کمتر، وجدان راحت و جهان سالم‌تر» بازاری پویا ایجاد کرده است تا فروشندگان و خریداران گرد هم بیایند و به معامله (خرید، فروش و معاوضه) کالاهای نو استفاده نشده (کالاهای به اصطلاح نوِنو) بپردازند. فروشندگان نونو افرادی هستند که پس از خرید یک کالا بنابر هر دلیلی از خرید خود پشیمان شده‌اند اما امکان مرجوعی کالا برای آنها فراهم نیست؛ و یا کالایی را برای هدف خاصی خریداری کرده‌اند اما به کارشان نیامده و بدون حتی یکبار استفاده در انباری و یا منزلشان خاک می‌خورد؛ و یا کالایی را به صورت هدیه دریافت کرده‌اند اما قصد استفاده و یا نگهداری از آن را ندارند. همچنین افرادی که کسب و کار کوچک محلی و خانگی دارند نیز فرصت معرفی و فروش محصولات خود را در نوِنو دارند. خریداران فروشگاه نونو می‌توانند کالاهای کاملا نو مورد نیاز خود را با قیمتی ارزانتر خریداری و در هزینه‌های خود صرفه‌جویی کنند. جهت اطمینان خاطر طرفین معامله، فروشگاه نونو دارای سیستم بازرسی کالا می‌باشد که کالا را از فروشنده دریافت کرده و پس از بازرسی و تایید صحت ادعای فروشنده، آن را به خریدار ارسال می کند.
                             </p>
                         </div>
 
@@ -1788,7 +1884,7 @@
             <div class="copyright  hidden-sm">
                 <div class="container main-container">
                     <p style="color: #fff;">
-                        حقوق کپی رایت، محفوظ
+                      کلیه حقوق این سایت متعلق به نوِنو میباشد
                     </p>
                 </div>
             </div>
@@ -1796,7 +1892,7 @@
             <div class="copyright d-md-none d-lg-none d-xl-none">
                 <div class="container main-container">
                     <p style="margin-bottom: 81px; color: #fff; ">
-                        حقوق کپی رایت، محفوظ
+                         کلیه حقوق این سایت متعلق به نوِنو میباشد
                     </p>
                 </div>
             </div>

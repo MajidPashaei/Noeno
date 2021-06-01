@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "wgxBU/PZI64Kdl25Q8MpodGcVDfNtSpKReX34mKEDF4Mfm5S7QJkfrPQOZJMsVVxilGB4hA69FbojaLNj5Hzbg==",
   "success": true,
   "projectFilePath": "c:\\Users\\ms\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj",
+=======
+  "dgSpecHash": "DBiC4YvN2/la2lm/XjlXgQTmQoIjxGYc6CDsVFWHXNSP/TGwzdG7QNJoUiMt3LYl1MJzw8rtvYJW4i40Tds1Lw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj",
+>>>>>>> 0110d9794cb2203b2a39844e67c61b2f232089f4
   "expectedPackageFiles": [
     "C:\\Users\\ms\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\ms\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
