@@ -5895,27 +5895,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-<<<<<<< HEAD
       "projectUniqueName": "c:\\Users\\ms\\Desktop\\Noeno\\ViewModel\\ViewModel.csproj",
       "projectName": "ViewModel",
       "projectPath": "c:\\Users\\ms\\Desktop\\Noeno\\ViewModel\\ViewModel.csproj",
       "packagesPath": "C:\\Users\\ms\\.nuget\\packages\\",
       "outputPath": "c:\\Users\\ms\\Desktop\\Noeno\\ViewModel\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\MS\\Desktop\\Noeno\\ViewModel\\ViewModel.csproj",
-=======
-      "projectUniqueName": "C:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\ViewModel\\ViewModel.csproj",
->>>>>>> 0110d9794cb2203b2a39844e67c61b2f232089f4
-      "projectName": "ViewModel",
-      "projectPath": "C:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\ViewModel\\ViewModel.csproj",
-      "packagesPath": "C:\\Users\\MS\\.nuget\\packages\\",
-<<<<<<< HEAD
-      "outputPath": "C:\\Users\\MS\\Desktop\\Noeno\\ViewModel\\obj\\",
->>>>>>> 094e4d0bdcd27dcc9d52686059f31379799321aa
-=======
-      "outputPath": "C:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\ViewModel\\obj\\",
->>>>>>> 0110d9794cb2203b2a39844e67c61b2f232089f4
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ms\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -5929,18 +5913,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-<<<<<<< HEAD
-<<<<<<< HEAD
             "c:\\Users\\ms\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj": {
               "projectPath": "c:\\Users\\ms\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj"
-=======
-            "C:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "C:\\Users\\MS\\Desktop\\Noeno\\DataLayer\\DataLayer.csproj"
->>>>>>> 094e4d0bdcd27dcc9d52686059f31379799321aa
-=======
-            "C:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "C:\\Users\\MS\\Desktop\\Noeno00-03-06\\Noeno\\DataLayer\\DataLayer.csproj"
->>>>>>> 0110d9794cb2203b2a39844e67c61b2f232089f4
             }
           }
         }
@@ -5977,5 +5951,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.408\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file c:\\Users\\ms\\Desktop\\Noeno\\ViewModel\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
