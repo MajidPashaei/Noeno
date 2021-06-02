@@ -24,6 +24,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using ViewModels.AdminViewModel.Wallet;
 using ViewModel.AdminViewModel.Order;
 using DataLayer.AdminEntities.Order;
+using ViewModel.AdminViewModel.AdminPay;
+
 namespace New_Project.Controllers
 {
     [Authorize]
@@ -421,7 +423,16 @@ namespace New_Project.Controllers
         {
             var s= db.Tbl_Factors.Where(a => a.Id == c).SingleOrDefault();
             s.StatusM="مرجوع شده";
-            s.StatusA="No";
+
+            if (s.Type_Transaction=="بازرسی")
+            {
+                s.StatusA="NoB";
+            }
+            if (s.Type_Transaction=="مستقیم")
+            {
+                s.StatusA="No";
+            }
+           
             db.Tbl_Factors.Update(s);
             db.SaveChanges();
             return RedirectToAction("Sales");
@@ -430,7 +441,7 @@ namespace New_Project.Controllers
         {
             var s= db.Tbl_Factors.Where(a => a.Id == vf.Id).SingleOrDefault();
             s.Send_Sales_Code=vf.Send_Sales_Code;
-            if (vf.PriceB !="0")
+            if (vf.PriceB !=0)
             {
                 s.StatusM="ارسال شده به نوِنو";
             }
@@ -553,11 +564,38 @@ namespace New_Project.Controllers
               HttpContext.Session.SetString("pay", Diposit().ToString());
             ViewBag.list2 = A.OrderByDescending(a => a.Id);
             int B1 = db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "No").Sum(a => a.product_Price);
-            int B2 = db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "Ok").Sum(a => a.product_Price);
-            int pay = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId()) && a.status == true).Sum(a => a.Pay);
-            int horvest = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.StatusP=="OK").Sum(a => a.Harvest);
-             ViewBag.Oll=(B1+B2+pay)-horvest;
+            // int B2 = db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "Ok").Sum(a => a.product_Price);
+            // int pay = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.status == true).Sum(a => a.Pay);
+            // int horvest = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.StatusP=="OK").Sum(a => a.Harvest);
+            // ViewBag.Oll=(B1+B2+pay)-horvest;
+            /////////////////////////////////////////////////////////////////////////////////////////////قفل شده
+            var goflshode=db.Tbl_Factors.Where(a=>a.Id_creator==Convert.ToInt32(User.Identity.GetId()) && a.StatusA=="R").Sum(a => a.product_Price);
+            ViewBag.gofl=goflshode;
+            //////////////////////////////////////////////////////////////////////////////////////////قابل معامله
+            var variziha=db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId()) && a.status == true).Sum(a => a.Pay);
+            var oksell=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "Ok").Sum(a => a.product_Price);
+            ///لیست دعوت شدگان
+            var s=db.Tbl_Users.Where(a=>a.Code==User.Identity.GetId() && a.RPass=="Ok").Count();
+            var davatiha=s*10000;
+            ///واریزی های مدیر
+            int adminpays1=db.AdminPays.Where(a=>a.IdUser==User.Identity.GetId()).Sum(a =>a.Price);
+            ///خرید های ناموفق
+            var No=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "No").Sum(a => a.Total_sum);
+            var NoB=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "NoB").Sum(a => a.product_Price);
 
+
+
+
+            var buyok =db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" && (a.StatusA=="Ok" || a.StatusA=="R")).Sum(s=>s.Total_sum);
+            var komision=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "Ok").Sum(a => a.PriceK);
+            var horvest= db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.StatusP=="OK").Sum(a => a.Harvest);
+
+
+            var moamelesum=(variziha+oksell+davatiha+adminpays1+No+NoB)-(buyok+komision+horvest);
+
+            ViewBag.moamele=moamelesum;
+            ViewBag.bardasht=(variziha+oksell+No+NoB)-(buyok+komision+horvest);
+            ViewBag.all=goflshode+moamelesum;
             
 
             return View();
@@ -677,32 +715,82 @@ namespace New_Project.Controllers
         }
              public IActionResult harvest()
         {
-             ViewBag.harvest =db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.Pay==0 &&a.Harvest!=0 && a.StatusP=="Ok").ToList();
+             ViewBag.harvest =db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.Pay==0 &&a.Harvest!=0 && a.StatusP=="Ok").OrderByDescending(a => a.Id).ToList();
             return View();
         }
         public IActionResult HarvestRequest()
         {
-            ViewBag.harvest =db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.Pay==0 &&a.Harvest!=0).ToList();
+            ViewBag.harvest =db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.Pay==0 &&a.Harvest!=0).OrderByDescending(a => a.Id).ToList();
             return View();
         }
         public IActionResult success()
         {
-             ViewBag.success =db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" &&a.StatusA=="Ok").ToList();
+             ViewBag.success =db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" &&a.StatusA=="Ok").OrderByDescending(a => a.Id).ToList();
             return View();
         }
            public IActionResult Nosuccess()
         {
-             ViewBag.Nosuccess =db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" &&a.StatusA=="No").ToList();
+             ViewBag.success =db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" && (a.StatusA=="No" || a.StatusA=="NoB")).OrderByDescending(a => a.Id).ToList();
+            return View();
+        }
+           public IActionResult wait()
+        {
+             ViewBag.success =db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" &&a.StatusA=="R").OrderByDescending(a => a.Id).ToList();
             return View();
         }
            public IActionResult Buy()
         {
-             ViewBag.Buy =db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" &&a.StatusA=="Ok").ToList();
+             ViewBag.success =db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" && (a.StatusA=="Ok" || a.StatusA=="R") ).OrderByDescending(a => a.Id).ToList();
+            return View();
+        }
+          public IActionResult adminpays()
+        {
+            ///لیست دعوت شدگان
+            var s=db.Tbl_Users.Where(a=>a.Code==User.Identity.GetId() && a.RPass=="Ok").ToList();
+            ///جوایز مدیر
+            var b=db.AdminPays.Where(a=>a.IdUser==User.Identity.GetId()).ToList();
+            ///اضافه کردن دعوت شدگان به لیست
+            List<Vm_adminPay2> pay2=new List<Vm_adminPay2>();
+            foreach (var item in s)
+            {
+                Vm_adminPay2 p=new Vm_adminPay2()
+                {
+                    id=item.Id,
+                    pay=10000,
+                    detail="بابت دعوت "+" "+item.NameFamily,
+                    typedeposit="قابل معامله",
+                    typepay="user"
+
+
+                };
+                pay2.Add(p);
+                
+            }
+
+            //اضافه کردن واریزی های مدیر 
+            foreach (var item in b)
+            {
+                Vm_adminPay2 p=new Vm_adminPay2()
+                {
+                    id=item.Id,
+                    pay=Convert.ToInt32(item.Price),
+                    detail=item.Detail,
+                    typedeposit=item.TypePay,
+                    typepay="admin"
+
+
+                };
+                pay2.Add(p);
+                
+            }
+            ///ارسال به ویو
+            ViewBag.o=pay2;
+
             return View();
         }
            public IActionResult NoBuy()
         {
-             ViewBag.NoBuy =db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" &&a.StatusA=="No").ToList();
+             ViewBag.success =db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" &&(a.StatusA=="NO" || a.StatusA=="NoB")).OrderByDescending(a => a.Id).ToList();
             return View();
         }
     }

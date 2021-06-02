@@ -80,8 +80,8 @@ namespace DataLayer.Migrations
                     b.Property<string>("IdUser")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Price")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
@@ -473,11 +473,11 @@ namespace DataLayer.Migrations
                     b.Property<string>("Post")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PriceB")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PriceB")
+                        .HasColumnType("int");
 
-                    b.Property<string>("PriceK")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PriceK")
+                        .HasColumnType("int");
 
                     b.Property<int>("Product_Count")
                         .HasColumnType("int");

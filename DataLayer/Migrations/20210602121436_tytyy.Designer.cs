@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(Context_db))]
-    [Migration("20210530142517_fgfg")]
-    partial class fgfg
+    [Migration("20210602121436_tytyy")]
+    partial class tytyy
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -82,8 +82,8 @@ namespace DataLayer.Migrations
                     b.Property<string>("IdUser")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Price")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
@@ -475,11 +475,11 @@ namespace DataLayer.Migrations
                     b.Property<string>("Post")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PriceB")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PriceB")
+                        .HasColumnType("int");
 
-                    b.Property<string>("PriceK")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PriceK")
+                        .HasColumnType("int");
 
                     b.Property<int>("Product_Count")
                         .HasColumnType("int");

@@ -31,8 +31,8 @@ namespace ViewModel.AdminViewModel.Order
          public string State { get; set; }
           public string City { get; set; }
          public string FirstAddress { get; set; }
-          public string PriceB { get; set; }
-          public string PriceK { get; set; }
+          public int PriceB { get; set; }
+          public int PriceK { get; set; }
         public string NameBuy { get; set; }
         public string NameSel { get; set; }
         public string Image { get; set; }

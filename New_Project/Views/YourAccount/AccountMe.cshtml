@@ -18,16 +18,53 @@
                             <div class="cart-page cart-empty">
                                 <div class="row">
                                     <div class="col-6">
-                                        <p style=" font-size: 12px; color: #858585;">   موجودی کیف پول  :<span style="color: #00c09d;" id="1"> @HttpContextAccessor.HttpContext.Session.GetString("pay") </span> تومان </p>
+                                        <p style=" font-size: 12px; color: #858585;">   موجودی کیف پول  :<span style="color: #00c09d;" id="1">
+                                             @if (ViewBag.all!=null)
+                                            {
+                                                @ViewBag.all
+                                            }
+                                            else
+                                            {
+                                                <span>0</span>
+                                            }
+                                        </span> تومان </p>
                                     </div>
                                     <div class="col-6">
-                                        <p style=" font-size: 12px; color: #858585;">    قابل برداشت : <span style="color: #00c09d;" id="2">  @ViewBag.Oll </span>تومان </p>
+                                        <p style=" font-size: 12px; color: #858585;">    قابل برداشت : <span style="color: #00c09d;" id="2"> 
+                                            @if (ViewBag.bardasht!=null)
+                                            {
+                                                @ViewBag.bardasht
+                                            }
+                                            else
+                                            {
+                                                <span>0</span>
+                                            }
+                                        </span>تومان </p>
                                     </div>
                                     <div class="col-6">
-                                        <p style=" font-size: 12px; color: #858585;">    قابل معامله  :<span style="color: #00c09d;" id="3"> @ViewBag.Oll</span> تومان </p>
+                                        <p style=" font-size: 12px; color: #858585;">    قابل معامله  :<span style="color: #00c09d;" id="3"> 
+                                            @if (ViewBag.moamele!=null)
+                                            {
+                                                @ViewBag.moamele
+                                            }
+                                            else
+                                            {
+                                                <span>0</span>
+                                            }
+                                        </span> تومان </p>
                                     </div>
                                     <div class="col-6">
-                                        <p style=" font-size: 12px; color: #858585;">    قفل شده  : <span style="color: #00c09d;" id="4"> 2000 </span> تومان</p>
+                                        <p style=" font-size: 12px; color: #858585;">    قفل شده  : <span style="color: #00c09d;" id="4">
+                                            @if (ViewBag.gofl!=null)
+                                            {
+                                                @ViewBag.gofl
+                                            }
+                                            else
+                                            {
+                                                <span>0</span>
+                                            }
+                                              
+                                             </span> تومان</p>
                                     </div>
                                 </div>
                                     <script>
@@ -36,7 +73,7 @@
                                         document.getElementById("3").innerText=document.getElementById("3").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                         document.getElementById("4").innerText=document.getElementById("4").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                     </script>
-                                        
+                                        <hr>
                                             @* <div class="row " style="display: flex; justify-content: center; justify-items: center; justify-self: center;">
                                                 <input   id="pay25" style="border-radius: 10px;font-size: 12px;"  class="col-8 input-ui pl-2  mb-2" placeholder="مبلغ رابه تومان وارد نمایید">
                                                 <a onclick="sendpay();" style="background-color: #00c09d; color: #ffffff; font-size: 10px;" class=" col-4 btn-primary-cm mt-2" >درخواست پرداخت </a>
@@ -51,7 +88,7 @@
                                                 <button  type="submit" style="background-color: #00c09d; color: #ffffff; font-size: 10px; height: 30px; " class=" btn-primary-cm btn-sm mt-2 mr-1" >درخواست برداشت</button>
                                             </div>
                                         </form>
-
+                                        <hr>
                                         <div style=" text-align: center;" class="m-3" >
                                                 <div class="row justify-content-center" >
                                                     <a href="/YourAccount/Pay"  class=" mr-1 ml-1 col-12 btn-primary-cm mt-2  col-xl-3" >واریزی ها </a>
@@ -61,12 +98,13 @@
                                                 <div class="row justify-content-center ">
                                                     <a href="/YourAccount/success" class=" mr-1 ml-1  col-12 btn-primary-cm mt-2   col-xl-3" >فروش  های موفق </a>
                                                     <a href="/YourAccount/NOsuccess"  class=" mr-1 ml-1  col-12 btn-primary-cm mt-2   col-xl-3" >فروش  های ناموفق  </a>
-                                                    <a href="/YourAccount/NOsuccess" class=" mr-1 ml-1  col-12 btn-primary-cm mt-2   col-xl-3" >فروش های درحال انجام</a>
+                                                    <a href="/YourAccount/wait" class=" mr-1 ml-1  col-12 btn-primary-cm mt-2   col-xl-3" >فروش های درحال انجام</a>
                                                 </div>
+                                                
                                                 <div class="row justify-content-center">
                                                     <a href="/YourAccount/Buy"  class=" mr-1 ml-1  col-12 btn-primary-cm mt-2    col-xl-3" >خرید  های موفق </a>
                                                     <a href="/YourAccount/NOBuy"  class=" mr-1 ml-1  col-12 btn-primary-cm mt-2   col-xl-3" >خرید   های ناموفق </a>
-                                                    <a href="#"  class=" mr-1 ml-1  col-12 btn-primary-cm mt-2  col-xl-3 " >    واریزی های مدیر  </a>
+                                                    <a href="/YourAccount/adminpays"  class=" mr-1 ml-1  col-12 btn-primary-cm mt-2  col-xl-3 " >    واریزی های مدیر  </a>
                                                 </div>
                                                 
 

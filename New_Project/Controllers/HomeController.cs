@@ -310,7 +310,7 @@ namespace New_Project.Controllers
                             NameBuy = A2.NameFamily,
                             NameSel = A1.NameFamily,
                             Image = A.Image,
-                            PriceB = S1.ToString(),
+                            PriceB = S1,
                             PriceK=ViewBag.S2,
                             Total_sum = Convert.ToInt32(A.Discount_Price) + S1,
 
@@ -342,7 +342,7 @@ namespace New_Project.Controllers
                     NameBuy = A2.NameFamily,
                     NameSel = A1.NameFamily,
                     Image = A.Image,
-                    PriceB = "0",
+                    PriceB = 0,
                     PriceK=ViewBag.S2,
                     Total_sum = Convert.ToInt32(A.Discount_Price),
 

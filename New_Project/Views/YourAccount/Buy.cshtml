@@ -128,31 +128,34 @@
                                                             <div class="dt-sl">
                                                                 <div class="table-responsive">
                                                                     <table class="table table-order">
-                                                                          <thead>
+                                                                         <thead>
                                                                             <tr>
                                                                                 <th></th>
                                                                             <th>ردیف</th>
+                                                                             <th>کد سفارش</th>
                                                                                 <th>  نام محصول </th>
-                                                                                <th> بازرسی+قیمت محصول </th>
-                                                                                <th>   قیمت محصول</th>
-                                                                                <th> هزینه بازرسی</th>
+                                                                                <th>تاریخ</th>
+                                                                                <th>مبلغ کالا</th>
+                                                                                <th>مبلغ بازرسی</th>
                                                                             </tr>
                                                                         </thead>
-                                                                            @if (ViewBag.Buy!=null)
+                                                                        <tbody>
+                                                                            @if ( ViewBag.success!=null)
                                                                             {
                                                                                 int i=1;
                                                                                 
-                                                                                @foreach (var item in  ViewBag.Buy)
+                                                                                @foreach (var item in ViewBag.success)
                                                                                 {
                                                                                     
                                                                             
                                                                                 
                                                                         
-                                                                             <tr>
+                                                                            <tr>
                                                                                 <td></td>
                                                                                 <td>@i</td>
+                                                                                 <td>@item.Id</td>
                                                                                 <td>@item.product_Name</td>
-                                                                                <td> @item.Total_sum </td>
+                                                                                <td> @item.Date_Order </td>
                                                                                 <td>@item.product_Price</td>
                                                                                 <td> @item.PriceB </td>
 
