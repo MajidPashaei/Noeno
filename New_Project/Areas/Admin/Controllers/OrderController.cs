@@ -17,6 +17,39 @@ namespace New_Project.Areas.Admin.Controllers {
         public OrderController (Context_db _db, IWebHostEnvironment env) : base (_db, env) { }
         public static int IdP;
 
+        
+        public IActionResult zero()
+        {
+             ViewBag.list= db.Tbl_Factors.Where(a =>a.Pay == "Ok").OrderByDescending(a=>a.Id).ToList();
+            return View();
+        }
+        public IActionResult changes(Vm_Factor vf)
+        {
+            var s= db.Tbl_Factors.Where(a => a.Id == vf.Id).SingleOrDefault();
+            s.StatusM=vf.StatusM;
+                if(vf.StatusM=="در انتظار تایید فروشنده"){s.StatusA="R";}
+                if(vf.StatusM=="در انتظار ارسال فروشنده"){s.StatusA="R";}
+                if(vf.StatusM=="عدم تایید فروشنده"){s.StatusA="No";}
+                if(vf.StatusM=="ارسال شده به خریدار"){s.StatusA="R";}
+                if(vf.StatusM=="ارسال شده به نوِنو"){s.StatusA="R";}
+                if(vf.StatusM=="تحویل داده شده به نوِنو"){s.StatusA="R";}
+                if(vf.StatusM=="لغو شده توسط مدیر"){s.StatusA="No";}
+                if(vf.StatusM=="دریافت شده توسط نوِنو"){s.StatusA="R";}
+                if(vf.StatusM=="تایید شده سیستم بازرسی"){s.StatusA="R";}
+                if(vf.StatusM=="عدم تایید سیستم بازرسی"){s.StatusA="NoB";}
+                if(vf.StatusM=="ارسال نوِنو به خریدار"){s.StatusA="R";}
+                if(vf.StatusM=="دریافت توسط خریدار"){s.StatusA="Ok";}
+                if(vf.StatusM=="مرجوع شده"){s.StatusA="No";}
+                if(vf.StatusM=="قصد مرجوعی خریدار"){s.StatusA="R";}
+                if(vf.StatusM=="عدم تایید قصد مرجوعی"){s.StatusA="Ok";}
+                if(vf.StatusM=="در انتظار ارسال خریدار"){s.StatusA="R";}
+                if(vf.StatusM=="مرجوع ارسال شده"){s.StatusA="R";}
+            db.Tbl_Factors.Update(s);
+            db.SaveChanges();
+           
+            return RedirectToAction("zero");
+        }
+        
         public IActionResult One()
         {
              ViewBag.list= db.Tbl_Factors.Where(a => a.StatusM=="در انتظار تایید فروشنده" && a.Pay == "Ok").OrderByDescending(a=>a.Id).ToList();

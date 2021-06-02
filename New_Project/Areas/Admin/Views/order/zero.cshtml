@@ -1,0 +1,98 @@
+@model ViewModel.AdminViewModel.Order.Vm_Factor
+<section id="data-list-view" class="data-list-view-header">
+  <div class="table-responsive">
+    <table class="table data-list-view">
+            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>ردیف</th>
+                                    <th>شماره فاکتور</th>
+                                    <th>کد سفارش </th>
+                                    <th>نام محصول</th>
+                                    <th> تاریخ سفارش </th>
+                                    <th>مبلغ کالا </th>
+                                    <th>هزینه بازرسی</th>
+                                    <th>هزینه کمسیون</th>
+                                    <th>شماره فروشنده</th>
+                                    <th>شماره خریدار</th>
+                                    <th>ادرس گیرنده</th>
+                                    <th>کد پستی</th>
+                                    <th>عکس کالا</th>
+                                    <th>کد مرسوله</th>
+                                    <th> وضعیت </th>
+                                    <th>عملیات</th>
+
+                                     
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.list != null)
+                                {
+                                    int i = 1;
+
+                                    @foreach (var item in ViewBag.list)
+                                    {
+
+
+
+
+                                          <tr>
+                                            <td></td>
+                                            <td>@i</td>
+                                            <td>@item.Id_Factro</td>
+                                            <td>@item.Id</td>
+                                            <td>@item.product_Name</td>
+                                            <td> @item.Date_Order</td>
+                                            <td>@item.product_Price</td>
+                                            <td>@item.PriceB</td>
+                                            <td>@item.PriceK</td>
+                                            <td>@item.TellSel</td>
+                                            <td>@item.TellBuy</td>
+                                            <td style="font-size: 8px;">@item.State-@item.City-@item.FirstAddress</td>
+                                            <td>@item.Post</td>
+                                            <td><img src="~/fileupload/@item.Image" style="width: 80px ;height: 80px;border-radius: 50%;"></td>
+                                            <td>@item.Send_Sales_Code</td>
+                                            <td>@item.StatusM</td>
+                                            <td>
+                                              <form method="POST" action="/admin/Order/changes?c=@item.Id">
+                                                                                <select asp-for="StatusM" required>
+                                                                                  <option value="در انتظار تایید فروشنده">در انتظار تایید فروشنده</option>
+                                                                                  <option value="در انتظار ارسال فروشنده">در انتظار ارسال فروشنده</option>
+                                                                                  <option value="عدم تایید فروشنده">عدم تایید فروشنده</option>
+                                                                                  <option value="ارسال شده به خریدار">ارسال شده به خریدار</option>
+                                                                                  <option value="ارسال شده به نوِنو">ارسال شده به نوِنو</option>
+                                                                                  <option value="تحویل داده شده به نوِنو">تحویل داده شده به نوِنو</option>
+                                                                                  <option value="لغو شده توسط مدیر">لغو شده توسط مدیر</option>
+                                                                                  <option value="دریافت شده توسط نوِنو">دریافت شده توسط نوِنو</option>
+                                                                                  <option value="تایید شده سیستم بازرسی">تایید شده سیستم بازرسی</option>
+                                                                                  <option value="عدم تایید سیستم بازرسی">عدم تایید سیستم بازرسی</option>
+                                                                                  <option value="ارسال نوِنو به خریدار">ارسال نوِنو به خریدار</option>
+                                                                                  <option value="دریافت توسط خریدار">دریافت توسط خریدار</option>
+                                                                                  <option value="مرجوع شده">مرجوع شده</option>
+                                                                                  <option value="قصد مرجوعی خریدار">قصد مرجوعی خریدار</option>
+                                                                                  <option value="عدم تایید قصد مرجوعی">عدم تایید قصد مرجوعی</option>
+                                                                                  <option value="در انتظار ارسال خریدار">در انتظار ارسال خریدار</option>
+                                                                                  <option value="مرجوع ارسال شده">مرجوع ارسال شده</option>
+                                                                                  
+                                                                                </select>
+                                                                                <input type="text" value="@item.Id" asp-for="Id" hidden>
+                                                                                <button  type="submit" style="font-weight: bold; font-size:12px;  border-color: green;"
+                                                                                        class="btn btn-sm btn-primary ">تغییر</button>
+                                                                            </form>
+                                              
+                                            </td>
+                                         
+                                         
+                                         
+                                           
+
+                                        </tr>
+                                        i++;
+                                    }
+                                }
+                            </tbody>
+    </table>
+  </div>
+
+</section>

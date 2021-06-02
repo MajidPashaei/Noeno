@@ -43,7 +43,7 @@
                                                                 </div>
                                                             </div>
                                                             <p style="font-size: 10px;"> آدرس:
-                                                                @if (@item.PriceB != "0")
+                                                                @if (@item.PriceB != 0)
                                                                 {
                                                                      <span> ارسال به نوِنو برای بازرسی کالا </span>
                                                                 }
@@ -61,7 +61,7 @@
                                                                 }
                                                                 @if (@item.StatusM=="در انتظار ارسال فروشنده")
                                                                 {
-                                                                    @if (@item.PriceB != "0")
+                                                                    @if (@item.PriceB != 0)
                                                                     {
                                                                         <div style="font-size: 10px; text-align: center;" class="mt-1">
                                                                             <form method="POST" action="/YourAccount/Send">

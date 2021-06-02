@@ -569,3 +569,4 @@ c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\stat
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.genruntimeconfig.cache
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\YourAccount\wait.cshtml.g.cs
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\YourAccount\adminpays.cshtml.g.cs
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\order\zero.cshtml.g.cs
