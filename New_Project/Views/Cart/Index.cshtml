@@ -18,33 +18,7 @@
             
             <div class="container main-container">
 
-                <div class="row mb-1 ">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
-                                                <div class="dt-sn">
-                                                    <ul class="checkout-summary-summary ">
-                                                        <li>
-                                                            <span> تعداد کالا ها :</span><span> <u>@ViewBag.A1 </u>مورد</span>
-                                                        </li>
-                                                        <li class="checkout-summary-discount">
-                                                            <span>  جمع قیمت : </span><span> @ViewBag.A2 تومان</span>
-                                                        </li>
-                                                        <li>
-                                                            <span> جمع هزینه بازرسی :</span>
-                                                            <span> @ViewBag.A3 </span>
-                                                        </li>
-                                                        <li class="checkout-summary-price-value" >
-                                                                <span >
-                                                                      جمع کل :
-                                                                </span>
-                                                                <span >
-                                                                    تومان   @ViewBag.A4 
-                                                                </span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                        </div>
-                        
-                </div>
+
                 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2 px-0">
@@ -55,19 +29,52 @@
                             </div>
                         </nav>
                     </div>
-
-
-
      
                      <div class="col-12">
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                                <div class="row  ml-1 mr-1" style="display: flex; justify-content: center; justify-self: center; justify-items: center;">
-
+                                <div class="row ml-1 mr-1" >
+                                        <div class="col-12 mt-2 col-xl-3 col-lg-3">
+                                            <div class="card ">
+                                                <ul class="checkout-summary-summary ">
+                                                    <li>
+                                                        <span> تعداد کالا ها :</span><span> <u>@ViewBag.A1 </u>مورد</span>
+                                                    </li>
+                                                    <li class="checkout-summary-discount">
+                                                        <span>  جمع قیمت : </span><span> @ViewBag.A2 تومان</span>
+                                                    </li>
+                                                    <li>
+                                                        <span> جمع هزینه بازرسی :</span>
+                                                        <span> @ViewBag.A3 </span>
+                                                    </li>
+                                                    <li class="checkout-summary-price-value" >
+                                                            <span >
+                                                                  جمع کل :
+                                                            </span>
+                                                            <span >
+                                                                تومان   @ViewBag.A4 
+                                                            </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            
+                                          <div class="col-12 d-none d-lg-block d-xl-block ">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 card mt-1  pt-2">
+                                                <div class=" checkout-feature-aside">
+                                                                <a href="/YourAccount2/additionalinfo" class=" d-block mb-1">
+                                                                    <button class="btn-primary-cm btn-with-icon w-100 text-center pr-0">
+                                                                        <i class="mdi mdi-arrow-left"></i>
+                                                                        ادامه ثبت خرید
+                                                                    </button>
+                                                                </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
                                           @if (ViewBag.A!=null)
-           {
-               @foreach (var item in ViewBag.A)
-               {
+                                            {
+                                 @foreach (var item in ViewBag.A)
+                                 {
 
                                         <div class=" col-xl-3 col-lg-3 col-md-3 col-sm-12 card m-2 checkout-content p-3">
                                             
@@ -102,10 +109,30 @@
                                            
                                              </div>  
                                              
-                                                  <a href="/cart/del/@item.Id" style="background-color: darkorange;" class="btn btn-primery">حذف</a>
+                                                  @* <a href="/cart/del/@item.Id" style="background-color: darkorange;" class="btn btn-primery">حذف</a>
                                                   <br>
-                                                <a href="/home/AddCart2/@item.Id" style="background-color: darkorange;" class="btn btn-primery">اضافه کردن</a>
-                                           
+                                                <a href="/home/AddCart2/@item.Id" style="background-color: darkorange;" class="btn btn-primery">اضافه کردن</a> *@
+                                            <div class="d-flex justify-content-center m-2"> 
+                                                    <a href="/home/AddCart2/@item.Id" style="background-color: darkorange;" class="btn btn-lg col-4 m-1 ">
+
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                                        </svg>
+        
+                                                    </a> 
+                            
+                                                   <a href="/cart/del/@item.Id" style="background-color: darkorange;" class="btn btn-lg col-4 m-1">
+                                                      
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                                        </svg>
+
+                                                    </a>
+                                                  <br>
+                                            
+                                                </div>
                                                                
                                                              
                                                     
@@ -156,7 +183,7 @@
 
 
 
-                                          <div class="col-12">
+                                          <div class="col-12 d-xl-none d-lg-none">
 
 
                                           

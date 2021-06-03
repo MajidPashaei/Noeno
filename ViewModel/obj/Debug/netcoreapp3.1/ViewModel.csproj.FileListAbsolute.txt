@@ -130,3 +130,15 @@ c:\Users\MS\Desktop\Noeno00-03-06\Noeno\ViewModel\obj\Debug\netcoreapp3.1\ViewMo
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\ViewModel\obj\Debug\netcoreapp3.1\ViewModel.csproj.CopyComplete
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\ViewModel\obj\Debug\netcoreapp3.1\ViewModel.dll
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\ViewModel\obj\Debug\netcoreapp3.1\ViewModel.pdb
+e:\project\Noeno\Noeno\ViewModel\bin\Debug\netcoreapp3.1\ViewModel.deps.json
+e:\project\Noeno\Noeno\ViewModel\bin\Debug\netcoreapp3.1\ViewModel.dll
+e:\project\Noeno\Noeno\ViewModel\bin\Debug\netcoreapp3.1\ViewModel.pdb
+e:\project\Noeno\Noeno\ViewModel\bin\Debug\netcoreapp3.1\DataLayer.dll
+e:\project\Noeno\Noeno\ViewModel\bin\Debug\netcoreapp3.1\DataLayer.pdb
+e:\project\Noeno\Noeno\ViewModel\obj\Debug\netcoreapp3.1\ViewModel.csprojAssemblyReference.cache
+e:\project\Noeno\Noeno\ViewModel\obj\Debug\netcoreapp3.1\ViewModel.AssemblyInfoInputs.cache
+e:\project\Noeno\Noeno\ViewModel\obj\Debug\netcoreapp3.1\ViewModel.AssemblyInfo.cs
+e:\project\Noeno\Noeno\ViewModel\obj\Debug\netcoreapp3.1\ViewModel.csproj.CoreCompileInputs.cache
+e:\project\Noeno\Noeno\ViewModel\obj\Debug\netcoreapp3.1\ViewModel.csproj.CopyComplete
+e:\project\Noeno\Noeno\ViewModel\obj\Debug\netcoreapp3.1\ViewModel.dll
+e:\project\Noeno\Noeno\ViewModel\obj\Debug\netcoreapp3.1\ViewModel.pdb

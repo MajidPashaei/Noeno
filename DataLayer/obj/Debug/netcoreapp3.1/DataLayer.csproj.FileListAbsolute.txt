@@ -26,3 +26,15 @@ c:\Users\ms\Desktop\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.genruntime
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csprojAssemblyReference.cache
 >>>>>>> 027e2a0fe64ba443da3c53cf64b5e1d41e71bc26
 >>>>>>> 384e5d7283581251e1629c0adb73390db3e96d74
+e:\project\Noeno\Noeno\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.deps.json
+e:\project\Noeno\Noeno\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.runtimeconfig.json
+e:\project\Noeno\Noeno\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.runtimeconfig.dev.json
+e:\project\Noeno\Noeno\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.dll
+e:\project\Noeno\Noeno\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.pdb
+e:\project\Noeno\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csprojAssemblyReference.cache
+e:\project\Noeno\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.AssemblyInfoInputs.cache
+e:\project\Noeno\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.AssemblyInfo.cs
+e:\project\Noeno\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csproj.CoreCompileInputs.cache
+e:\project\Noeno\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.dll
+e:\project\Noeno\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.pdb
+e:\project\Noeno\Noeno\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.genruntimeconfig.cache
