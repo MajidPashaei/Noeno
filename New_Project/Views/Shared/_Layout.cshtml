@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="~/assets/css/main.css">
     <link rel="stylesheet" href="~/assets/css/colors/default.css" id="colorswitch">
      <link rel="stylesheet" href="~/css/find.css">
-   <style>
+   @* <style>
 #snackbar {
   visibility: hidden;
   min-width: 250px;
@@ -86,12 +86,12 @@
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
-</style>
+</style>*@
 
-</head>
+</head> 
 
 <body>
-<div id="snackbar">محصول با موفقیت به سبد خرید اضافه شد</div>
+@* <div id="snackbar">محصول با موفقیت به سبد خرید اضافه شد</div> *@
     <div class="wrapper">
 
         <!-- Start header -->
@@ -638,8 +638,25 @@
                                 <div class="row account d-md-none d-lg-none d-xl-none">
                                     
 
+                                    @if (User.Identity.IsAuthenticated )
+                                          {
+                              
                                     <div style="padding-left: 3px; padding-right: 3px;">
                                         <a style="text-align: center;" class="nav-link" href="/cart/index"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            <i style="font-size: 24px;" class="mdi mdi-cart"></i>
+                                            <br>
+                                          
+                                            <span style="margin-top: -2px; font-size: 12px;" class="label-dropdown">سبد
+                                                خرید</span>
+                                                  <span class="badge badge-warning"> @HttpContextAccessor.HttpContext.Session.GetString("count")</span>
+                                            <!-- <span class="count">2</span> -->
+                                        </a>
+                                    </div>
+                                    }else
+                                    {
+                                          <div style="padding-left: 3px; padding-right: 3px;">
+                                        <a style="text-align: center;" class="nav-link" href="/loginandregister/login"
                                             aria-haspopup="true" aria-expanded="false">
                                             <i style="font-size: 24px;" class="mdi mdi-cart"></i>
                                             <br>
@@ -648,6 +665,9 @@
                                             <!-- <span class="count">2</span> -->
                                         </a>
                                     </div>
+
+
+                                    }
 
 
                                 </div>
@@ -2094,16 +2114,6 @@
 
 
 
-<<<<<<< HEAD
-@* //////////////////////////////////////////////style *@
-
-
-
-
-
-=======
-@* ///////////////////////////////////////////////////////// *@
->>>>>>> 384e5d7283581251e1629c0adb73390db3e96d74
 
 @* /////////////////////////////////////////////////// *@
 
@@ -2132,12 +2142,12 @@
     <script src="~/assets/js/main.js"></script>
     <!-- google map js Page Addresses -->
     <script>
-function myFunction() {
+@* function myFunction() {
   var x = document.getElementById("snackbar");
   x.className = "show";
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   
-}
+} *@
 
 </script>
 

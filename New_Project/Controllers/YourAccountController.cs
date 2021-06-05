@@ -1,4 +1,4 @@
-﻿using System.Data;
+using System.Data;
 using System.Reflection.PortableExecutable;
 using System.Data.Common;
 using System;
@@ -579,6 +579,7 @@ namespace New_Project.Controllers
             var davatiha=s*10000;
             ///واریزی های مدیر
             int adminpays1=db.AdminPays.Where(a=>a.IdUser==User.Identity.GetId()).Sum(a =>a.Price);
+            int adminpays2=db.AdminPays.Where(a=>a.IdUser==User.Identity.GetId()&& a.TypePay=="قابل برداشت").Sum(a =>a.Price);
             ///خرید های ناموفق
             var No=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "No").Sum(a => a.Total_sum);
             var NoB=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "NoB").Sum(a => a.product_Price);
@@ -594,7 +595,7 @@ namespace New_Project.Controllers
             var moamelesum=(variziha+oksell+davatiha+adminpays1+No+NoB)-(buyok+komision+horvest);
 
             ViewBag.moamele=moamelesum;
-            ViewBag.bardasht=(variziha+oksell+No+NoB)-(buyok+komision+horvest);
+            ViewBag.bardasht=(variziha+oksell+No+NoB+adminpays2)-(buyok+komision+horvest);
             ViewBag.all=goflshode+moamelesum;
             
 
