@@ -58,5 +58,9 @@ namespace New_Project.Controllers
         {
             return View();
         }
+        public IActionResult noeno()
+        {
+            return View();
+        }
     }
 }
