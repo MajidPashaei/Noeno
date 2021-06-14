@@ -19,7 +19,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="basic-form">
-                                <form action="/Admin/Order/WyNo" method="POST" >
+                                <form action="/Admin/Order/WyNo" method="POST" enctype="multipart/form-data">
                                 <label style="font-weight: bold; font-size:14px;" class="text-label"> ورودی یکی از فیلد ها الزامی میباشد    <span style="color: red;">*</span></label>
                                 <div style=" border: 1px solid #b3b3b3 !important; border-radius: 10px; margin-top: 5px; ">
                                     <div style="margin: 15px;">
@@ -30,6 +30,13 @@
                                                             </label>
                                                             <input style="border-radius: 10px;" type="text"
                                                                 class="form-control" placeholder=" توضیحات " required asp-for="Why_Return_Admin_Bazrasi"  >
+                                                        </div>
+                                                        <div style="padding: 14px;" class="form-group">
+                                                            <label style="font-weight: bold; font-size:14px"
+                                                                class="text-label mb-1"> عکس در مورد مرجوعی
+                                                            </label>
+                                                            <input style="border-radius: 10px;" type="file" 
+                                                                class="form-control" placeholder=" image  " required asp-for="ImageNoB"  >
                                                         </div>
                                                 </div>
                                     </div>

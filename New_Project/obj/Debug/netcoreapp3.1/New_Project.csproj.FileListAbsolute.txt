@@ -1147,3 +1147,5 @@ e:\project\Noeno\Noeno\New_Project\obj\Debug\netcoreapp3.1\staticwebassets\New_P
 e:\project\Noeno\Noeno\New_Project\obj\Debug\netcoreapp3.1\New_Project.genruntimeconfig.cache
 e:\project\Noeno\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\Foot\noeno.cshtml.g.cs
 >>>>>>> 5c48a85cd1fe605ee086136cc4b9fb5c8706fe4a
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\Foot\noeno.cshtml.g.cs
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\YourAccount\WyNoShow.cshtml.g.cs

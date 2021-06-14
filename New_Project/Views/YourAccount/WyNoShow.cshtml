@@ -1,0 +1,54 @@
+<style>
+    .hover1:hover {
+        background-color: #59b63fbd;
+        color: #ffffff;
+    }
+</style>
+
+<div class="content-body">
+    <div class="col-lg-12">
+        <div style="max-width: 600px !important; margin: auto;" class="card">
+            <div class="card-heade  m-3" style="text-align: center;  ">
+                <div class="alert   alert-square "
+                    style="background-color: #EA5455;  color: #ffffff; box-shadow: 0 1px 12px 0 rgba(0,0,0,0.2);">
+                    <h4 style="margin-top: 0rem; margin-bottom: 0rem; font-size: 17px;" class="card-title"> <span
+                            style="font-weight: bold; " class="text-light">  علت عدم تایید کالا  </h4>
+                </div>
+            </div>
+            <div class="col-xl-12 col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="basic-form">
+                                <div style=" border: 1px solid #b3b3b3 !important; border-radius: 10px; margin-top: 5px; text-align: center; ">
+                                    <div style="margin: 15px;">
+                                                <div class="form-group">
+                                                        @if (ViewBag.list != null)
+                                                        {
+                                                            foreach (var item in ViewBag.list)
+                                                            {
+                                                                                <p class="text-danger" >توضیحات عدم تایید:</p>
+                                                                                <p>@item.Why_Return_Admin_Bazrasi</p>
+                                                                                <div style="height: 120px; width: 150px;">
+                                                                                    <img src="~/fileupload/@item.ImgNoB" style="height: 100%; width: 100%;">
+                                                                                </div>
+                                                                                
+                                                                                
+                                                        }
+                                                        }
+                                                    
+                                                </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-6 m-1">
+                                        <a  href="/YourAccount/Orders" style="font-weight: bold; font-size:16px;  border-color: green;"
+                                            class="btn btn-sm btn-info btn-block hover1 text-light"> بازگشت </a>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

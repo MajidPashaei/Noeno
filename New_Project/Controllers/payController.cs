@@ -71,8 +71,8 @@ namespace New_Project.Controllers
             var result = await _payment.Request(new DtoRequest()
             {
                 Mobile = quser.Phone,
-                // CallbackUrl = "https://localhost:5001/pay/validate",
-                CallbackUrl = "https://noeno.hampadcoteam.ir/pay/validate",
+                 CallbackUrl = "https://localhost:5001/pay/validate",
+                //CallbackUrl = "https://noeno.hampadcoteam.ir/pay/validate",
                 Description = quser.NameFamily,
                 Email = "tak1.ghasemi@gmail.com",
                 Amount = qpay.Pay,
@@ -238,11 +238,15 @@ namespace New_Project.Controllers
             var quser = db.Tbl_Users.Where(a => a.Id.ToString() == (User.Identity.GetId())).SingleOrDefault();
             var qpay = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())).OrderByDescending(a => a.Id).Take(1).SingleOrDefault();
             sumshop = qpay.Pay;
+            if (sumshop <=0)
+            {
+                return RedirectToAction("payUser2", "cart");
+            }
             var result = await _payment.Request(new DtoRequest()
             {
                 Mobile = quser.Phone,
-                // CallbackUrl = "https://localhost:5001/pay/validate2",
-                CallbackUrl = "https://noeno.hampadcoteam.ir/pay/validate",
+                CallbackUrl = "https://localhost:5001/pay/validate2",
+                // CallbackUrl = "https://noeno.hampadcoteam.ir/pay/validate",
                 Description = quser.NameFamily,
                 Email = "tak1.ghasemi@gmail.com",
                 Amount = qpay.Pay,
@@ -277,11 +281,11 @@ namespace New_Project.Controllers
                 if (HttpContext.Session.GetString("payred") == "1")
                 {
                     HttpContext.Session.SetString("pay", Diposit().ToString());
-                    return RedirectToAction("card2", "cart");
+                    return RedirectToAction("payUser2", "cart");
                 }
 
 
-                return RedirectToAction("card2", "cart");
+                return RedirectToAction("payUser2", "cart");
 
             }
             else

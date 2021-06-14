@@ -411,6 +411,11 @@ namespace New_Project.Controllers
 
              return RedirectToAction("Sales");
         }
+        public IActionResult WyNoShow(int c)
+        {
+            ViewBag.list= db.Tbl_Factors.Where(a =>a.Id==c).ToList();
+            return View();
+        }
         public IActionResult Tahvil(int c)
         {
             var s= db.Tbl_Factors.Where(a => a.Id == c).SingleOrDefault();
@@ -568,21 +573,29 @@ namespace New_Project.Controllers
             // int pay = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.status == true).Sum(a => a.Pay);
             // int horvest = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.StatusP=="OK").Sum(a => a.Harvest);
             // ViewBag.Oll=(B1+B2+pay)-horvest;
+
+
             /////////////////////////////////////////////////////////////////////////////////////////////قفل شده
             var goflshode=db.Tbl_Factors.Where(a=>a.Id_creator==Convert.ToInt32(User.Identity.GetId()) && a.StatusA=="R").Sum(a => a.product_Price);
             ViewBag.gofl=goflshode;
+
+
             //////////////////////////////////////////////////////////////////////////////////////////قابل معامله
             var variziha=db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId()) && a.status == true).Sum(a => a.Pay);
             var oksell=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "Ok").Sum(a => a.product_Price);
+
             ///لیست دعوت شدگان
             var s=db.Tbl_Users.Where(a=>a.Code==User.Identity.GetId() && a.RPass=="Ok").Count();
             var davatiha=s*10000;
+
             ///واریزی های مدیر
             int adminpays1=db.AdminPays.Where(a=>a.IdUser==User.Identity.GetId()).Sum(a =>a.Price);
             int adminpays2=db.AdminPays.Where(a=>a.IdUser==User.Identity.GetId()&& a.TypePay=="قابل برداشت").Sum(a =>a.Price);
+
             ///خرید های ناموفق
-            var No=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "No").Sum(a => a.Total_sum);
-            var NoB=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "NoB").Sum(a => a.product_Price);
+            var No=db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "No").Sum(a => a.Total_sum);
+            var NoB=db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "NoB").Sum(a => a.PriceB);
+
 
 
 
@@ -592,10 +605,10 @@ namespace New_Project.Controllers
             var horvest= db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.StatusP=="OK").Sum(a => a.Harvest);
 
 
-            var moamelesum=(variziha+oksell+davatiha+adminpays1+No+NoB)-(buyok+komision+horvest);
+            var moamelesum=(variziha+oksell+davatiha+adminpays1)-(buyok+komision+horvest+NoB);
 
             ViewBag.moamele=moamelesum;
-            ViewBag.bardasht=(variziha+oksell+No+NoB+adminpays2)-(buyok+komision+horvest);
+            ViewBag.bardasht=(variziha+oksell+adminpays2)-(buyok+komision+horvest+NoB);
             ViewBag.all=goflshode+moamelesum;
             
 

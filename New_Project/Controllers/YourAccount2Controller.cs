@@ -106,7 +106,18 @@ namespace New_Project.Controllers {
 
 
             }
+             var qcheck1 = db.Tbl_Users.Where (a => a.Id.ToString () == User.Identity.GetId ()).SingleOrDefault ();
+              if (qcheck1 != null)
+              {
 
+              
+                    
+                    qcheck1.State = VmUser.State;
+                    qcheck1.city = VmUser.city;
+                    qcheck1.Post = VmUser.Post;
+                    db.Tbl_Users.Update(qcheck1);
+                    db.SaveChanges();
+                }
 
 
 

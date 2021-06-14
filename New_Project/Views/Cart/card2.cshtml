@@ -5,7 +5,7 @@
 @inject IHttpContextAccessor HttpContextAccessor
 @model ViewModel.Entities.User.Vm_User;
 </style>
-<main class="dt-sl mt-2 mb-3">
+<main class="dt-sl mt-5 mb-3">
 
     <div class="row">
 
@@ -15,58 +15,148 @@
                 <p style="background-color: orange; text-align: center;">@ViewBag.msg</p>
             }
             <div class="row">
+               
                 <div class="col-md-10 col-sm-12 mx-auto">
-                    <div class="px-3 px-res-0">
-                        <div class="form-ui additional-info dt-sl dt-sn pt-4">
-
-                            <div class="row">
-
+                    <div class="px-3">
+                        <div class="form-ui additional-info dt-sl dt-sn pt-4" >
+                            <div id="f1">
+                                   <div class="row text-center">
+                               
 
                                 <div class="col-5">
                                     مبلغ کل سفارش :
                                 </div>
                                 <div class="col-7 text-success">
-                                    @HttpContextAccessor.HttpContext.Session.GetString("sumall")
+                                      @{ var b= @HttpContextAccessor.HttpContext.Session.GetString("sumall"); }
+                                    <input id="total" value="@b" disabled class="form-control text-center " style="background-color: white !important;border:none" >
+                                    
+                                   
                                 </div>
                             </div>
                             <hr>
-                            <div class="row">
+                            <div class="row text-center">
                                 <div class="col-5">
                                     اعتبار کیف پول :
                                 </div>
                                 <div class="col-7 text-primary">
-                                    @HttpContextAccessor.HttpContext.Session.GetString("pay")
+                                    @{ var a=@HttpContextAccessor.HttpContext.Session.GetString("pay"); }
+                                    <input id="wallet" value="@a" disabled class="form-control text-center " style="background-color: white !important;border:none" >
+                                       
+                                    
+                                    
                                 </div>
+                                
                             </div>
                             <hr>
-                            <div class="row">
+                            <div class="row mt-2 text-center">
+                                <div class="col-lg-6 col-md-12 col-xl-6 col-12 mt-3">
+                                    میزان استفاده از کیف پول :
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-xl-6 col-12">
+                                   <input type="number" class="form-control" id="masraf">
+                                </div>
+                               
+                            </div>
+                             @* <p class="text text-danger  mt-3 text-center">*در صورت خالی بودن کل مبلغ اعتبار استفاده می شود </p> *@
+                            <hr>
+
+
+                             <div class="">
+                                  <p class="alert- alert-danger bt-3 form-control" id="show" style="display: none;">مبلغ وارد شده بیش از مبلغ کیف می باشد</p>
+
+                                    <p class="alert- alert-danger bt-3 form-control" id="show1" style="display: none;">مبلغ وارد شده بیش از کل مبلغ می باشد</p>
+                                      <p class="alert- alert-danger bt-3 form-control" id="show2" style="display: none;">میزان استفاده از کیف پول را وارد کنید</p>
+
+                                <a class="btn btn-info" onclick="sendpaym();">ادامه فرایند خرید </a>
+                               
+                            </div>
+
+
+                            </div>
+
+                         
+
+                            <script>
+                                
+                                function sendpaym()
+                                {
+                                    debugger
+                                    var a= parseInt(document.getElementById('wallet').value);
+                                    var b=parseInt( document.getElementById('masraf').value);
+                                    var c= parseInt(document.getElementById('total').value);
+
+                                    if( a>0 &&   document.getElementById('masraf').value =='')
+                                    {
+                                        document.getElementById("show2").style.display='block';
+                                         document.getElementById("show1").style.display='none';
+                                          document.getElementById("show").style.display='none';
+
+                                    }
+
+                                  else if( a<b )
+                                    {
+                                        document.getElementById("show").style.display='block';
+                                         document.getElementById("show1").style.display='none';
+                                          document.getElementById("show2").style.display='none';
+
+                                    }
+
+                                    else if( c<b )
+                                    {
+                                        document.getElementById("show1").style.display='block';
+                                         document.getElementById("show2").style.display='none';
+                                          document.getElementById("show").style.display='none';
+
+                                    }
+                                    else
+                                    {
+                                        document.getElementById("f1").style.display='none';
+                                         document.getElementById("f2").style.display='block';
+                                         document.getElementById('Price').value=c-b;
+                                         
+                                    }
+
+                                }
+
+                            </script>
+                            
+
+
+
+
+
+                            @* <div class="row">
                               <div class="col-4">
                                             <div style=" text-align: center;" >
                                                 <input   id="pay25" style="text-align: center; border-radius: 10px;font-size: 12px;"  class="input-ui pl-2 text-left dir-ltr mb-2" placeholder="مبلغ رابه تومان وارد نمایید">
                                                 <a onclick="sendpay();" style="background-color: #00c09d; color: #ffffff; font-size: 10px;" class="btn-primary-cm mt-2" >درخواست پرداخت </a>
                                             </div>
-                                        </div>
-                                        </div>
-                            <form action="/cart/payUser2" method="POST">
+                                </div>
+                             </div> *@
+                            <form action="/cart/payUser2" method="POST" style="display: none;" id="f2">
                                 <div class="row">
-                                    @* <div class="col-12 text-danger" style="font-size: 10px;">
-                                        در صورت تمایل برای استفاده از اعتبار کیف پول قبل از ادامه مقدار مورد نظر را وارد
-                                        نمایید و در صور عدم تمایل روند خرید را ادامه دهید.
-                                        </div>
+
+                                  
                                         <div class="col-12 text-warning mt-2">
-                                        <input asp-for="Price" class="form-control form-control-sm" type="number"
-                                        placeholder="میزان استفاده از اعتبار کیف پول (تومان) ">
-                                        </div> *@
+                                             <p class="text-center text-dark">مبلغ مانده به تومان</p>
+                                        <input asp-for="Price" class="form-control form-control-sm text-center" type="number"
+                                        placeholder="میزان استفاده از اعتبار کیف پول (تومان) " disabled>
+                                        </div>
                                 </div>
                                 <hr>
 
-                                <div class="dt-sl">
+                               
+
+                               
+
+
+                               <div class="dt-sl">
                                     <div class="form-row mt-3 justify-content-center">
-                                        <button type="submit" class="btn-primary-cm btn-with-icon ml-2 text-white">
+                                        <a onclick="sendpay();" class="btn-primary-cm btn-with-icon ml-2 text-white">
                                             <i class="mdi mdi-account-circle-outline"></i>
                                             ادامه خرید
-                                        </button>
-                                        <a href="#" class="btn-primary-cm bg-secondary">بازگشت</a>
+                                        </a>
+                                        
                                     </div>
                                 </div>
                             </form>
@@ -80,10 +170,11 @@
     <script>
             function sendpay()
             {
+                
              
-             if(document.getElementById('pay25').value != "")
+             if(document.getElementById('Price').value != "")
              {
-                window.location.href="/pay/index2/"+document.getElementById('pay25').value;
+                window.location.href="/pay/index2/"+document.getElementById('Price').value;
              }
              
             }

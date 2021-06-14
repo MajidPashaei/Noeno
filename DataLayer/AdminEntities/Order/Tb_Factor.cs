@@ -41,7 +41,10 @@ namespace DataLayer.AdminEntities.Order
         public string Send_Admin_Code { get; set; }
         public string Why_Return_Admin_Bazrasi { get; set; }
         public string Why_Return_Request { get; set; }
-        public string ImageReturn { get; set; } 
+        public string ImageReturn { get; set; }
+
+        public string ImgNoB { get; set; } 
+
 
 
 

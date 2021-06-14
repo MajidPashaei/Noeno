@@ -461,6 +461,9 @@ namespace DataLayer.Migrations
                     b.Property<string>("ImageReturn")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImgNoB")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("NameBuy")
                         .HasColumnType("nvarchar(max)");
 

@@ -157,9 +157,44 @@ namespace New_Project.Controllers
 
         public int Diposit()
         {
-            int pay = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId()) && a.status == true).Sum(a => a.Pay);
-            int horvest = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())).Sum(a => a.Harvest);
-            return pay - horvest;
+          int B1 = db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "No").Sum(a => a.product_Price);
+            // int B2 = db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "Ok").Sum(a => a.product_Price);
+            // int pay = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.status == true).Sum(a => a.Pay);
+            // int horvest = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.StatusP=="OK").Sum(a => a.Harvest);
+            // ViewBag.Oll=(B1+B2+pay)-horvest;
+           /////////////////////////////////////////////////////////////////////////////////////////////قفل شده
+            var goflshode=db.Tbl_Factors.Where(a=>a.Id_creator==Convert.ToInt32(User.Identity.GetId()) && a.StatusA=="R").Sum(a => a.product_Price);
+            ViewBag.gofl=goflshode;
+
+
+            //////////////////////////////////////////////////////////////////////////////////////////قابل معامله
+            var variziha=db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId()) && a.status == true).Sum(a => a.Pay);
+            var oksell=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "Ok").Sum(a => a.product_Price);
+
+            ///لیست دعوت شدگان
+            var s=db.Tbl_Users.Where(a=>a.Code==User.Identity.GetId() && a.RPass=="Ok").Count();
+            var davatiha=s*10000;
+
+            ///واریزی های مدیر
+            int adminpays1=db.AdminPays.Where(a=>a.IdUser==User.Identity.GetId()).Sum(a =>a.Price);
+            int adminpays2=db.AdminPays.Where(a=>a.IdUser==User.Identity.GetId()&& a.TypePay=="قابل برداشت").Sum(a =>a.Price);
+
+            ///خرید های ناموفق
+            var No=db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "No").Sum(a => a.Total_sum);
+            var NoB=db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "NoB").Sum(a => a.PriceB);
+
+
+
+
+
+            var buyok =db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" && (a.StatusA=="Ok" || a.StatusA=="R")).Sum(s=>s.Total_sum);
+            var komision=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId()) && a.StatusA == "Ok").Sum(a => a.PriceK);
+            var horvest= db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.StatusP=="OK").Sum(a => a.Harvest);
+
+
+            var moamelesum=(variziha+oksell+davatiha+adminpays1)-(buyok+komision+horvest+NoB);
+
+            return moamelesum;
         }
 
         public IActionResult card3()
@@ -461,14 +496,13 @@ namespace New_Project.Controllers
               Rn=R.Next(100000, 999999);
             if (q != null)
             {
-                if (Convert.ToInt32(HttpContext.Session.GetString("pay")) >= Convert.ToInt32(HttpContext.Session.GetString("sumall")))
-                {
+                
               
                     Tbl_pay B = new Tbl_pay()
                     {
                         Id_Factro=Rn,
                         Phone = q.Phone,
-                        Harvest = Convert.ToInt32(HttpContext.Session.GetString("sumall")),
+                        Harvest = Convert.ToInt32(HttpContext.Session.GetString("price")),
                         havesttime = DateTime.UtcNow,
                         iduser = Convert.ToInt32(User.Identity.GetId()),
                         Paytime = DateTime.UtcNow,
@@ -505,14 +539,7 @@ namespace New_Project.Controllers
 
                     HttpContext.Session.SetString("pay", Diposit().ToString());
                     string b = Diposit().ToString();
-                }
-                else
-                {
-                    HttpContext.Session.SetString("pay", Diposit().ToString());
-                    msg = "اعتبار شما کافی نیست لطفا کیف پول خو را شارژ کنید";
-
-                    return RedirectToAction("card2");
-                }
+               
             }
 
 

@@ -10,12 +10,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ViewModel.AdminViewModel.Order;
+using System.IO;
 
 namespace New_Project.Areas.Admin.Controllers {
     [Area ("Admin")]
     public class OrderController : BaseController {
         public OrderController (Context_db _db, IWebHostEnvironment env) : base (_db, env) { }
         public static int IdP;
+        public static string NewFileName;
 
         
         public IActionResult zero()
@@ -119,10 +121,26 @@ namespace New_Project.Areas.Admin.Controllers {
             IdP=c;
             return View("WyNo");
         }
-        public IActionResult WyNo(Vm_Factor Vf)
+        public async Task<IActionResult> WyNo(Vm_Factor Vf)
         {
+
             var s= db.Tbl_Factors.Where(a => a.Id == IdP).SingleOrDefault();
+
+
+            string FileExtension = Path.GetExtension (Vf.ImageNoB.FileName);
+            NewFileName = String.Concat (Guid.NewGuid ().ToString (), FileExtension);
+            var path = $"{_env.WebRootPath}\\fileupload\\{NewFileName}";
+            using (var stream = new FileStream (path, FileMode.Create)) {
+
+                await Vf.ImageNoB.CopyToAsync (stream);
+
+            }
+
+
+
             s.Why_Return_Admin_Bazrasi=Vf.Why_Return_Admin_Bazrasi;
+            s.ImgNoB=NewFileName;
+
             s.StatusM="عدم تایید سیستم بازرسی";
             s.StatusA="NoB";
             db.Tbl_Factors.Update(s);

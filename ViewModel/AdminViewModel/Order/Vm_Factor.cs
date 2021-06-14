@@ -48,5 +48,7 @@ namespace ViewModel.AdminViewModel.Order
         public string Send_Order_Code { get; set; }
         public string Why_Return_Admin_Bazrasi { get; set; }
         public string Why_Return_Request { get; set; }
+         public string ImgNoB { get; set; } 
+         public IFormFile ImageNoB {get; set;}
     }
 }

@@ -67,7 +67,8 @@
                                                                 }
                                                             @if (@item.StatusM=="عدم تایید سیستم بازرسی")
                                                                 {
-                                                                   <P class="alert alert-danger">عدم تایید سیستم بازرسی : @item.Why_Return_Admin_Bazrasi  </P>
+                                                                          <a href="/YourAccount/WyNoShow?c=@item.Id" class="btn btn-warning btn-sm" >   مشاهده علت عدم تایید سیستم بازرسی </a>
+                                                                        
                                                                 }  
                                                             @if (@item.StatusM=="در انتظار ارسال خریدار")
                                                                 {
