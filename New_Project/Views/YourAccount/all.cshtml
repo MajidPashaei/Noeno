@@ -1,0 +1,99 @@
+<!-- Start main-content -->
+@model ViewModel.Entities.User.Vm_User;
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<main class="main-content dt-sl mt-2 mb-2">
+    <div class="container main-container">
+        <div class="row">
+
+            <!-- Start Sidebar -->
+            @await Html.PartialAsync("_Partial_profile")
+            <!-- End Sidebar -->
+
+            <!-- Start Content -->
+            <div class="col-xl-9 col-lg-8 col-md-8 col-sm-12">
+                <div class="row">
+                    <!-- Start main-content -->
+                    <main class="main-content dt-sl mt-1 mb-1 mr-2 ml-2">
+                        <div class="container main-container">
+
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2 px-0">
+                                    <nav class="tab-cart-page">
+                                        
+                                            <div class="row" style="text-align: center;display: flex; justify-content: center;">
+                                                <p class="alert alert-warning form-control" >گزارش تراکنش ها</p>
+                                            </div>
+                                    </nav>
+                                </div>
+                                <div class="col-12">
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div  class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" >
+                                                        <div class="col-12 mt-2">
+                                                            <div class="dt-sl">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-order">
+                                                                          <thead>
+                                                                            <tr>
+                                                                                <th></th>
+                                                                            <th>ردیف</th>
+                                                                             <th>تاریخ</th>
+                                                                                <th>  مبلغ  </th>
+                                                                                <th>نوع</th>
+                                                                                <th> وضعیت</th>
+                                                                                <th>مبلغ بازرسی</th>
+                                                                                <th>مبلغ کمسیون</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            @if ( ViewBag.det!=null)
+                                                                            {
+                                                                                int i=1;
+                                                                                
+                                                                                @foreach (var item in ViewBag.det)
+                                                                                {
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td>@i</td>
+                                                                                <td>@item.Date</td>
+                                                                                <td>@item.Price</td>
+                                                                                <td>@item.Type</td>
+                                                                                <td>@item.Status</td>
+                                                                                <td>@item.Bazrasi</td>
+                                                                                <td>@item.Komision</td>
+
+                                                                            </tr>
+                                                                            i++;
+                                                                            }
+                                                                        }
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    <!-- End main-content -->
+                </div>
+            </div>
+            <!-- End Content -->
+        </div>
+
+    </div>
+</main>
+<!-- End main-content -->
+	    <script>
+            function sendpay()
+            {
+             
+             if(document.getElementById('pay25').value != "")
+             {
+                window.location.href="/pay/index/"+document.getElementById('pay25').value;
+             }
+             
+            }
+        </script>

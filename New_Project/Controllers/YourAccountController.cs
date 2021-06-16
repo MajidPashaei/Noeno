@@ -533,6 +533,8 @@ namespace New_Project.Controllers
         {
             return View();
         }
+        
+        
         public IActionResult AccountMe()
         {
               
@@ -805,6 +807,212 @@ namespace New_Project.Controllers
            public IActionResult NoBuy()
         {
              ViewBag.success =db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" &&(a.StatusA=="NO" || a.StatusA=="NoB")).OrderByDescending(a => a.Id).ToList();
+            return View();
+        }
+        public IActionResult all()
+        {
+            var pay = db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId()) && a.status == true).OrderByDescending(a => a.Id).ToList();
+            var harvest=db.tbl_Pays.Where(a => a.iduser == Convert.ToInt32(User.Identity.GetId())&&a.Pay==0 &&a.Harvest!=0 && a.StatusP=="Ok").OrderByDescending(a => a.Id).ToList();
+            var success=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" &&a.StatusA=="Ok").OrderByDescending(a => a.Id).ToList();
+            var nosuccess=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" && (a.StatusA=="No" || a.StatusA=="NoB")).OrderByDescending(a => a.Id).ToList();
+            var wait=db.Tbl_Factors.Where(a => a.Id_creator == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" &&a.StatusA=="R").OrderByDescending(a => a.Id).ToList();
+            var buy=db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" && (a.StatusA=="Ok" || a.StatusA=="R") ).OrderByDescending(a => a.Id).ToList();
+            var nobuy=db.Tbl_Factors.Where(a => a.Id_Order == Convert.ToInt32(User.Identity.GetId())&&a.Pay=="Ok" &&(a.StatusA=="NO" || a.StatusA=="NoB")).OrderByDescending(a => a.Id).ToList();
+            ///لیست دعوت شدگان
+            var s=db.Tbl_Users.Where(a=>a.Code==User.Identity.GetId() && a.RPass=="Ok").ToList();
+            ///جوایز مدیر
+            var b=db.AdminPays.Where(a=>a.IdUser==User.Identity.GetId()).ToList();
+            ///اضافه کردن دعوت شدگان به لیست
+            List<Vm_adminPay2> pay2=new List<Vm_adminPay2>();
+            foreach (var item in s)
+            {
+                Vm_adminPay2 p=new Vm_adminPay2()
+                {
+                    id=item.Id,
+                    pay=10000,
+                    detail="بابت دعوت "+" "+item.NameFamily,
+                    typedeposit="قابل معامله",
+                    typepay="user",
+                    time="",
+
+
+                };
+                pay2.Add(p);
+                
+            }
+
+            //اضافه کردن واریزی های مدیر 
+            foreach (var item in b)
+            {
+                Vm_adminPay2 p=new Vm_adminPay2()
+                {
+                    id=item.Id,
+                    pay=Convert.ToInt32(item.Price),
+                    detail=item.Detail,
+                    typedeposit=item.TypePay,
+                    typepay="admin",
+                    time=item.Time.ToPersianDateString(),
+
+
+                };
+                pay2.Add(p);
+                
+            }
+            ///ارسال به متغیر
+            var adminpay=pay2;
+           
+            ////////////////////////////////////////////////////////////////////////////////////////
+           
+            List<Vm_Details> Details=new List<Vm_Details>();
+              foreach (var item in pay)
+            {
+                Vm_Details Vm_pay=new Vm_Details()
+                {
+                      Date =item.Paytime.ToPersianDateString(),
+                      Price =item.Pay,
+                      Type ="واریز",
+                      Status ="موفقیت آمیز",
+                      Bazrasi =0,
+                      Komision =0,
+                      MyProperty =0,
+                      one ="",
+
+
+                };
+                Details.Add(Vm_pay);
+                
+            }
+              foreach (var item in harvest)
+            {
+                Vm_Details Vm_harvest=new Vm_Details()
+                {
+                      Date =item.havesttime.ToPersianDateString(),
+                      Price =item.Harvest,
+                      Type ="برداشت",
+                      Status ="موفقیت آمیز",
+                      Bazrasi =0,
+                      Komision =0,
+                      MyProperty =0,
+                      one ="",
+
+
+                };
+                Details.Add(Vm_harvest);
+                
+            }
+              foreach (var item in success)
+            {
+                Vm_Details Vm_success=new Vm_Details()
+                {
+                      Date =item.Date_Order.ToPersianDateString(),
+                      Price =item.Total_sum,
+                      Type ="فروش موفق",
+                      Status ="موفقیت آمیز",
+                      Bazrasi =item.PriceB,
+                      Komision =item.PriceK,
+                      MyProperty =0,
+                      one ="",
+
+
+                };
+                Details.Add(Vm_success);
+                
+            }
+            foreach (var item in nosuccess)
+            {
+                Vm_Details Vm_nosuccess=new Vm_Details()
+                {
+                      Date =item.Date_Order.ToPersianDateString(),
+                      Price =item.Total_sum,
+                      Type ="فروش ناموفق",
+                      Status ="عدم موفقیت",
+                      Bazrasi =item.PriceB,
+                      Komision =item.PriceK,
+                      MyProperty =0,
+                      one ="",
+
+
+                };
+                Details.Add(Vm_nosuccess);
+                
+            }
+            foreach (var item in wait)
+            {
+                Vm_Details Vm_wait=new Vm_Details()
+                {
+                      Date =item.Date_Order.ToPersianDateString(),
+                      Price =item.Total_sum,
+                      Type ="فروش درحال انجام",
+                      Status ="درحال انجام",
+                      Bazrasi =item.PriceB,
+                      Komision =item.PriceK,
+                      MyProperty =0,
+                      one ="",
+
+
+
+                };
+                Details.Add(Vm_wait);
+                
+            }
+            foreach (var item in buy)
+            {
+                Vm_Details Vm_buy=new Vm_Details()
+                {
+                      Date =item.Date_Order.ToPersianDateString(),
+                      Price =item.Total_sum,
+                      Type ="خرید موفق",
+                      Status ="موفقیت آمیز",
+                      Bazrasi =item.PriceB,
+                      Komision =item.PriceK,
+                      MyProperty =0,
+                      one ="",
+
+
+
+                };
+                Details.Add(Vm_buy);
+                
+            }
+            foreach (var item in nobuy)
+            {
+                Vm_Details Vm_nobuy=new Vm_Details()
+                {
+                      Date =item.Date_Order.ToPersianDateString(),
+                      Price =item.Total_sum,
+                      Type ="خرید ناموفق",
+                      Status ="عدم موفقیت ",
+                      Bazrasi =item.PriceB,
+                      Komision =item.PriceK,
+                      MyProperty =0,
+                      one ="",
+
+
+                };
+                Details.Add(Vm_nobuy);
+                
+            }
+            foreach (var item in adminpay)
+            {
+                Vm_Details Vm_adminpay=new Vm_Details()
+                {
+                      Date =item.time,
+                      Price =item.pay,
+                      Type =item.detail,
+                      Status =item.typedeposit,
+                      Bazrasi =0,
+                      Komision =0,
+                      MyProperty =0,
+                      one ="",
+                };
+                Details.Add(Vm_adminpay);
+                
+            }
+           
+                ViewBag.det=Details.OrderByDescending(a=>a.Date);
+            /// ////////////////////////////////////////////////////////////////////////////////////////
+
+
             return View();
         }
     }

@@ -10,6 +10,7 @@ namespace ViewModel.AdminViewModel.AdminPay {
        public string detail { get; set; }
        public string typedeposit { get; set; }
        public string typepay { get; set; }
+       public string time { get; set; }
        
        
 

@@ -1149,3 +1149,4 @@ e:\project\Noeno\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\Foot\noen
 >>>>>>> 5c48a85cd1fe605ee086136cc4b9fb5c8706fe4a
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\Foot\noeno.cshtml.g.cs
 c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\YourAccount\WyNoShow.cshtml.g.cs
+c:\Users\MS\Desktop\Noeno00-03-06\Noeno\New_Project\obj\Debug\netcoreapp3.1\Razor\Views\YourAccount\all.cshtml.g.cs
